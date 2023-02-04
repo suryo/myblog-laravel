@@ -225,7 +225,7 @@ Route::resource('fnews', FrontNewsController::class);
 
 Route::resource('fblog', FrontBlogController::class);
 Route::resource('fkelasonline', FrontKelasOnlineController::class);
-Route::resource('fkelaseksklusif', FrontKelasEksklusifController::class);\
+Route::resource('fkelaseksklusif', FrontKelasEksklusifController::class);
 Route::resource('fpromo', FrontPromoController::class);
 
 
