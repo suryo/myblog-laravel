@@ -182,7 +182,7 @@
 
 
 				<!-- copy this section and paste on tabs pane coffee products category -->
-				<div class="swiper mySwiper">
+				{{-- <div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 
 						<!-- slide item -->
@@ -338,7 +338,7 @@
 					</div>
 					<div class="swiper-button-next"></div>
 					<div class="swiper-button-prev"></div>
-				</div>
+				</div> --}}
 
 
 			</div>

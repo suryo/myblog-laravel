@@ -13,10 +13,7 @@
                             <i class="bi bi-chevron-left"></i>
                         </a>
                         <a href="/cart" class="btn btn-lg border-0 rounded-0 position-relative">
-                            {{-- <i class="bi bi-cart"></i>
-                            <span
-                                class="badge text-bg-danger rounded-pill position-absolute top-0 start-75 translate-middle-x"
-                                style="font-size: .55em;">+99</span> --}}
+                           
                         </a>
                     </div>
                     <div class="d-none d-lg-block mb-4">
@@ -32,123 +29,335 @@
                     <div id="fotoDetailCoffee" class="carousel slide d-lg-flex align-items-start" data-bs-ride="false">
                         <div class="carousel-inner mb-3 mb-lg-0 order-lg-2">
 
-                            {{-- @if (strstr($product_models->product_name, 'Gift Set')) --}}
+                          
 
                             <div class="position-relative" id="coffeeVariant">
                                 <img src="{{ url('files/news-images/' . $news_detail->image) }}" class="img-fluid"
                                     alt="">
-                                {{-- <div id="imageleft"></div>
-                                    <div id="imageright"></div> --}}
+                              
                             </div>
-                            {{-- @else
-                                @if (empty($product_models->images))
-                                    <img class="img-fluid" src="{{ url('files/' . 'imagenotavailable.jpg') }}">
-                                @else
-                                    @foreach ($product_models->images as $imgs)
-                                        @if ($loop->index == 0)
-                                            <div class="carousel-item active">
-                                                <img src="{{ url('files/product-images/' . $imgs) }}" class="d-block w-100"
-                                                    alt="...">
-                                            </div>
-                                        @else
-                                            <div class="carousel-item">
-                                                <img src="{{ url('files/product-images/' . $imgs) }}" class="d-block w-100"
-                                                    alt="...">
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                @endif
-
-                                <div class="carousel-control">
-                                    <button class="carousel-control-prev text-dark" type="button"
-                                        data-bs-target="#fotoDetailCoffee" data-bs-slide="prev">
-                                        <i class="bi bi-chevron-left"></i>
-                                    </button>
-                                    <button class="carousel-control-next text-dark" type="button"
-                                        data-bs-target="#fotoDetailCoffee" data-bs-slide="next">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </button>
-                                </div>
-                            @endif --}}
-
-
-                            <!-- slider control -->
-
-                            <!-- end of slider control -->
+                           
                         </div>
-                        {{-- @if (strstr($product_models->product_name, 'Gift Set'))
-                            <!-- tidak muncul gambar samping jika gift set -->
-                        @else
-                            <!-- slider indicators/ thumbnail image -->
-                            <div class="carousel-indicators me-lg-2">
-
-                                @if (empty($product_models->images))
-                                    <img class="img-fluid" src="{{ url('files/' . 'imagenotavailable.jpg') }}">
-                                @else
-                                    @foreach ($product_models->images as $imgs)
-                                        <button type="button" data-bs-target="#fotoDetailCoffee"
-                                            data-bs-slide-to="{{ $loop->index }}" class="rounded overflow-hidden active"
-                                            aria-current="true" aria-label="Slide {{ $loop->index }}">
-                                            <img src="{{ url('files/product-images/' . $imgs) }}" class="img-fluid">
-                                        </button>
-                                    @endforeach
-                                @endif
-
-                            </div>
-                            <!-- end of slider indicators/ thumbnail image -->
-                        @endif --}}
-
+                       
                     </div>
+                    
                 </div>
                 <!-- end of foto produk -->
 
                 <!-- kolom spesifikasi -->
-                <div class="col-lg-6 col-xl-7 spesifikasi-produk ms-xxl-auto">
+                <div class="col-lg-6 col-xl-7  spesifikasi-produk ms-xxl-auto">
                     <p class="mb-2">News {{ $news_detail->updated_at }}</p>
                     <h3 class="gotham-bold fs-2 fs-lg-3">{{ $news_detail->title }}</h3>
-                    {{-- <h4 class="harga-produk mb-0">
-					<!-- <span class="harga-normal">S$ 7.50</span> -->
-					<span class="harga-promo">
-						<span class="harga-setelah-diskon me-3">S$ 6.55</span>
-						<span class="harga-awal">S$7.50</span>
-					</span>
-				</h4> --}}
-                    {{-- <div class="text-end">
-					<button class="btn border-0 py-0 px-2 rounded-0"><i class="bi bi-bookmark-fill fs-5"></i></button>
-					<button class="btn border-0 py-0 px-2 rounded-0"><i class="bi bi-share fs-5"></i></button>
-				</div> --}}
-                    {{-- <p>
-					<a href="#" class="text-decoration-none text-inherit"><i class="bi bi-star-fill"></i></a>
-					<a href="#" class="text-decoration-none text-inherit"><i class="bi bi-star-fill"></i></a>
-					<a href="#" class="text-decoration-none text-inherit"><i class="bi bi-star-fill"></i></a>
-					<a href="#" class="text-decoration-none text-inherit"><i class="bi bi-star"></i></a>
-					<a href="#" class="text-decoration-none text-inherit"><i class="bi bi-star"></i></a>
-					<span class="ms-3">(3 x Reviews)</span>
-				</p> --}}
                     <p>Author : {{ $news_detail->author }}</p>
-
                     <p class="text-justify">{!! $news_detail->text !!}</p>
-
-
                 </div>
-                <!-- end of kolom spesifikasi -->
-
+             
+                <div class="col-lg-12 mt-3">
+                    <div id="addproduct-accordion" class="custom-accordion">
+                        <div class="card mb-2">
+                            <a href="#addproduct-billinginfo-collapse" class="text-dark" data-bs-toggle="collapse"
+                                aria-expanded="true" aria-controls="addproduct-billinginfo-collapse">
+                                <div class="p-4">
+        
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="avatar-xs">
+                                                <div class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                    01
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="font-size-16 mb-1">Product Info</h5>
+                                            <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                        </div>
+                                        <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
+                                    </div>
+        
+                                </div>
+                            </a>
+        
+                            <div id="addproduct-billinginfo-collapse" class="collapse collapsed" data-bs-parent="#addproduct-accordion">
+                                <div class="p-4 border-top">
+                                    <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> SKU:</label>
+                                            <div class="col-md-10">
+                                            <input class="form-control" type="text" name="sku" placeholder="">
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Name :</label>
+                                            <div class="col-md-10">
+                                            <input class="form-control" type="text" name="product_name" placeholder="">
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Detail :</label>
+                                            <div class="col-md-10">
+                                            <textarea class="form-control" style="height:150px" name="product_detail" placeholder=""></textarea>
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Shortdetail :</label>
+                                            <div class="col-md-10">
+                                            <textarea class="form-control" style="height:150px" name="product_shortdetail" placeholder=""></textarea>
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Brand :</label>
+                                            <div class="col-md-10">
+                                            <input class="form-control" type="text" name="product_brand" placeholder="">
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Collection :</label>
+                                            <div class="col-md-10">
+                                                <select class="form-select" name="product_collection">
+                                              
+                                                </select>
+                                        
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Type :</label>
+                                            <div class="col-md-10">
+        
+                                                <select class="form-select" name="product_type">
+                                               
+                                                </select>
+        
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Form :</label>
+                                            <div class="col-md-10">
+        
+                                                <select class="form-select" name="product_form">
+                                              
+                                                </select>
+        
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Package :</label>
+                                            <div class="col-md-10">
+                                                <select class="form-select" name="product_package">
+                                              
+                                                </select>
+        
+                                        
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Price :</label>
+                                            <div class="col-md-10">
+                                            <input class="form-control" type="text" name="product_price" placeholder="">
+                                            </div>
+                                    
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-package-label"> Product Price Currency :</label>
+                                            <div class="col-md-10">
+                                            <input class="form-control" type="text" name="product_price_currency" placeholder="">
+                                            </div>
+                                    
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-2">
+                            <a href="#addproduct-img-collapse" class="text-dark collapsed" data-bs-toggle="collapse"
+                                aria-haspopup="true" aria-expanded="false" aria-haspopup="true"
+                                aria-controls="addproduct-img-collapse">
+                                <div class="p-4">
+        
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="avatar-xs">
+                                                <div class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                    02
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="font-size-16 mb-1">Product Image</h5>
+                                            <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                        </div>
+                                        <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
+                                    </div>
+        
+                                </div>
+                            </a>
+        
+                            <div id="addproduct-img-collapse" class="collapse" data-bs-parent="#addproduct-accordion">
+                                <div class="p-4 border-top">
+                                   
+        
+                                    <div class="input-group hdtuto control-group lst increment" >
+                                   
+                                    <input type="file" name="filenames[]" class="myfrm form-control">
+                                    <div class="input-group-btn"> 
+                                        <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                                    </div>
+                                    </div>
+        
+                                    <div class="clone hide">
+                                    <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                                        <input type="file" name="filenames[]" class="myfrm form-control">
+                                        <div class="input-group-btn"> 
+                                        <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                                        </div>
+                                    </div>
+                                    </div>
+        
+        
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-2">
+                            <a href="#addproduct-metadata-collapse" class="text-dark collapsed" data-bs-toggle="collapse"
+                                aria-haspopup="true" aria-expanded="false" aria-haspopup="true"
+                                aria-controls="addproduct-metadata-collapse">
+                                <div class="p-4">
+        
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <div class="avatar-xs">
+                                                <div class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                    03
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="font-size-16 mb-1">Meta Data</h5>
+                                            <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                        </div>
+                                        <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
+                                    </div>
+        
+                                </div>
+                            </a>
+        
+                            <div id="addproduct-metadata-collapse" class="collapse" data-bs-parent="#addproduct-accordion">
+                                <div class="p-4 border-top">
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Weight :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_weight" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Width :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_width" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Height :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_height" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Length :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_length" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Acidity Score :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_acidityscore" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Acidity Desc :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_aciditydesc" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Body Score :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_bodyscore" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Body Desc :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_bodydesc" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Roast Desc :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_roastdesc" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Type Desc :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_typedesc" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Product Intensity :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="product_intensity" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label"> Status Stock :</label>
+                                                        <div class="col-md-10">
+                                                        <input class="form-control" type="text" name="status_stock" placeholder="">
+                                                        </div>
+                                                
+                                                    </div>
+                                                
+                                                    <div class="mb-3 row">
+                                                        <label class="col-md-2 col-package-label">Status :</label>
+                                                        <div class="col-md-10">
+                                                            <select class="form-select" name="status">
+                                                                <option>Active</option>
+                                                                <option>Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
         </div>
     </section>
     <!-- edn of detail product section -->
-
-    {{-- <section>
-        <div class="container">
-            <div class="row g-1 g-md-2 g-lg-3">
-                <div class="col-12 mt-0"><img src="ui/img/detail/image1.png" class="img-fluid" alt=""></div>
-                <div class="col-6"><img src="ui/img/detail/image2.png" class="img-fluid" alt=""></div>
-                <div class="col-6"><img src="ui/img/detail/image3.png" class="img-fluid" alt=""></div>
-            </div>
-        </div>
-    </section> --}}
 
     <!-- alternate product -->
     <section>

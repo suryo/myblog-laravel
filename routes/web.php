@@ -14,10 +14,10 @@ use App\Http\Controllers\Front\FrontCartController;
 use App\Http\Controllers\Front\FrontCheckoutController;
 use App\Http\Controllers\Front\FrontPaymentController;
 
-use App\Http\Controllers\Front\FrontMachinesController;
-use App\Http\Controllers\Front\FrontExploreController;
-use App\Http\Controllers\Front\FrontPartnershipController;
-use App\Http\Controllers\Front\FrontCafeController;
+use App\Http\Controllers\Front\FrontBlogController;
+use App\Http\Controllers\Front\FrontKelasOnlineController;
+use App\Http\Controllers\Front\FrontKelasEksklusifController;
+use App\Http\Controllers\Front\FrontPromoController;
 use App\Http\Controllers\Front\FrontMembershipController;
 use App\Http\Controllers\Front\FrontGalleryController;
 
@@ -72,6 +72,10 @@ use App\Http\Controllers\Blog\BlogArticleController;
 
 use App\Http\Controllers\News\NewsCategoryController;
 use App\Http\Controllers\News\NewsController;
+
+use App\Http\Controllers\Kelasonline\KelasOnlineCategoryController;
+use App\Http\Controllers\Kelasonline\KelasOnlineController;
+use App\Http\Controllers\Kelasonline\KelasOnlineDetailController;
 
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\SlidersController;
@@ -164,6 +168,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('news', NewsController::class);
     Route::resource('newscategory', NewsCategoryController::class);
 
+    Route::resource('kelasonline', KelasOnlineController::class);
+    Route::resource('kelasonlinecategory', KelasOnlineCategoryController::class);
+    Route::resource('kelasonlinedetail', KelasOnlineDetailController::class);
+
+    
+
     Route::resource('permissions', PermissionController::class);
     Route::resource('admin/products', ProductController::class);
     Route::resource('admin/product-kinds', ProductKindController::class);
@@ -212,6 +222,13 @@ Route::group(['middleware' => ['auth']], function () {
 // })->middleware('auth');
 // Route::get('loginmember', ['as' => 'auth.login', 'uses' => 'FrontLoginController@showLoginForm']);
 Route::resource('fnews', FrontNewsController::class);
+
+Route::resource('fblog', FrontBlogController::class);
+Route::resource('fkelasonline', FrontKelasOnlineController::class);
+Route::resource('fkelaseksklusif', FrontKelasEksklusifController::class);\
+Route::resource('fpromo', FrontPromoController::class);
+
+
 Route::resource('fproducts', FrontProductController::class);
 // Route::resource('fproducts/{collection}/{form}/{sorting}', FrontProductController::class);
 // Route::resource('fcarts', FrontCartController::class);

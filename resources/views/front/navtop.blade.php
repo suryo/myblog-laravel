@@ -14,44 +14,29 @@
                 <li class="nav-item">
                     @if (!empty($title))
                         <a id="navproducts" class="nav-link {{ $title === 'Coffee Collection' ? 'active' : '' }}"
-                            href="/fproducts" onclick="$('#loading').collapse('show');">
-                            coffee
+                            href="/fblog" onclick="$('#loading').collapse('show');">
+                            Blog
                         </a>
                     @endif
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="navmachines" href="/fmachines" onclick="$('#loading').collapse('show');">
-                        machines
+                    <a class="nav-link" id="navmachines" href="/fkelasonline" onclick="$('#loading').collapse('show');">
+                        Kelas Online
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="navexplore" href="/fexplore" onclick="$('#loading').collapse('show');">
-                        explore
+                    <a class="nav-link" id="navexplore" href="/fkelaseksklusif" onclick="$('#loading').collapse('show');">
+                        Kelas Eksklusif
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="navpartnership" href="/fpartnership"
+                    <a class="nav-link" id="navpartnership" href="/fpromo"
                         onclick="$('#loading').collapse('show');">
-                        partnership
+                        Promo
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navcafe" href="/fcafe" onclick="$('#loading').collapse('show');">
-                        cafe
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navmembership" href="/fmembership"
-                        onclick="$('#loading').collapse('show');">
-                        membership
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navgallery" href="/fgallery" onclick="$('#loading').collapse('show');">
-                        gallery
-                    </a>
-                </li>
+               
             </ul>
 
             <ul class="navbar-nav text-uppercase fw-bold d-none d-lg-flex">

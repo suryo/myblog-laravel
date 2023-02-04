@@ -25,7 +25,7 @@
 						<div class="container h-100">
 							<div class="row h-100 align-items-center">
 								<div class="col-lg-6 px-0">
-									<h1 class="caption-title display-4 gotham-bold lh-1 mb-0">Exquisite Indonesian Coffee</h1>
+									<h1 class="caption-title display-4 gotham-bold lh-1 mb-0">Learn Code Together</h1>
 								</div>
 							</div>
 						</div>
@@ -58,22 +58,22 @@
 		<div class="table-responsive">
 			<ul class="nav nav-pills flex-nowrap fw-bold mb-2" id="pills-tab" role="tablist" style="white-space: nowrap;">
 				<!-- nav tab recommended -->
-				<li class="nav-item" role="presentation">
+				{{-- <li class="nav-item" role="presentation">
 					<button class="nav-link btn-dot fs-5 active" id="nav-recommended-tab" data-bs-toggle="pill" data-bs-target="#nav-recommended" type="button" role="tab" aria-controls="nav-recommended" aria-selected="true">
 						recommended
 						<span class="dot">&bull;</span>
 					</button>
-				</li>
+				</li> --}}
 
-				@foreach ($product_collection as $product_collections)
+				{{-- @foreach ($product_collection as $product_collections)
 					<li class="nav-item" role="presentation">
 						<button class="nav-link btn-dot fs-5" data="{{$product_collections->id}}" id="nav-{{$product_collections->id}}-tab" data-bs-toggle="pill" data-bs-target="#nav-{{$product_collections->id}}" type="button" role="tab" aria-controls="nav-{{$product_collections->id}}" aria-selected="true" onclick="showProductCarousel('{{$product_collections->id}}')">
-								{{-- {{$product_collections->id}} --}}
+								
 								{{$product_collections->product_collection_name}}
 							<span class="dot">&bull;</span>
 						</button>
 					</li>
-				@endforeach	
+				@endforeach	 --}}
 			
 			</ul>
 		</div>
@@ -89,7 +89,7 @@
 			<div class="container">
 
 				<!-- copy this section and paste on tabs pane coffee products category -->
-				<div class="swiper mySwiper">
+				{{-- <div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="card card-product border-0 rounded-0 text-center">
@@ -242,7 +242,7 @@
 					</div>
 					<div class="swiper-button-next"></div>
 					<div class="swiper-button-prev"></div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 
@@ -270,9 +270,9 @@
 <!-- HOME COFFEE FORM -->
 <section id="homeCoffeeForm">
 	<div class="container">
-		<h4 class="gotham-bold mb-3">Coffee Form</h4>
+		<h4 class="gotham-bold mb-3">#</h4>
 
-		<div class="table-responsive">
+		{{-- <div class="table-responsive">
 			<div class="baris-coffee-form d-flex gap-3">
 
 				<!-- form beans -->
@@ -316,7 +316,7 @@
 				</div>
 
 			</div>
-		</div>
+		</div> --}}
 
 	</div>
 </section>
