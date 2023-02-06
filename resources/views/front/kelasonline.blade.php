@@ -41,7 +41,7 @@
                         <p class="card-text multiline-ellipsis">
                            {!! Str::limit($item->short_desc,250) !!}
                         </p>
-                        <a href={{ url("fnews/".$item->id) }}>
+                        <a href={{ url("fkelasonline/".$item->id) }}>
                            <u>Selengkapnya <i class="bi bi-chevron-right"></i></u>
                         </a>
                      </div>
