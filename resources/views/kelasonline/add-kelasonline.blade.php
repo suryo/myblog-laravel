@@ -82,7 +82,7 @@
                                            
                             <select class="form-select" name="Status">
                                 <option value="draft"  selected>Draft</option>
-                                <option value="published"  selected >Published</option>
+                                <option value="published" >Published</option>
                             </select>
                     
                         
