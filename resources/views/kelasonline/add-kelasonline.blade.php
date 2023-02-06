@@ -80,7 +80,7 @@
 
                         <h4 class="card-title">Status</h4>
                                            
-                            <select class="form-select" name="Status">
+                            <select class="form-select" name="status">
                                 <option value="draft"  selected>Draft</option>
                                 <option value="published" >Published</option>
                             </select>
