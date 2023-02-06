@@ -9,16 +9,16 @@
                 <!-- header menu -->
                 <div class="col-12">
                     <div class="pt-4 d-flex justify-content-between d-lg-none">
-                        <a href="/fnews" class="btn btn-lg border-0 rounded-0">
+                        <a href="/fkelasonline" class="btn btn-lg border-0 rounded-0">
                             <i class="bi bi-chevron-left"></i>
                         </a>
-                        <a href="/cart" class="btn btn-lg border-0 rounded-0 position-relative">
+                        {{-- <a href="/cart" class="btn btn-lg border-0 rounded-0 position-relative">
                            
-                        </a>
+                        </a> --}}
                     </div>
                     <div class="d-none d-lg-block mb-4">
-                        <a href="/fnews" class="text-inherit">
-                            <i class="bi bi-chevron-left"></i> Back To List News
+                        <a href="/fkelasonline" class="text-inherit">
+                            <i class="bi bi-chevron-left"></i> Back To Kelas Online
                         </a>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
     @endcomponent
     {{-- <form> --}}
 
-    <form action="{{ route('kelasonline.update', $news->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('kelasonline.update', $kelasonline->id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('put')
@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <label for="exampleFormControlTextarea1">Title</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                value="{{ $news->title }}">
+                value="{{ $kelasonline->title }}">
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="card">
                     <div class="card-body">
                         <label for="exampleFormControlTextarea1">Short Desc</label>
-                        <textarea name="short_desc" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $news->short_desc }}</textarea>
+                        <textarea name="short_desc" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $kelasonline->short_desc }}</textarea>
                     </div>
                 </div>
             </div>
@@ -56,8 +56,22 @@
                         {{-- <p class="card-title-desc">Bootstrap-wysihtml5 is a javascript
                             plugin that makes it easy to create simple, beautiful wysiwyg editors
                             with the help of wysihtml5 and Twitter Bootstrap.</p> --}}
-                        <textarea id="elm1" name="text">{{ $news->text }}</textarea>
+                        <textarea id="elm1" name="text">{{ $kelasonline->text }}</textarea>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Status</h4>
+                                           
+                            <select class="form-select" name="status">
+                                <option value="draft"  selected>Draft</option>
+                                <option value="published">Published</option>
+                            </select>
                     </div>
                 </div>
             </div>

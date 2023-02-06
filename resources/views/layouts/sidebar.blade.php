@@ -71,6 +71,21 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-blogger-alt  "></i>
+                        <span>@lang('Kelas')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href={{ route('kelasonlinecategory.index') }}>@lang('Category Kelas Online')</a></li>
+                        <li><a href={{ route('kelasonline.index') }}>@lang('Kelas Online Note')</a></li>
+                        <li><a href={{ route('kelaseksklusifcategory.index') }}>@lang('Category Kelas Eksklusif')</a></li>
+                        <li><a href={{ route('kelaseksklusif.index') }}>@lang('Kelas Eksklusif Note')</a></li>
+                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
+                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
+                    </ul>
+                </li>
+
                {{-- <li>
                     <a href="{{url('fpdf')}}">
                         <i class="uil-home-alt"></i>

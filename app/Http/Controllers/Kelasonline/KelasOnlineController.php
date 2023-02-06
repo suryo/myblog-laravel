@@ -75,17 +75,18 @@ class KelasOnlineController extends Controller
             // }
         }
 
-        $news_models = News_model::create([
+        $kelas_online_models = Kelas_online_model::create([
             'category_id' =>$request->category_id,
             'title' => $request->title,
             'short_desc' => $request->short_desc,
             'text' => $request->text,
-            'image' => $files
+            'image' => $files,
+            'status' => $request->status
         ]);
 
-        if ($news_models) {
+        if ($kelas_online_models) {
             return redirect()
-                ->route('news.index')
+                ->route('kelasonline.index')
                 ->with([
                     'success' => 'New post has been created successfully'
                 ]);
@@ -107,8 +108,17 @@ class KelasOnlineController extends Controller
      */
     public function show($id)
     {
-        $blog_article_category_models = Blog_article_category_model::find($id);
-        return view('blog-article-categorys.show', compact('blog_article_category_models'));
+
+        $res_kelas_online = DB::select("SELECT * from kelas_online where id = ".$id);
+        $kelas_online = $res_kelas_online[0];
+        $res_kelas_online_detail = DB::select("SELECT * from kelas_online_detail where id_kelas_online = ".$id);
+        $kelas_online_detail  = $res_kelas_online_detail;
+        $title = "News & Reviews";
+        $pages = 'detail';
+
+
+        //$kelas_online_models = Kelas_online_model::find($id);
+        return view('kelasonline.show-kelasonline', compact('title','pages','kelas_online','kelas_online_detail'));
     }
 
     /**
@@ -119,11 +129,11 @@ class KelasOnlineController extends Controller
      */
     public function edit($id)
     {
-        $resnews =  DB::select("SELECT n.id, n.title, c.name, n.created_at, n.short_desc, n.text from news as n inner join news_category as c on n.category_id = c.id where n.id=".$id);
-        $news = $resnews[0];
+        $reskelasonline =  DB::select("SELECT n.id, n.title,n.short_desc, n.text, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id where n.id=".$id);
+        $kelasonline = $reskelasonline[0];
         //dd($news);
         //$product_models = Blog_article_category_model::findOrFail($id);
-        return view('news.edit-news', compact('news'));
+        return view('kelasonline.edit-kelasonline', compact('kelasonline'));
     }
 
     /**
@@ -136,7 +146,7 @@ class KelasOnlineController extends Controller
     public function update(Request $request, $id)
     {
 
-           
+        //    dd($request->status);
         
         $this->validate($request, [
             'title' => 'required'
@@ -156,18 +166,19 @@ class KelasOnlineController extends Controller
         }
        
 
-        $news_models = News_model::findOrFail($id);
+        $kelas_online_models = Kelas_online_model::findOrFail($id);
 
-        $news_models->update([
+        $kelas_online_models->update([
             'title' => $request->title,
             'short_desc' => $request->short_desc,
             'text' => $request->text,
-            'image' => $files
+            'image' => $files,
+            'status' => $request->status
         ]);
 
-        if ($news_models) {
+        if ($kelas_online_models) {
             return redirect()
-                ->route('news.index')
+                ->route('kelasonline.index')
                 ->with([
                     'success' => 'Post has been updated successfully'
                 ]);

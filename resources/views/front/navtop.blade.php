@@ -62,7 +62,7 @@
                         </a>
                     @endif
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     @if (!empty($title))
                         <a class="nav-link position-relative {{ $title === 'Shopping Cart' ? 'active' : '' }}"
                             href="/fcart" onclick="$('#loading').collapse('show');">
@@ -71,7 +71,7 @@
                         </a>
                     @endif
 
-                </li>
+                </li> --}}
             </ul>
 
         </div>

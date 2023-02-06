@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Kelasonline;
+namespace App\Http\Controllers\KelasEksklusif;
 
 use App\Models\Kelas_online_model;
 use App\Models\Kelas_online_category_model;
@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 
-class KelasOnlineDetailController extends Controller
+class KelasEksklusifDetailController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -34,7 +34,7 @@ class KelasOnlineDetailController extends Controller
     {
         // $product_models = Product_model::latest()->get();
 
-        $kelasonlinedetail =  DB::select("SELECT n.id, n.title,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id");
+        $kelasonlinedetail =  DB::select("SELECT n.id, n.title, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id");
 
         return view('kelasonline/list-kelasonlinedetail', compact('kelasonlinedetail'))
             ->with('i', ($request->input('page', 1) - 1) * 5);

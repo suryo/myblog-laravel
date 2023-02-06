@@ -41,9 +41,16 @@
                         <p class="card-text multiline-ellipsis">
                            {!! Str::limit($item->short_desc,250) !!}
                         </p>
+                        @if (($item->status == "draft")||(empty($item->status)))
+                        
+                           <u>Coming Soon <i class="bi bi-chevron-right"></i></u>
+                       
+                        @else
                         <a href={{ url("fkelasonline/".$item->id) }}>
                            <u>Selengkapnya <i class="bi bi-chevron-right"></i></u>
                         </a>
+                        @endif
+                       
                      </div>
                   </div>
                   <div class="col-12">

@@ -45,6 +45,7 @@
                           
                             <th>Category</th>
                             <th>Tittle</th>
+                            <th>Short Desc</th>
                             <th>Description</th>
                             
                             <th style="width: 120px;">Action</th>
@@ -67,7 +68,9 @@
                             <td>
                                  {{$item->title}}
                             </td>
-                           
+                            <td>
+                                {{$item->short_desc}}
+                           </td>
 
                             <td>
                                 {{$item->created_at}}

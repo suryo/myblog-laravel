@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Kelasonline;
+namespace App\Http\Controllers\Kelaseksklusif;
 
-use App\Models\Kelas_online_model;
-use App\Models\Kelas_online_category_model;
-use App\Models\Kelas_online_detail_model;
-
+use App\Models\Blog_article_category_model;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\App;
@@ -14,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 
-class KelasOnlineDetailController extends Controller
+class KelasEksklusifCategoryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -34,9 +31,11 @@ class KelasOnlineDetailController extends Controller
     {
         // $product_models = Product_model::latest()->get();
 
-        $kelasonlinedetail =  DB::select("SELECT n.id, n.title,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id");
-
-        return view('kelasonline/list-kelasonlinedetail', compact('kelasonlinedetail'))
+        $blog_article_category_models =  DB::table('blog_article_category_models')
+            ->get();
+        // dd($product_models);
+        // return view('posts.index', compact('posts'));
+        return view('blog-article-categorys/index', compact('blog_article_category_models'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -47,8 +46,7 @@ class KelasOnlineDetailController extends Controller
      */
     public function create()
     {
-        $kelas_online_models = Kelas_online_model::latest()->get();
-        return view('kelasonline/add-kelasonlinedetail',compact('kelas_online_models'));
+        return view('products/create');
     }
 
     /**
@@ -61,31 +59,19 @@ class KelasOnlineDetailController extends Controller
     {
         // dd("ayam");
         $this->validate($request, [
-            'title' => 'required'
+            'product' => 'required'
         ]);
 
-        $files = '';
-        if ($request->hasfile('image')) {
-           
-            // foreach ($request->file('filenames') as $file) {
-                $file = $request->file('image');
-                $name = time() . rand(1, 100) . '.' . $file->extension();
-                $file->move(public_path('files/news-images'), $name);
-                $files = $name;
-            // }
-        }
-
-        $kelas_online_detail_models = Kelas_online_detail_model::create([
-            'id_kelas_online' =>$request->category_id,
-            'title' => $request->title,
-            'short_desc' => $request->short_desc,
-            'text' => $request->text,
-            'image' => $files
+        $product_models = Blog_article_category_model::create([
+            'id_category_product' => $request->id_category_product,
+            'product' => $request->product,
+            'description' => $request->description,
+            // 'slug' => Str::slug($request->product)
         ]);
 
-        if ($kelas_online_detail_models) {
+        if ($product_models) {
             return redirect()
-                ->route('kelasonlinedetail.index')
+                ->route('product.index')
                 ->with([
                     'success' => 'New post has been created successfully'
                 ]);
@@ -119,11 +105,8 @@ class KelasOnlineDetailController extends Controller
      */
     public function edit($id)
     {
-        $reskelasonlinedetail =  DB::select("SELECT n.id, n.title,n.text,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id where n.id=".$id);
-        $kelasonlinedetail = $reskelasonlinedetail[0];
-        //dd($kelasonlinedetail);
-        //$product_models = Blog_article_category_model::findOrFail($id);
-        return view('kelasonline.edit-kelasonlinedetail', compact('kelasonlinedetail'));
+        $product_models = Blog_article_category_model::findOrFail($id);
+        return view('products.edit', compact('product_models'));
     }
 
     /**
@@ -135,39 +118,21 @@ class KelasOnlineDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-           
-        
         $this->validate($request, [
-            'title' => 'required'
-        ]);
-        
-         $files = '';
-        if ($request->hasfile('image')) {
-           
-            // foreach ($request->file('filenames') as $file) {
-                $file = $request->file('image');
-                $name = time() . rand(1, 100) . '.' . $file->extension();
-               
-                $file->move(public_path('files/news-images'), $name); 
-                
-                $files = $name;
-            // }
-        }
-       
-
-        $news_models = Kelas_online_detail_model::findOrFail($id);
-
-        $news_models->update([
-            'title' => $request->title,
-            'short_desc' => $request->short_desc,
-            'text' => $request->text,
-            'image' => $files
+            'product' => 'required'
         ]);
 
-        if ($news_models) {
+        $product_models = Blog_article_category_model::findOrFail($id);
+
+        $product_models->update([
+            'id_category_product' => $request->id_category_product,
+            'product' => $request->product,
+            'description' => $request->description,
+        ]);
+
+        if ($product_models) {
             return redirect()
-                ->route('kelasonlinedetail.index')
+                ->route('product.index')
                 ->with([
                     'success' => 'Post has been updated successfully'
                 ]);

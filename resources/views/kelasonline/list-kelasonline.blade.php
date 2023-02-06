@@ -75,6 +75,8 @@
                         
 
                             <td>
+                                <a href="{{ route('kelasonline.show', $item->id) }}" class="px-3 text-primary"><i
+                                    class="uil uil-eye font-size-18"></i></a>
 
                                 <a href="{{ route('kelasonline.edit', $item->id) }}" class="px-3 text-primary"><i
                                     class="uil uil-pen font-size-18"></i></a>

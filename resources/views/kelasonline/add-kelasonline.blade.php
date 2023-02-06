@@ -72,6 +72,24 @@
                     </div>
                 </div>
             </div> <!-- end col -->
+
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Status</h4>
+                                           
+                            <select class="form-select" name="Status">
+                                <option value="draft"  selected>Draft</option>
+                                <option value="published"  selected >Published</option>
+                            </select>
+                    
+                        
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
         </div>
   
 

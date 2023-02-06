@@ -77,6 +77,10 @@ use App\Http\Controllers\Kelasonline\KelasOnlineCategoryController;
 use App\Http\Controllers\Kelasonline\KelasOnlineController;
 use App\Http\Controllers\Kelasonline\KelasOnlineDetailController;
 
+use App\Http\Controllers\Kelaseksklusif\KelasEksklusifCategoryController;
+use App\Http\Controllers\Kelaseksklusif\KelasEksklusifController;
+use App\Http\Controllers\Kelaseksklusif\KelasEksklusifDetailController;
+
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\SyncProductController;
@@ -171,6 +175,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('kelasonline', KelasOnlineController::class);
     Route::resource('kelasonlinecategory', KelasOnlineCategoryController::class);
     Route::resource('kelasonlinedetail', KelasOnlineDetailController::class);
+
+    Route::resource('kelaseksklusif', KelasEksklusifController::class);
+    Route::resource('kelaseksklusifcategory', KelasEksklusifCategoryController::class);
+    Route::resource('kelaseksklusifdetail', KelasEksklusifDetailController::class);
 
     
 
