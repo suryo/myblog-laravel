@@ -2,7 +2,7 @@
     <div class="border-top border-secondary">
         <div class="container py-5">
 
-            <nav id="footerMenu" style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+            {{-- <nav id="footerMenu" style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
                 <ol class="breadcrumb text-uppercase justify-content-center mb-5 gap-3">
                     @if (!empty($title))
                         <li class="breadcrumb-item">
@@ -63,7 +63,7 @@
                         </li>
 						@endif
                 </ol>
-            </nav>
+            </nav> --}}
 
             <div class="sosmed">
                 <a href="#" target="_blank" class="text-decoration-none">
