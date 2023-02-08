@@ -46,7 +46,7 @@
 
                 <!-- kolom spesifikasi -->
                 <div class="col-lg-6 col-xl-7  spesifikasi-produk ms-xxl-auto">
-                    <p class="mb-2">News {{ $kelas_online->updated_at }}</p>
+                    <p class="mb-2">Last Update {{ $kelas_online->updated_at }}</p>
                     <h3 class="gotham-bold fs-2 fs-lg-3">{{ $kelas_online->title }}</h3>
                     <p>Author : {{ $kelas_online->author }}</p>
                     <p class="text-justify">{!! $kelas_online->text !!}</p>
