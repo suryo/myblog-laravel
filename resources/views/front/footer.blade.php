@@ -120,7 +120,7 @@
 
                 </div>
 
-                <div class="col-xl-auto">Copyright &copy; 2022 Indraco. All Rights Reserved.</div>
+                <div class="col-xl-auto">Copyright &copy; 2023 BrainwareHub. All Rights Reserved.</div>
 
             </div>
         </div>
