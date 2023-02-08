@@ -30,7 +30,7 @@ class FrontKelasOnlineController extends Controller
     public function index(Request $request)
     {
       
-        $res_news = DB::select("SELECT * from kelas_online order by id desc");
+        $res_news = DB::select("SELECT * from kelas_online order by id asc");
 
         $title = "News & Reviews";
 		$pages = "news";
