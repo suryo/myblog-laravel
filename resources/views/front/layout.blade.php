@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	@if (!empty($title))
-	<title>SUPRESSO &bull; {{ $title }}</title>	
+	<title>BrainwareHub &bull; {{ $title }}</title>	
 	@else
-	<title>SUPRESSO</title>	
+	<title>BrainwareHub</title>	
 	@endif
 	
 

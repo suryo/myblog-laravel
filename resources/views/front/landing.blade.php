@@ -1,13 +1,13 @@
 @extends('front/layout')
 
 @section('notifikasi')
-<section id="notifikasiSubscribe" class="collapse sticky-top show">
+{{-- <section id="notifikasiSubscribe" class="collapse sticky-top show">
 	<div class="container-fluid py-3 px-4 text-center" style="background-color: #404041;">
 		<a data-bs-toggle="modal" href="#formSubscribe" role="button" class="text-light">
 			Hello. Get 10% OFF* | your first order when you subscribe to our newsletter! | Claim My 10% OFF <i class="bi bi-chevron-right"></i>
 		</a>
 	</div>
-</section>
+</section> --}}
 @endsection
 
 @section('konten')
@@ -325,7 +325,7 @@
 
 @section('popup')
 <!-- POPUP COOKIES -->
-<div class="collapse fixed-bottom text-bg-primary show" id="cookies" style="z-index: 2000;">
+{{-- <div class="collapse fixed-bottom text-bg-primary show" id="cookies" style="z-index: 2000;">
 	<div class="p-3">
 		<div class="container-fluid">
 			<div class="row">
@@ -340,7 +340,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> --}}
 <!-- END OF POPUP COOKIES -->
 
 <!-- SUBSCRIBE ON LANDING PAGE -->

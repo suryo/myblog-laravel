@@ -36,8 +36,8 @@ class KelasOnlineController extends Controller
 
         $kelasonline =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
 
-        return view('kelasonline/list-kelasonline', compact('kelasonline'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('kelasonline/list-kelasonline', compact('kelasonline'));
+            // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**

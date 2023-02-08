@@ -14,7 +14,7 @@
            <i class="bi bi-envelope"></i>
            <span class="dot">&bull;</span>
         </a> --}}
-           <a href="/fproducts" id="navdownEmail" class="btn btn-lg btn-dot border-0 rounded-0"
+           <a href="/fkelasonline" id="navdownEmail" class="btn btn-lg btn-dot border-0 rounded-0"
                onclick="$('#loading').collapse('show');">
                <i class="bi bi-box-seam"></i>
                <span class="dot">&bull;</span>
