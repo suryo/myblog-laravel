@@ -130,6 +130,23 @@ class KoperasiCategoryBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $resdelete = DB::delete('DELETE FROM koperasi_category_barang WHERE id='.$id.';');
+
+        if ($resdelete) {
+            return redirect()
+                ->route('koperasicategorybarang.list')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
+
     }
 }

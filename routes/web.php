@@ -112,7 +112,7 @@ Route::get('koperasicategorybarang/edit/{id}', [KoperasiCategoryBarangController
 
 Route::post('koperasicategorybarang/update/{id}', [KoperasiCategoryBarangController::class, 'update'])->name('koperasicategorybarang.update');
 
-Route::post('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
+Route::get('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
 
 
 Route::get('koperasibarang', [KoperasiBarangController::class, 'index']);
