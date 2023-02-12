@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Http\Controllers\Koperasi\KoperasiCategoryBarangController;
+use App\Http\Controllers\Koperasi\KoperasiBarangController;
 use App\Http\Controllers\Front\FrontLoginController;
 
 use App\Http\Controllers\Front\FrontLandingController;
@@ -98,6 +99,23 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+Route::get('koperasicategorybarang', [KoperasiCategoryBarangController::class, 'index'])->name('koperasicategorybarang.list');
+
+Route::get('koperasicategorybarang/show/{id}', [KoperasiCategoryBarangController::class, 'show'])->name('koperasicategorybarang.show');
+
+Route::get('koperasicategorybarang/add', [KoperasiCategoryBarangController::class, 'create'])->name('koperasicategorybarang.create');
+
+Route::post('koperasicategorybarang/store', [KoperasiCategoryBarangController::class, 'store'])->name('koperasicategorybarang.add');
+
+Route::get('koperasicategorybarang/edit/{id}', [KoperasiCategoryBarangController::class, 'edit'])->name('koperasicategorybarang.edit');
+
+
+Route::post('koperasicategorybarang/update/{id}', [KoperasiCategoryBarangController::class, 'update'])->name('koperasicategorybarang.update');
+
+Route::post('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
+
+
+Route::get('koperasibarang', [KoperasiBarangController::class, 'index']);
 
 
 

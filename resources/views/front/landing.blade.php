@@ -246,7 +246,7 @@
 			</div>
 		</div>
 
-		@foreach ($product_collection as $product_collections)
+		{{-- @foreach ($product_collection as $product_collections)
 			<div class="tab-pane fade" id="nav-{{$product_collections->id}}" role="tabpanel" aria-labelledby="nav-{{$product_collections->id}}-tab" tabindex="0">
 				<div class="container">
 
@@ -260,7 +260,7 @@
 					</div>
 				</div>
 			</div>
-		@endforeach	
+		@endforeach	 --}}
 
 	</div>
 	<!-- end of home product list -->
