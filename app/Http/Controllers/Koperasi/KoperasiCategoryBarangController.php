@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Koperasi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Models\KoperasiCategoryBarang_Model;
 
 class KoperasiCategoryBarangController extends Controller
 {
@@ -15,8 +16,10 @@ class KoperasiCategoryBarangController extends Controller
      */
     public function index()
     {
-        $res_category_barang = DB::select('select * from koperasi_category_barang');
-        // dd($res_category_barang);
+
+        $res_category_barang = KoperasiCategoryBarang_Model::orderBy('id', 'DESC')->get();
+        //dd($res_category_barang);
+        // $res_category_barang = DB::select('select * from koperasi_category_barang');
         $title = 'ini category barang';
         return view('koperasi.list-categorybarang',compact('title','res_category_barang'));
     }
@@ -70,7 +73,9 @@ class KoperasiCategoryBarangController extends Controller
      */
     public function show($id)
     {
-        return view('koperasi.show-categorybarang');
+        $res_find = DB::select('select * from koperasi_category_barang where id='.$id);
+        $find = $res_find[0];
+        return view('koperasi.show-categorybarang',compact('find'));
     }
 
     /**

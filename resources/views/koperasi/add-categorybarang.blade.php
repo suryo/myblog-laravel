@@ -1,29 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
+@section('title')
+    @lang('translation.Datatables')
+@endsection
+@section('css')
+    <!-- DataTables -->
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+    @component('common-components.breadcrumb')
+        @slot('pagetitle') Tables @endslot
+        @slot('title') Datatables @endslot
+    @endcomponent
+   
 
-<body>
-    <ul>
-        <li><a href="/koperasicategorybarang">list category barang</a></li>
-        <li><a href="/koperasicategorybarang/show/2">show category barang</a></li>
-        <li><a href="/koperasicategorybarang/edit/5">edit category barang</a></li>
-        <li><a href="/koperasibarang">list barang</a></li>
-    </ul>
-    <h1>ADD</h1>
-    <form action="{{ route('koperasicategorybarang.add') }}" method="post">
-        @csrf
-    <input style="width:400px" name="category_barang" type="text" placeholder="masukkan category baru disini">
-    <input type="submit" value="Submit">
-    
-    {{-- <input style="width:400px" type="text" placeholder="{{url('/')}}"> --}}
 
-</form>
-</body>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-</html>
+<div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+    <form action="{{ route('koperasicategorybarang.add') }}" method="POST">
+    	@csrf
+            <div class="mb-3 row">
+                <label for="example-text-input" class="col-md-2 col-form-label">Name :</label>
+                <div class="col-md-10">
+                <input class="form-control" type="text" name="category_barang" value="" id="example-text-input" placeholder="category_barang">
+                </div>
+            </div>
+	<div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('koperasicategorybarang.list') }}"> Back</a>
+		            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+
+    </form>
+</div>
+            </div>
+        </div> <!-- end col -->
+    </div>
+
+@endsection
+@section('script')
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+@endsection
+

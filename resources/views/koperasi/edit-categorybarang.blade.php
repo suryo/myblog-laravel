@@ -1,30 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 
-<body>
-    <ul>
-        <li><a href="/koperasicategorybarang">list category barang</a></li>
-        <li><a href="/koperasicategorybarang/show/2">show category barang</a></li>
-        <li><a href="/koperasicategorybarang/edit/5">edit category barang</a></li>
-        <li><a href="/koperasibarang">list barang</a></li>
-    </ul>
-    <h1>EDIT</h1>
-    <form action="{{ url('/koperasicategorybarang/update/'.$find->id) }}" method="post">
-        @csrf
-        <input type="text" value="{{$find->id}}">
-    <input style="width:400px" name="category_barang" value="{{$find->category_barang}}" type="text" placeholder="masukkan category baru disini">
-    <input type="submit" value="Submit">
-    
-    {{-- <input style="width:400px" type="text" placeholder="{{url('/')}}"> --}}
+@extends('layouts.master')
+@section('title')
+    @lang('translation.Datatables')
+@endsection
+@section('css')
+    <!-- DataTables -->
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 
-</form>
-</body>
+@section('content')
+    @component('common-components.breadcrumb')
+        @slot('pagetitle') Tables @endslot
+        @slot('title') Datatables @endslot
+    @endcomponent
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Edit Category Barang</h2>
+            </div>
+        </div>
+    </div>
 
-</html>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="{{ route('koperasicategorybarang.update',$find->id) }}" method="POST">
+    	@csrf
+        {{-- @method('PUT') --}}
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="input-group hdtuto control-group lst increment" >
+                            <input type="text" name="category_barang" value="{{ $find->category_barang }}" class="form-control" placeholder="Category Barang">  
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-12"> 
+            <a class="btn btn-secondary" href="{{ route('koperasicategorybarang.list') }}"> Back</a>     
+            <button type="submit" class="btn btn-primary btn-md">Submit</button>
+        </div> 
+        </div>
+       
+    </form>
+@endsection
+@section('script')
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+@endsection

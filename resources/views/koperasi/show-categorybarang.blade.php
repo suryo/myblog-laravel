@@ -1,18 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
-        <li><a href="/koperasicategorybarang">list category barang</a></li>
-        <li><a href="/koperasicategorybarang/show/2">show category barang</a></li>
-        <li><a href="/koperasicategorybarang/edit/5">edit category barang</a></li>
-        <li><a href="/koperasibarang">list barang</a></li>
-    </ul>
-  show category barang  
-</body>
-</html>
+
+
+@extends('layouts.master')
+@section('title')
+    @lang('translation.Datatables')
+@endsection
+@section('css')
+    <!-- DataTables -->
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('content')
+    @component('common-components.breadcrumb')
+        @slot('pagetitle') Tables @endslot
+        @slot('title') Datatables @endslot
+    @endcomponent
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Edit Category Barang</h2>
+            </div>
+        </div>
+    </div>
+
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
+    
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="input-group hdtuto control-group lst increment" >
+                           {{ $find->category_barang }}
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-12"> 
+            <a class="btn btn-secondary" href="{{ route('koperasicategorybarang.list') }}"> Back</a>     
+            
+        </div> 
+        </div>
+       
+   
+@endsection
+@section('script')
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+@endsection

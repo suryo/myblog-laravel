@@ -100,19 +100,12 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::get('koperasicategorybarang', [KoperasiCategoryBarangController::class, 'index'])->name('koperasicategorybarang.list');
-
 Route::get('koperasicategorybarang/show/{id}', [KoperasiCategoryBarangController::class, 'show'])->name('koperasicategorybarang.show');
-
 Route::get('koperasicategorybarang/add', [KoperasiCategoryBarangController::class, 'create'])->name('koperasicategorybarang.create');
-
 Route::post('koperasicategorybarang/store', [KoperasiCategoryBarangController::class, 'store'])->name('koperasicategorybarang.add');
-
 Route::get('koperasicategorybarang/edit/{id}', [KoperasiCategoryBarangController::class, 'edit'])->name('koperasicategorybarang.edit');
-
-
 Route::post('koperasicategorybarang/update/{id}', [KoperasiCategoryBarangController::class, 'update'])->name('koperasicategorybarang.update');
-
-Route::get('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
+Route::post('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
 
 
 Route::get('koperasibarang', [KoperasiBarangController::class, 'index']);
