@@ -85,10 +85,10 @@ class KoperasiBarangController extends Controller
      */
     public function edit($id)
     {
-        
+        $res_category_barang = DB::select('select * from koperasi_category_barang');
         $res_find = DB::select('select * from koperasi_barang where id='.$id);
         $find = $res_find[0];
-        return view('koperasi.edit-barang',compact('find'));
+        return view('koperasi.edit-barang',compact('find','res_category_barang'));
     }
 
     /**
