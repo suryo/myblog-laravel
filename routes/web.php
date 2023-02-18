@@ -107,8 +107,13 @@ Route::get('koperasicategorybarang/edit/{id}', [KoperasiCategoryBarangController
 Route::post('koperasicategorybarang/update/{id}', [KoperasiCategoryBarangController::class, 'update'])->name('koperasicategorybarang.update');
 Route::post('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
 
-
-Route::get('koperasibarang', [KoperasiBarangController::class, 'index']);
+Route::get('koperasibarang', [KoperasiBarangController::class, 'index'])->name('koperasibarang.list');;
+Route::get('koperasibarang/show/{id}', [KoperasiBarangController::class, 'show'])->name('koperasibarang.show');
+Route::get('koperasibarang/add', [KoperasiBarangController::class, 'create'])->name('koperasibarang.create');
+Route::post('koperasibarang/store', [KoperasiBarangController::class, 'store'])->name('koperasibarang.add');
+Route::get('koperasibarang/edit/{id}', [KoperasiBarangController::class, 'edit'])->name('koperasibarang.edit');
+Route::post('koperasibarang/update/{id}', [KoperasiBarangController::class, 'update'])->name('koperasibarang.update');
+Route::post('koperasibarang/delete/{id}', [KoperasiBarangController::class, 'destroy'])->name('koperasibarang.destroy');
 
 
 

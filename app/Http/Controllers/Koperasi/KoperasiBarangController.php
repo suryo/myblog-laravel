@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Koperasi;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use App\Models\KoperasiBarang_Model;
 
 class KoperasiBarangController extends Controller
 {
@@ -14,7 +16,11 @@ class KoperasiBarangController extends Controller
      */
     public function index()
     {
-        echo "ini barang controller";
+        $res_barang = KoperasiBarang_Model::orderBy('id', 'DESC')->get();
+        //dd($res_category_barang);
+        // $res_category_barang = DB::select('select * from koperasi_category_barang');
+        $title = 'ini barang';
+        return view('koperasi.list-barang',compact('title','res_barang'));
     }
 
     /**
@@ -24,7 +30,8 @@ class KoperasiBarangController extends Controller
      */
     public function create()
     {
-        //
+        $res_category_barang = DB::select('select * from koperasi_category_barang');
+        return view('koperasi.add-barang',compact('res_category_barang'));
     }
 
     /**
@@ -35,7 +42,26 @@ class KoperasiBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request, [
+            'barang' => 'required'
+        ]);
+
+        $resinsert = DB::insert('INSERT INTO koperasi_barang (id_category_barang, barang, price, stock) VALUES ("'.$request->id_category_barang.'", "'.$request->barang.'","'.$request->price.'","'.$request->stock.'"); ');
+
+        if ($resinsert) {
+            return redirect()
+                ->route('koperasibarang.list')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
     /**
@@ -46,7 +72,9 @@ class KoperasiBarangController extends Controller
      */
     public function show($id)
     {
-        //
+        $res_find = DB::select('select * from koperasi_barang where id='.$id);
+        $find = $res_find[0];
+        return view('koperasi.show-barang',compact('find'));
     }
 
     /**
@@ -57,7 +85,10 @@ class KoperasiBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $res_find = DB::select('select * from koperasi_barang where id='.$id);
+        $find = $res_find[0];
+        return view('koperasi.edit-barang',compact('find'));
     }
 
     /**
@@ -69,7 +100,30 @@ class KoperasiBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'barang' => 'required'
+        ]);
+        // dump($id);
+        // dump($request->category_barang);
+        // dd("ini edit");
+
+        $resupdate = DB::update('UPDATE koperasi_barang
+        SET id_category_barang="'.$request->id_category_barang.'",barang="'.$request->barang.'", price="'.$request->price.'", stock="'.$request->stock.'" WHERE id='.$id.'; ');
+
+        if ($resupdate) {
+            return redirect()
+                ->route('koperasibarang.list')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
     /**
@@ -80,6 +134,23 @@ class KoperasiBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $resdelete = DB::delete('DELETE FROM koperasi_barang WHERE id='.$id.';');
+
+        if ($resdelete) {
+            return redirect()
+                ->route('koperasibarang.list')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
+
     }
 }
