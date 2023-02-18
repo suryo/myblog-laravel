@@ -71,6 +71,25 @@
                     </ul>
                 </li>
 
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-blogger-alt  "></i>
+                        <span>@lang('Koperasi')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href={{ route('koperasicategorybarang.list') }}>@lang('Category Barang')</a></li>
+                        <li><a href={{ route('koperasibarang.list') }}>@lang('Barang')</a></li>
+                        <li><a href={{ route('koperasimember.list') }}>@lang('Member')</a></li>
+                        <li><a href={{ route('koperasiprovinsi.list') }}>@lang('provinsi')</a></li>
+                        <li><a href={{ route('koperasikota.list') }}>@lang('kota')</a></li>
+                        
+                        
+                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
+                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-blogger-alt  "></i>

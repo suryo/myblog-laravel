@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Koperasi\KoperasiCategoryBarangController;
 use App\Http\Controllers\Koperasi\KoperasiBarangController;
+use App\Http\Controllers\Koperasi\KoperasiMemberController;
+use App\Http\Controllers\Koperasi\KoperasiProvinsiController;
+use App\Http\Controllers\Koperasi\KoperasiKotaController;
+
+
+
 use App\Http\Controllers\Front\FrontLoginController;
 
 use App\Http\Controllers\Front\FrontLandingController;
@@ -114,6 +120,32 @@ Route::post('koperasibarang/store', [KoperasiBarangController::class, 'store'])-
 Route::get('koperasibarang/edit/{id}', [KoperasiBarangController::class, 'edit'])->name('koperasibarang.edit');
 Route::post('koperasibarang/update/{id}', [KoperasiBarangController::class, 'update'])->name('koperasibarang.update');
 Route::post('koperasibarang/delete/{id}', [KoperasiBarangController::class, 'destroy'])->name('koperasibarang.destroy');
+
+Route::get('koperasiMember', [KoperasiMemberController::class, 'index'])->name('koperasimember.list');;
+Route::get('koperasiMember/show/{id}', [KoperasiMemberController::class, 'show'])->name('koperasimember.show');
+Route::get('koperasiMember/add', [KoperasiMemberController::class, 'create'])->name('koperasimember.create');
+Route::post('koperasiMember/store', [KoperasiMemberController::class, 'store'])->name('koperasimember.add');
+Route::get('koperasiMember/edit/{id}', [KoperasiMemberController::class, 'edit'])->name('koperasimember.edit');
+Route::post('koperasiMember/update/{id}', [KoperasiMemberController::class, 'update'])->name('koperasimember.update');
+Route::post('koperasiMember/delete/{id}', [KoperasiMemberController::class, 'destroy'])->name('koperasimember.destroy');
+
+
+Route::get('koperasiProvinsi', [KoperasiProvinsiController::class, 'index'])->name('koperasiprovinsi.list');;
+Route::get('koperasiProvinsi/show/{id}', [KoperasiProvinsiController::class, 'show'])->name('koperasiprovinsi.show');
+Route::get('koperasiProvinsi/add', [KoperasiProvinsiController::class, 'create'])->name('koperasiprovinsi.create');
+Route::post('koperasiProvinsi/store', [KoperasiProvinsiController::class, 'store'])->name('koperasiprovinsi.add');
+Route::get('koperasiProvinsi/edit/{id}', [KoperasiProvinsiController::class, 'edit'])->name('koperasiprovinsi.edit');
+Route::post('koperasiProvinsi/update/{id}', [KoperasiProvinsiController::class, 'update'])->name('koperasiprovinsi.update');
+Route::post('koperasiProvinsi/delete/{id}', [KoperasiProvinsiController::class, 'destroy'])->name('koperasiprovinsi.destroy');
+
+
+Route::get('koperasiKota', [KoperasiKotaController::class, 'index'])->name('koperasikota.list');;
+Route::get('koperasiKota/show/{id}', [KoperasiKotaController::class, 'show'])->name('koperasikota.show');
+Route::get('koperasiKota/add', [KoperasiKotaController::class, 'create'])->name('koperasikota.create');
+Route::post('koperasiKota/store', [KoperasiKotaController::class, 'store'])->name('koperasikota.add');
+Route::get('koperasiKota/edit/{id}', [KoperasiKotaController::class, 'edit'])->name('koperasikota.edit');
+Route::post('koperasiKota/update/{id}', [KoperasiKotaController::class, 'update'])->name('koperasikota.update');
+Route::post('koperasiKota/delete/{id}', [KoperasiKotaController::class, 'destroy'])->name('koperasikota.destroy');
 
 
 
