@@ -1,0 +1,282 @@
+a {
+   color: inherit;
+}
+
+.vh-100 {
+   height: 100vh;
+}
+
+.transform-none {
+   transform: none !important;
+}
+
+@media (min-width: 1400px) {
+   .col-xxl-8 {
+      max-width: 66.666666%;
+      flex: 0 0 66.666666%;
+   }
+}
+
+@media (min-width: 1400px) {
+   .row.row-cols-xxl-3>div {
+      max-width: 33.333333%;
+      flex: 0 0 33.333333%;
+   }
+
+   .row.row-cols-xxl-4>div {
+      max-width: 25%;
+      flex: 0 0 25%;
+   }
+}
+
+.opacity-50 {
+   opacity: .5;
+}
+
+.text-inherit {
+   color: inherit;
+}
+
+.text-inherit:hover {
+   color: inherit;
+}
+
+
+
+
+
+html,
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: #f1f2f2;
+   color: #565656;
+}
+
+/*============================== custom container */
+@media (max-width: 1199.98px) {
+   .navbar {
+      padding-left: 0;
+      padding-right: 0;
+   }
+
+   .navbar>.container,
+   .container {
+      padding-left: calc(1.25rem + .25vw);
+      padding-right: calc(1.25rem + .25vw);
+   }
+}
+
+@media (min-width: 1400px) {
+
+   .container,
+   .navbar .container {
+      max-width: 1320px;
+   }
+}
+
+/*============================== custom section */
+.wrapper>section {
+   margin-bottom: calc(70px + 1vw);
+}
+
+section a.d-inline {
+   color: #565656 !important;
+   text-decoration: none !important;
+}
+
+@media (min-width: 992px) {
+   section .card {
+      transition: .36s;
+      transform: none;
+   }
+
+   section .card:hover {
+      transition: .36s;
+      transform: translateY(-10px);
+   }
+}
+
+/*============================== custom gutter */
+.g-3 {
+   margin-left: -7.5px;
+   margin-right: -7.5px;
+   margin-top: -15px;
+}
+
+.g-3>div {
+   padding-left: 7.5px;
+   padding-right: 7.5px;
+   margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+   .g-md-3 {
+      margin-left: -7.5px;
+      margin-right: -7.5px;
+      margin-top: -15px;
+   }
+
+   .g-md-3>div {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+      margin-top: 15px;
+   }
+}
+
+@media (min-width: 992px) {
+   .g-lg-3 {
+      margin-left: -7.5px;
+      margin-right: -7.5px;
+      margin-top: -15px;
+   }
+
+   .g-lg-3>div {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+      margin-top: 15px;
+   }
+}
+
+@media (min-width: 1200px) {
+   .g-xl-3 {
+      margin-left: -7.5px;
+      margin-right: -7.5px;
+      margin-top: -15px;
+   }
+
+   .g-xl-3>div {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+      margin-top: 15px;
+   }
+}
+
+/*============================== custom gap */
+.gap-1 {
+   grid-gap: .25rem;
+}
+
+.gap-2 {
+   grid-gap: .5rem;
+}
+
+.gap-3 {
+   grid-gap: 15px;
+}
+
+@media (min-width: 678px) {
+   .gap-md-1 {
+      grid-gap: .25rem;
+   }
+
+   .gap-md-2 {
+      grid-gap: .5rem;
+   }
+
+   .gap-md-3 {
+      grid-gap: 15px;
+   }
+}
+
+@media (min-width: 992px) {
+   .gap-lg-1 {
+      grid-gap: .25rem;
+   }
+
+   .gap-lg-2 {
+      grid-gap: .5rem;
+   }
+
+   .gap-lg-3 {
+      grid-gap: 15px;
+   }
+}
+
+/*============================== custom position */
+.top-unset {
+   top: unset;
+}
+
+.bottom-0 {
+   bottom: 0;
+}
+
+.left-0 {
+   left: 0;
+}
+
+.right-0 {
+   right: 0;
+}
+
+/*============================== custom pagination */
+.pagination li a {
+   color: inherit;
+}
+
+.pagination li.disabled a span {
+   opacity: .5;
+}
+
+/*============================== custom carousel */
+.carousel.carousel-fullscreen .carousel-item {
+   height: 100vh !important;
+   min-height: 560px;
+}
+
+/*============================== custom navigation swiper */
+.swiper-container {
+   position: relative;
+}
+
+.swiper {
+   position: unset;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+   width: 45px;
+   height: 45px;
+   border-radius: 100%;
+   background-color: white;
+   color: #323232;
+   border: 1px solid rgba(0, 0, 0, .125);
+   opacity: .5;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+   opacity: 1;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+   font-size: 1.75rem;
+}
+
+.swiper-button-prev {
+   left: 0;
+   transform: translateX(-37.5%);
+}
+
+.swiper-button-next {
+   right: 0;
+   transform: translateX(37.5%);
+}
+
+.card.shadow-sm,
+.card.shadow-sm {
+   margin: .875rem 0;
+}
+
+@media (min-width: 576px) {
+   .swiper-button-prev {
+      transform: translateX(-50%);
+   }
+
+   .swiper-button-next {
+      transform: translateX(50%);
+   }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- head component -->
+   <script src="head.js"></script>
+   <title>SUPRESSO &bull; Checkout</title>
+   <style>
+      /* garis bantu */
+      * {
+         /* outline: solid 1px green; */
+      }
+   </style>
+</head>
+
+<body>
+
+   <main class="container-fluid p-0">
+      <div class="row no-gutters">
+
+         <div class="col-lg-7 bg-white">
+            <div class="container-fluid px-3 py-4 p-sm-4 p-md-5">
+               <h3 class="font-weight-bold mb-4">Pradhokot Payment</h3>
+
+               <div class="d-md-flex justify-content-between align-items-center mb-3">
+                  <h5>Informasi Pelanggan</h5>
+                  <h6>Lengkapi form di bawah ini</h6>
+               </div>
+               <div class="form-group mb-5">
+                  <label for="">Email</label>
+                  <input type="email" class="form-control" placeholder="Contoh : john@gmail.com">
+               </div>
+
+               <h5 class="mb-3">Nama dan Nomor Whatsapp</h5>
+               <div class="form-group">
+                  <label for="">Nama Lengkap</label>
+                  <input type="text" class="form-control" placeholder="Contoh : John Doe">
+               </div>
+               <div class="form-group mb-4">
+                  <label for="">Nomor Whatsapp</label>
+                  <input type="number" class="form-control" placeholder="Contoh : +62 085 xxx xxx xxx">
+               </div>
+
+               <p>
+                  <strong>Note:</strong> Pastikan email dan nomor whatsapp yang kamu masukkan adalah benar. Sebab kami
+                  akan gunakan data tersebut untuk mengirimkan voucher aktivasi paket belajar kamu atau melakukan
+                  konfirmasi terkait pembayaran.
+                  <br><br>
+                  Khusus kamu yang melakukan pembayaran Bootcamp, kaos, merchandise, tidak perlu melakukan aktivasi
+                  voucher, kami akan langsung memproses pesanan kamu.
+               </p>
+            </div>
+         </div>
+
+         <div class="col-lg-5">
+            <div class="container-fluid px-3 py-4 p-sm-4 p-md-5">
+               <ul class="list-group list-group-flush" style="margin-top: -.75rem;">
+                  <li class="list-group-item px-0 border-secondary bg-transparent">
+                     <ul class="list-group list-group-flush">
+                        <h5 class="font-weight-bold">Keranjang</h5>
+                        <li class="list-group-item px-0 bg-transparent">
+                           <div class="row align-items-center">
+                              <div class="col-3">
+                                 <img src="assets/img/lanscape.png" class="img-fluid rounded" alt="">
+                              </div>
+                              <div class="col-9">
+                                 <h6 class="mb-0">Belajar Pemrograman PHP</h6>
+                                 <small>Tipe : course</small>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                           <div class="row align-items-center">
+                              <div class="col-3">
+                                 <img src="assets/img/lanscape.png" class="img-fluid rounded" alt="">
+                              </div>
+                              <div class="col-9">
+                                 <h6 class="mb-0">Belajar Pemrograman PHP</h6>
+                                 <small>Tipe : course</small>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                           <div class="row align-items-center">
+                              <div class="col-3">
+                                 <img src="assets/img/lanscape.png" class="img-fluid rounded" alt="">
+                              </div>
+                              <div class="col-9">
+                                 <h6 class="mb-0">Belajar Pemrograman PHP</h6>
+                                 <small>Tipe : course</small>
+                              </div>
+                           </div>
+                        </li>
+
+                     </ul>
+                  </li>
+                  <li class="list-group-item px-0 border-secondary bg-transparent">
+                     <form action="" class="form-inline flex-nowrap">
+                        <input type="text" class="form-control w-100 mr-2" placeholder="Kode Kupon (Jika ada)">
+                        <button class="btn btn-secondary">Check</button>
+                     </form>
+                  </li>
+                  <li class="list-group-item px-0 border-secondary bg-transparent">
+                     <div class="row mb-2">
+                        <div class="col-5">Harga</div>
+                        <div class="col-7 text-right">Rp 129.000,-</div>
+                     </div>
+                     <div class="row">
+                        <div class="col-5">Diskon</div>
+                        <div class="col-7 text-right">Rp 0,-</div>
+                     </div>
+                  </li>
+                  <li class="list-group-item px-0 border-secondary bg-transparent">
+                     <div class="row mb-5" style="font-size: 1.25rem;">
+                        <div class="col-5">Total</div>
+                        <div class="col-7 font-weight-bold text-right">Rp 129.000,-</div>
+                     </div>
+
+                     <h5 class="font-weight-bold">Metode Pembayaran</h5>
+                     <form action="" class="mb-4">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" value="" id="paypal">
+                           <label class="form-check-label ml-1" for="paypal">Paypal</label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" value="" id="creditCard"
+                              checked>
+                           <label class="form-check-label ml-1" for="creditCard">
+                              Credit card/ ApplePay/ GooglePay
+                           </label>
+                        </div>
+                        <hr>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="notifikasiNews" checked>
+                           <label class="form-check-label" for="notifikasiNews">
+                              I want the latest news, innovations and offers from Pradhokot
+                           </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="notifikasiTNC">
+                           <label class="form-check-label" for="notifikasiTNC">
+                              I accept Pradhokot <a href="#" target="_blank" class="text-primary"><u>Terms &
+                                    Conditions</u></a>
+                           </label>
+                        </div>
+                     </form>
+
+                     <a href="index.html" class="btn btn-block btn-lg btn-primary font-weight-bold">Checkout</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+      </div>
+   </main>
+   <style>
+      @media (min-width: 992px) {
+         main>.row>div {
+            min-height: 100vh;
+         }
+      }
+   </style>
+
+   <!-- footer component -->
+   <script src="footer.js"></script>
+
+</body>
+
+</html>
