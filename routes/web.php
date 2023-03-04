@@ -195,17 +195,6 @@ Route::get('/index', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/memberaddress', [App\Http\Controllers\Member\MemberAddressBoardController::class, 'index'])->name('memberaddress.list');;
 Route::post('/memberaddress', [App\Http\Controllers\Member\MemberAddressBoardController::class, 'store'])->name('memberaddress.store');;
-// Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index']);
-// //Language Translation
-// Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-// Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit');
-// Route::get('/product', [App\Http\Controllers\ProductController::class, 'index']);
-// Route::get('/product/create', [App\Http\Controllers\ProductController::class, 'create']);
-// Route::resource('/product', App\Http\Controllers\ProductController::class);
-// Route::post('/product', [App\Http\Controllers\ProductController::class, 'store']);
-// Route::get('/product/create', [App\Http\Controllers\ProductController::class, 'create']);
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('/login', [HomeController::class, 'index'])->name('home');
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -323,14 +312,6 @@ Route::get('/landing', function () {
 });
 
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
-// USER INTERFACE
-// home pages
-// Route::get('/ui/', function () {
-//     return view('ui/landing', [
-//         "title" => "Home",
-//         "pages" => "landing"
-//     ]);
-// });
 
 Route::get('/slider-load', [CommonLoaderController::class, 'loadSlider']);
 Route::post('/product-carousel-load', [CommonLoaderController::class, 'loadCarouselCategory']);
