@@ -83,7 +83,8 @@
                 <div id="sliderProductMateri" class="swiper slider-produk">
                     <div class="swiper-wrapper">
 
-                        <!-- produk item -->
+                        @foreach ($coursescategory as $item)
+                              <!-- produk item -->
                         <div class="swiper-slide">
                             <a href="kelas.html" class="text-decoration-none text-inherit">
                                 <div class="card shadow-sm">
@@ -94,8 +95,8 @@
                                                     class="img-fluid rounded" alt="">
                                             </div>
                                             <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2 kelas
+                                                <p class="card-title mb-2">{{$item->name}}</p>
+                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> {{$item->jumlah}} kelas
                                                 </p>
                                             </div>
                                         </div>
@@ -103,106 +104,9 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- produk item -->
-                        <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
-                                <div class="card shadow-sm">
-                                    <div class="card-body" style="padding: 15px;">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
-                                                    class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2 kelas
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- produk item -->
-                        <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
-                                <div class="card shadow-sm">
-                                    <div class="card-body" style="padding: 15px;">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
-                                                    class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2 kelas
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- produk item -->
-                        <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
-                                <div class="card shadow-sm">
-                                    <div class="card-body" style="padding: 15px;">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
-                                                    class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2
-                                                    kelas</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- produk item -->
-                        <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
-                                <div class="card shadow-sm">
-                                    <div class="card-body" style="padding: 15px;">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
-                                                    class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2
-                                                    kelas</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- produk item -->
-                        <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
-                                <div class="card shadow-sm">
-                                    <div class="card-body" style="padding: 15px;">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
-                                                    class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div class="col-8 text-capitalize">
-                                                <p class="card-title mb-2">bootstrap CSS</p>
-                                                <p class="card-text small"><i class="bi bi-journal-album mr-2"></i> 2
-                                                    kelas</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
+
+                      
 
                     </div>
 
