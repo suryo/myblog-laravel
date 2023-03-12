@@ -32,7 +32,9 @@ class FrontLandingController extends Controller
         $title = 'home';
         $pages = 'landing';
 
-        return view('front/landing', compact( 'title', 'pages'))
+        $courses =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
+dd($courses);
+        return view('front/landing', compact( 'title', 'pages', 'courses'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

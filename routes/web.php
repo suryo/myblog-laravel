@@ -3,15 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Http\Controllers\Koperasi\KoperasiCategoryBarangController;
-use App\Http\Controllers\Koperasi\KoperasiBarangController;
-use App\Http\Controllers\Koperasi\KoperasiMemberController;
-use App\Http\Controllers\Koperasi\KoperasiProvinsiController;
-use App\Http\Controllers\Koperasi\KoperasiKotaController;
 
 
 
-use App\Http\Controllers\Front\FrontLoginController;
+
 
 use App\Http\Controllers\Front\FrontLandingController;
 use App\Http\Controllers\Front\FrontNewsController;
@@ -88,6 +83,10 @@ use App\Http\Controllers\Kelaseksklusif\KelasEksklusifCategoryController;
 use App\Http\Controllers\Kelaseksklusif\KelasEksklusifController;
 use App\Http\Controllers\Kelaseksklusif\KelasEksklusifDetailController;
 
+use App\Http\Controllers\Courses\CoursesCategoryController;
+use App\Http\Controllers\Courses\CoursesController;
+use App\Http\Controllers\Courses\CoursesDetailController;
+
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\SyncProductController;
@@ -105,71 +104,11 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::get('koperasicategorybarang', [KoperasiCategoryBarangController::class, 'index'])->name('koperasicategorybarang.list');
-Route::get('koperasicategorybarang/show/{id}', [KoperasiCategoryBarangController::class, 'show'])->name('koperasicategorybarang.show');
-Route::get('koperasicategorybarang/add', [KoperasiCategoryBarangController::class, 'create'])->name('koperasicategorybarang.create');
-Route::post('koperasicategorybarang/store', [KoperasiCategoryBarangController::class, 'store'])->name('koperasicategorybarang.add');
-Route::get('koperasicategorybarang/edit/{id}', [KoperasiCategoryBarangController::class, 'edit'])->name('koperasicategorybarang.edit');
-Route::post('koperasicategorybarang/update/{id}', [KoperasiCategoryBarangController::class, 'update'])->name('koperasicategorybarang.update');
-Route::post('koperasicategorybarang/delete/{id}', [KoperasiCategoryBarangController::class, 'destroy'])->name('koperasicategorybarang.destroy');
+Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 
-Route::get('koperasibarang', [KoperasiBarangController::class, 'index'])->name('koperasibarang.list');;
-Route::get('koperasibarang/show/{id}', [KoperasiBarangController::class, 'show'])->name('koperasibarang.show');
-Route::get('koperasibarang/add', [KoperasiBarangController::class, 'create'])->name('koperasibarang.create');
-Route::post('koperasibarang/store', [KoperasiBarangController::class, 'store'])->name('koperasibarang.add');
-Route::get('koperasibarang/edit/{id}', [KoperasiBarangController::class, 'edit'])->name('koperasibarang.edit');
-Route::post('koperasibarang/update/{id}', [KoperasiBarangController::class, 'update'])->name('koperasibarang.update');
-Route::post('koperasibarang/delete/{id}', [KoperasiBarangController::class, 'destroy'])->name('koperasibarang.destroy');
-
-Route::get('koperasiMember', [KoperasiMemberController::class, 'index'])->name('koperasimember.list');;
-Route::get('koperasiMember/show/{id}', [KoperasiMemberController::class, 'show'])->name('koperasimember.show');
-Route::get('koperasiMember/add', [KoperasiMemberController::class, 'create'])->name('koperasimember.create');
-Route::post('koperasiMember/store', [KoperasiMemberController::class, 'store'])->name('koperasimember.add');
-Route::get('koperasiMember/edit/{id}', [KoperasiMemberController::class, 'edit'])->name('koperasimember.edit');
-Route::post('koperasiMember/update/{id}', [KoperasiMemberController::class, 'update'])->name('koperasimember.update');
-Route::post('koperasiMember/delete/{id}', [KoperasiMemberController::class, 'destroy'])->name('koperasimember.destroy');
+Route::resource('courses', CoursesController::class);
 
 
-Route::get('koperasiProvinsi', [KoperasiProvinsiController::class, 'index'])->name('koperasiprovinsi.list');;
-Route::get('koperasiProvinsi/show/{id}', [KoperasiProvinsiController::class, 'show'])->name('koperasiprovinsi.show');
-Route::get('koperasiProvinsi/add', [KoperasiProvinsiController::class, 'create'])->name('koperasiprovinsi.create');
-Route::post('koperasiProvinsi/store', [KoperasiProvinsiController::class, 'store'])->name('koperasiprovinsi.add');
-Route::get('koperasiProvinsi/edit/{id}', [KoperasiProvinsiController::class, 'edit'])->name('koperasiprovinsi.edit');
-Route::post('koperasiProvinsi/update/{id}', [KoperasiProvinsiController::class, 'update'])->name('koperasiprovinsi.update');
-Route::post('koperasiProvinsi/delete/{id}', [KoperasiProvinsiController::class, 'destroy'])->name('koperasiprovinsi.destroy');
-
-
-Route::get('koperasiKota', [KoperasiKotaController::class, 'index'])->name('koperasikota.list');;
-Route::get('koperasiKota/show/{id}', [KoperasiKotaController::class, 'show'])->name('koperasikota.show');
-Route::get('koperasiKota/add', [KoperasiKotaController::class, 'create'])->name('koperasikota.create');
-Route::post('koperasiKota/store', [KoperasiKotaController::class, 'store'])->name('koperasikota.add');
-Route::get('koperasiKota/edit/{id}', [KoperasiKotaController::class, 'edit'])->name('koperasikota.edit');
-Route::post('koperasiKota/update/{id}', [KoperasiKotaController::class, 'update'])->name('koperasikota.update');
-Route::post('koperasiKota/delete/{id}', [KoperasiKotaController::class, 'destroy'])->name('koperasikota.destroy');
-
-
-
-Route::get('/crudbuilder', [CrudBuilderController::class, 'index']);
-
-Route::get('/cobastripe',         [StripeController::class, 'index']);
-Route::post('/cobastripepayment', [StripeController::class, 'payment']);
-Route::post('/stripecheckouts', [StripeController::class, 'createSession']);
-Route::post('/paypalcheckouts', [StripeController::class, 'paypalpayment']);
-Route::post('/paypalsuccess', [StripeController::class, 'paypalpayment'])->name('paypalpayment.success');
-Route::post('/paypalcancel', [StripeController::class, 'paypalcancel'])->name('paypalpayment.cancel');
-
-Route::post('/choosegift', [FrontCartController::class, 'chooseGift'])->name('cart.choosegift');
-
-Route::get('/getstripepayments', [StripeController::class, 'getstripepayments']);
-
-Route::get('/updatepaymentstatus', [StripeController::class, 'updatePaymentstatus'])->name('updatepaymentstatus');
-
-Route::get('/sendmail', [StripeController::class, 'sendMail'])->name('sendmail');
-
-
-Route::get('/vend-getproduct', [VendController::class, 'getproduct']);
-Route::get('/vend-gettransaction', [VendController::class, 'gettransaction']);
-Route::get('/vend-gettransactionbyemail', [VendController::class, 'gettransactionbyemail']);
 
 /*
 |--------------------------------------------------------------------------
@@ -193,8 +132,6 @@ Route::post('file', [FileController::class, 'store']);
 //Route::get('/', [App\Http\Controllers\HomeController::class, 'root']);
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/memberaddress', [App\Http\Controllers\Member\MemberAddressBoardController::class, 'index'])->name('memberaddress.list');;
-Route::post('/memberaddress', [App\Http\Controllers\Member\MemberAddressBoardController::class, 'store'])->name('memberaddress.store');;
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -202,7 +139,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/websetup', WebsetupController::class);
     Route::resource('member/board', MemberBoardController::class);
     Route::resource('fpdf', FpdfController::class);
-    Route::resource('sync-product', SyncProductController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 
@@ -216,40 +152,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('kelaseksklusif', KelasEksklusifController::class);
     Route::resource('kelaseksklusifcategory', KelasEksklusifCategoryController::class);
     Route::resource('kelaseksklusifdetail', KelasEksklusifDetailController::class);
-
-    
-
     Route::resource('permissions', PermissionController::class);
-    Route::resource('admin/products', ProductController::class);
-    Route::resource('admin/product-kinds', ProductKindController::class);
-    Route::resource('admin/product-variants', ProductVariantController::class);
-    Route::resource('admin/product-categorys', ProductCategoryController::class);
-
-    Route::resource('admin/product-images', ProductImageController::class);
-
-    Route::resource('admin/product-collections', ProductCollectionController::class);
-    Route::resource('admin/product-types', ProductTypeController::class);
-    Route::resource('admin/product-forms', ProductFormController::class);
-    Route::resource('admin/product-packages', ProductPackageController::class);
-
+   
     ## STORE PANEL
-    Route::resource('admin/orders', OrderController::class);
-    Route::post('admin/orders', [App\Http\Controllers\Order\OrderController::class, 'index'])->name('orderslist');
-
-    Route::post('admin/orders-tracking-number', [App\Http\Controllers\Order\OrderController::class, 'updatetrackingnumber'])->name('orders-tracking-number');
-    Route::get('admin/ordersdetail', [App\Http\Controllers\Order\OrderDetailController::class, 'index'])->name('ordersdetail');
-
-    Route::resource('admin/discount-cluster', DiscountClusterController::class);
-    Route::resource('admin/discount', DiscountController::class);
-    Route::get('discount-addall', [App\Http\Controllers\Discount\DiscountController::class, 'addall'])->name('discount-addall');
-    Route::post('discount-storeall', [App\Http\Controllers\Discount\DiscountController::class, 'storeall'])->name('discount-storeall');
-    Route::resource('admin/discount-product', DiscountProductController::class);
-
-    Route::resource('admin/merchandise-product', MerchandiseProductController::class);
-    Route::resource('admin/freegift', FreegiftController::class);
-    Route::resource('admin/flashsale', FlashsaleController::class);
-
-    // Route::resource('admin/discount', DiscountController::class);
     Route::resource('blog-article-category', BlogArticleCategoryController::class);
     Route::resource('blog-article', BlogArticleController::class);
 
@@ -258,14 +163,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('memberpoints', MemberPointController::class);
     Route::get('expectopatronum', [MemberController::class, 'expectopatronum'])->name('expectopatronum');
     Route::get('shazam', [MemberController::class, 'shazam'])->name('shazam');
-    
     Route::resource('sliders', SlidersController::class);
 });
 
-// Route::get('/flogin', function () {
-//     // Only authenticated users may access this route...
-// })->middleware('auth');
-// Route::get('loginmember', ['as' => 'auth.login', 'uses' => 'FrontLoginController@showLoginForm']);
+
 Route::resource('fnews', FrontNewsController::class);
 
 Route::resource('fblog', FrontBlogController::class);
@@ -311,7 +212,7 @@ Route::get('/landing', function () {
     ]);
 });
 
-Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
+
 
 Route::get('/slider-load', [CommonLoaderController::class, 'loadSlider']);
 Route::post('/product-carousel-load', [CommonLoaderController::class, 'loadCarouselCategory']);

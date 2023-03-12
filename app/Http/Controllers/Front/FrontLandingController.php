@@ -38,7 +38,12 @@ class FrontLandingController extends Controller
         $title = 'home';
         $pages = 'landing';
 
-        return view('front/landing', compact( 'title', 'pages'))
+        
+        $courses =  DB::select("SELECT n.id, n.title,n.image_landscape,n.author,n.level,n.price_buy,n.price_rent, c.name, n.created_at, n.short_desc, n.image from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
+        $coursescategory = DB::select("SELECT * from kelas_online_category");
+        $coursestechnology = DB::select("SELECT * from kelas_online_technology");
+        //dd($courses);
+            return view('lms-front/landing', compact( 'title', 'pages','courses', 'coursescategory', 'coursestechnology'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
