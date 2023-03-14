@@ -1,80 +1,73 @@
-<nav id="navtop" class="navbar navbar-expand-lg small">
-    <div class="container py-3 py-lg-5">
-
-        <div class="navbar-brand d-lg-none py-0">
-            <img src="../ui/img/navbar/logo.svg" width="55" height="55">
+<div class="container-fluid">
+    <div class="row bg-secondary py-1 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center h-100">
+                <a class="text-body mr-3" href="">About</a>
+                <a class="text-body mr-3" href="">Contact</a>
+                <a class="text-body mr-3" href="">Help</a>
+                <a class="text-body mr-3" href="">FAQs</a>
+            </div>
         </div>
-
-        <a class="navbar-brand d-none d-lg-block py-0" href="/">
-            <img src="../ui/img/navbar/logo.svg" width="80" height="80">
-        </a>
-
-        <div class="collapse navbar-collapse" id="navcol">
-            <ul class="navbar-nav ms-auto me-4 text-uppercase fw-bold">
-                <li class="nav-item">
-                    @if (!empty($title))
-                        <a id="navproducts" class="nav-link {{ $title === 'Coffee Collection' ? 'active' : '' }}"
-                            href="/fblog" onclick="$('#loading').collapse('show');">
-                            Blog
-                        </a>
-                    @endif
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navmachines" href="/fkelasonline" onclick="$('#loading').collapse('show');">
-                        Kelas Online
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navexplore" href="/fkelaseksklusif" onclick="$('#loading').collapse('show');">
-                        Kelas Eksklusif
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="navpartnership" href="/fpromo"
-                        onclick="$('#loading').collapse('show');">
-                        Promo
-                    </a>
-                </li>
-               
-            </ul>
-
-            <ul class="navbar-nav text-uppercase fw-bold d-none d-lg-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        search
-                    </a>
-                </li>
-                <li class="nav-item">
-                    @if (!empty(Auth::user()))
-                        @if (Auth::user()->hasRole('member') == 1)
-                            <a class="nav-link" href="/member/board">
-                                {{ Str::ucfirst(Auth::user()->name) }}
-                            </a>
-                        @else
-                            <a class="nav-link" href="/login">
-                                {{ Str::ucfirst(Auth::user()->name) }}
-                            </a>
-                        @endif
-                    @else
-                        <a class="nav-link" href="/login" onclick="$('#loading').collapse('show');">
-                            Account
-                        </a>
-                    @endif
-                </li>
-                {{-- <li class="nav-item">
-                    @if (!empty($title))
-                        <a class="nav-link position-relative {{ $title === 'Shopping Cart' ? 'active' : '' }}"
-                            href="/fcart" onclick="$('#loading').collapse('show');">
-                            cart <span
-                                class="badge text-bg-danger rounded-pill position-absolute top-0 start-75 translate-middle">{{ Cart::getTotalQuantity() }}</span>
-                        </a>
-                    @endif
-
-                </li> --}}
-            </ul>
-
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Sign in</button>
+                        <button class="dropdown-item" type="button">Sign up</button>
+                    </div>
+                </div>
+                <div class="btn-group mx-2">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">EUR</button>
+                        <button class="dropdown-item" type="button">GBP</button>
+                        <button class="dropdown-item" type="button">CAD</button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">FR</button>
+                        <button class="dropdown-item" type="button">AR</button>
+                        <button class="dropdown-item" type="button">RU</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+            </div>
         </div>
-
     </div>
-</nav>
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-4">
+            <a href="" class="text-decoration-none">
+                <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-6 text-left">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+            <p class="m-0">Customer Service</p>
+            <h5 class="m-0">+012 345 6789</h5>
+        </div>
+    </div>
+</div>

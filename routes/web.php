@@ -9,6 +9,8 @@ use App\Http\Controllers\Koperasi\KoperasiMemberController;
 use App\Http\Controllers\Koperasi\KoperasiProvinsiController;
 use App\Http\Controllers\Koperasi\KoperasiKotaController;
 
+use App\Http\Controllers\Koperasifront\FrontController;
+
 
 
 use App\Http\Controllers\Front\FrontLoginController;
@@ -100,6 +102,12 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Vend\VendController;
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
+
+
+Route::get('fkoperasi', [FrontController::class, 'index'])->name('fkoperasi.index');
+
+
+
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');

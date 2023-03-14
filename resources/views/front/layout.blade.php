@@ -2,126 +2,67 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	@if (!empty($title))
-	<title>BrainwareHub &bull; {{ $title }}</title>	
-	@else
-	<title>BrainwareHub</title>	
-	@endif
-	
+    <meta charset="utf-8">
+    <title>MultiShop - Online Shop Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
-	<link rel="icon" href="../ui/img/logo.ico">
-	<link rel="stylesheet" href="../ui/dist52/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../ui/bootstrap-icons-1.9.1/bootstrap-icons.css">
-	<link rel="stylesheet" href="../ui/swiper/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="../assets/libs/select2/select2.min.css">
-	<link rel="stylesheet" href="../ui/fonts/font-awesome.min.css">
-	<link rel="stylesheet" href="../ui/fonts/line-awesome.min.css">
-	<link rel="stylesheet" href="../ui/icomoon/style.css">
-	<link rel="stylesheet" href="../ui/css/global.css">
-	<link rel="stylesheet" href="../ui/css/navtop.css">
-	<link rel="stylesheet" href="../ui/css/navdown.css">
-	<link rel="stylesheet" href="../ui/css/footer.css">
-	@if (!empty($pages))
-	<link rel="stylesheet" href="../ui/css/{{ $pages }}.css">
-	@endif
-	
-	{{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> --}}
-	
-	{{-- <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" /> --}}
-	
+    <!-- Favicon -->
+    <link href="{{ url('online_shop/img/favicon.ico') }}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url('online_shop/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url('online_shop/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url('online_shop/css/style.css') }}" rel="stylesheet">
 </head>
+
 <body>
 
-	@yield('notifikasi')
-	@include('front/navtop')
-	@include('front/navdown')
-	<main class="wrapper">
-		@yield('konten')
-	</main>
+    <!-- Topbar Start -->
+    @include('front/navtop')
+    <!-- Topbar End -->
 
-	{{-- this loading spinner --}}
-	<div class="collapse backdrop-spinner" id="loading">
-		<div class="position-fixed start-0 top-0 end-0 bottom-0 w-100 h-100 d-flex justify-content-center align-items-center flex-column text-light fs-4" style="background-color: rgba(0,0,0,.5); z-index: 3000;">
-			<div class="spinner-border" role="status"></div>
-			<span class="p-3">Loading...</span>
-			{{-- <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target=".backdrop-spinner">CLOSE SPINNER</button> --}}
-		</div>
-	</div>
 
-	
-	@include('front/footer')
-	@yield('popup')
+    <!-- Navbar Start -->
+    @include('front/navbar')
+    <!-- Navbar End -->
+    <main class="wrapper">
+        @yield('konten')
+    </main>
 
-	
-	{{-- @if($pages=='product') --}}
-	{{-- @include('front/modalAddtocart') --}}
-	{{-- @endif --}}
 
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQB3WHD8HW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-HQB3WHD8HW');
-</script>
+    <!-- Footer Start -->
+    @include('front/footer')
+    <!-- Footer End -->
 
-	<script type="text/javascript" src="../ui/js/jquery-3.6.0.min.js"></script>
-	{{-- <script type="text/javascript" src="../ui/js/popper.min.js"></script> --}}
-	<script type="text/javascript" src="../ui/dist52/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="../ui/swiper/swiper-bundle.min.js"></script>
-	<script type="text/javascript" src="../ui/select2/select2.min.js"></script>
-	<script type="text/javascript" src="../ui/js/global.js"></script>
-	<script>
-		// fungsi spinner
 
-		// $(document).ready(function() {
-		// 	if ($('.backdrop-spinner').hasClass('show')) {
-		// 		$('html').addClass('no-scroll');
-		// 	} else {
-		// 		$('html').removeClass('no-scroll');
-		// 	}
-		// });
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-		// fungsi tooltip
-		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
-		$('#triggerSpinner').click(function() {
-			if ($('.backdrop-spinner').hasClass('show')) {
-				$('html').addClass('no-scroll');
-			} else {
-				$('html').removeClass('no-scroll');
-			}
-		});
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-		// garis bantu
-		[].forEach.call(document.querySelectorAll("*"), function(a) {
-			// a.style.outline = "1px solid green";
-		});
-	</script>
-	@if(!empty($pages))
-	<script type="text/javascript" src="../ui/js/{{ $pages }}.js"></script>
-	@endif
-	
-	
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
 
-	<script type="text/javascript">
-		[].forEach.call(document.querySelectorAll("*"), function(a) {
-			// a.style.outline = "1px solid green";
-		});
-	</script>
-
-	{{-- <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target=".backdrop-spinner" id="close-loading-screen">CLOSE SPINNER</button> --}}
-	<div class="collapse backdrop-spinner" id="loading-screen">
-		<div class="position-fixed start-0 top-0 end-0 bottom-0 w-100 h-100 d-flex justify-content-center align-items-center" style="background-color: rgba(0,0,0,.5); z-index: 3000;">
-			<div class="spinner-border text-light" role="status">
-				<span class="visually-hidden">Loading...</span>
-			</div>
-		</div>
-	</div>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
