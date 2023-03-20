@@ -11,6 +11,7 @@ use App\Http\Controllers\Koperasi\KoperasiKotaController;
 
 use App\Http\Controllers\Koperasifront\FrontController;
 
+use App\Http\Controllers\Front\FrontCategoryProductController;
 
 
 use App\Http\Controllers\Front\FrontLoginController;
@@ -106,6 +107,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Route::get('fkoperasi', [FrontController::class, 'index'])->name('fkoperasi.index');
 
+Route::get('fcategoryproduct', [FrontCategoryProductController::class, 'index'])->name('fcategoryproduct.index');
 
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

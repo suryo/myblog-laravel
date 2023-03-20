@@ -34,11 +34,12 @@ class FrontLandingController extends Controller
      */
     public function index(Request $request)
     {
-       
+        $res_category_product = DB::select('select * from product_category_models');
         $title = 'home';
         $pages = 'landing';
 
-        return view('front/landing', compact( 'title', 'pages'))
+
+        return view('front/landing', compact( 'title', 'pages', 'res_category_product'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
