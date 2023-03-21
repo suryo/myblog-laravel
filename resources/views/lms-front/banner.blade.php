@@ -11,9 +11,10 @@
                     <div class="container-xl">
                         <div class="row">
                             <div class="col-lg-8 col-xl-7 px-0">
-                                <h4 class="caption-title mb-2">READY TO BE COME A SOFTWARE ENGINEER?</h4>
+                                <h4 class="caption-title mb-2"></h4>
                                 <p class="lead caption-text mb-4">
-                                    Come and join us...
+                                   <br>
+                                   <br>
                                 </p>
                                 <a href="#" class="btn btn-info">
                                     READ MORE <i class="bi bi-chevron-right"></i>

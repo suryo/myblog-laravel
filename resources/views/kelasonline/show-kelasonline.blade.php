@@ -58,6 +58,8 @@
                 <h3 class="gotham-bold fs-2 fs-lg-3">{{ $kelas_online->title }}</h3>
                 <p>Author : {{ $kelas_online->author }}</p>
                 <p class="text-justify">{!! $kelas_online->text !!}</p>
+                <p><a href="{{ route('kelasonlinedetail.create') }}" class="px-1 text-primary text-right"><i
+                    class="uil uil-plus font-size-18"></i></a></p>
             </div>
          
             <div class="col-lg-12 mt-3">
@@ -79,10 +81,16 @@
                 </div>
             </div>
             <div class="flex-1 overflow-hidden">
-                <h5 class="font-size-16 mb-1">{{$detailitem->title}}</h5>
-                <p class="text-muted text-truncate mb-0">{{$detailitem->short_desc}}</p>
+
+                
+
+                <h5 class="font-size-16 mb-1">{{$detailitem->title}}</h5>  
+              
+                <p class="text-muted text-truncate mb-0">{{$detailitem->short_desc}}<a href="{{ route('kelasonlinedetail.edit', $detailitem->id) }}" class="px-1 text-primary text-right"><i
+                    class="uil uil-pen font-size-18"></i></a></p>
+                
             </div>
-            <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
+            <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i> 
         </div>
 
     </div>
