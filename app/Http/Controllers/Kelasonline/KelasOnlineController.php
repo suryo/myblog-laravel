@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kelasonline;
 
+use App\Models\User;
 use App\Models\Kelas_online_model;
 use App\Models\Kelas_online_category_model;
 use App\Models\Kelas_online_detail_model;
@@ -23,7 +24,7 @@ class KelasOnlineController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+       
     }
     /**
      * Display a listing of the resource.
@@ -32,11 +33,14 @@ class KelasOnlineController extends Controller
      */
     public function index(Request $request)
     {
-        // $product_models = Product_model::latest()->get();
-
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
         $kelasonline =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
 
-        return view('kelasonline/list-kelasonline', compact('kelasonline'));
+        return view('kelasonline/list-kelasonline', compact('kelasonline', 'role'));
             // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -108,7 +112,12 @@ class KelasOnlineController extends Controller
      */
     public function show($id)
     {
-
+        if (isset(auth()->user()->id)) {
+            //$id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
+dump($id);
         $res_kelas_online = DB::select("SELECT * from kelas_online where id = ".$id);
         $kelas_online = $res_kelas_online[0];
         $res_kelas_online_detail = DB::select("SELECT * from kelas_online_detail where id_kelas_online = ".$id);
@@ -118,7 +127,7 @@ class KelasOnlineController extends Controller
 
 
         //$kelas_online_models = Kelas_online_model::find($id);
-        return view('kelasonline.show-kelasonline', compact('title','pages','kelas_online','kelas_online_detail'));
+        return view('kelasonline.show-kelasonline', compact('title','pages','kelas_online','kelas_online_detail','role'));
     }
 
     /**
@@ -129,11 +138,16 @@ class KelasOnlineController extends Controller
      */
     public function edit($id)
     {
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
         $reskelasonline =  DB::select("SELECT n.id, n.title,n.short_desc, n.text, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id where n.id=".$id);
         $kelasonline = $reskelasonline[0];
         //dd($news);
         //$product_models = Blog_article_category_model::findOrFail($id);
-        return view('kelasonline.edit-kelasonline', compact('kelasonline'));
+        return view('kelasonline.edit-kelasonline', compact('kelasonline','role'));
     }
 
     /**

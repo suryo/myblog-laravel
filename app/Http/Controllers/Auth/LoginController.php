@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -83,9 +84,12 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+        $courses =  DB::select("SELECT n.id, n.title,n.image_landscape,n.author,n.level,n.price_buy,n.price_rent, c.name, n.created_at, n.short_desc, n.image from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
+        $coursescategory = DB::select("SELECT *,(select count(*) from kelas_online as k where k.category_id = c.id) as jumlah from kelas_online_category as c");
+        $coursestechnology = DB::select("SELECT * from kelas_online_technology");
         // return view('auth.login');
         $title = "Sign In";
         $pages = "signin";
-        return view('front.signin', compact('title', 'pages'));
+        return view('LMS-front.signin', compact('title', 'pages','courses', 'coursescategory','coursestechnology'));
     }
 }

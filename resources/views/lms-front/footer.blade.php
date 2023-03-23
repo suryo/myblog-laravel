@@ -1,7 +1,7 @@
 <footer class="text-center border-top bg-white small">
-    <div class="container text-left pt-5">
+    <div class="container text-left pt-5 d-none">
         <div class="row justify-content-lg-between">
-            <div class="col-6 col-md-4 col-lg-auto">
+            <div class="col-6 col-md-4 col-lg-auto d-none">
                 <h6 class="text-uppercase"><strong>join us</strong></h6>
                 <ul class="list-unstyled text-capitalize mb-5">
                     <li><a href="#">how to learn</a></li>
@@ -11,7 +11,7 @@
                 </ul>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-auto">
+            <div class="col-6 col-md-4 col-lg-auto d-none">
                 <h6 class="text-uppercase"><strong>program</strong></h6>
                 <ul class="list-unstyled text-capitalize mb-5">
                     <li><a href="#">kelas fullstack.id</a></li>
@@ -21,7 +21,7 @@
                 </ul>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-auto">
+            <div class="col-6 col-md-4 col-lg-auto d-none">
                 <h6 class="text-uppercase"><strong>developers</strong></h6>
                 <ul class="list-unstyled text-capitalize mb-5">
                     <li><a href="#">Forum discussions</a></li>
@@ -31,7 +31,7 @@
                 </ul>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-auto">
+            <div class="col-6 col-md-4 col-lg-auto d-none">
                 <h6 class="text-uppercase"><strong>company</strong></h6>
                 <ul class="list-unstyled text-capitalize mb-5">
                     <li><a href="#">About BrainwareHub</a></li>

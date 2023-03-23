@@ -93,12 +93,14 @@
              <div class="mb-1">
                 <button class="btn btn-block p-3 pr-5 text-left rounded-0" data-toggle="collapse"
                    data-target="#col-materi{{$detailitem->id}}" style="background-color: rgba(207, 207, 207, 0.25);">
+                   @if (empty(Auth::user()))
                    <i class="bi bi-lock-fill"></i>
+                   @endif
                    <i
                    class="bi bi-play-circle-fill"></i>
                    {{$detailitem->title}} {{$detailitem->short_desc}}
                 </button>
-                <div class="collapse collapsed" id="col-materi{{$detailitem->id}}">
+                <div class="collapse collapsed {{empty(Auth::user()) ? 'd-none' : ''}}" id="col-materi{{$detailitem->id}}">
                   <div class="p-4 border-top">
                      {!!$detailitem->text!!}
                  </div>
@@ -155,8 +157,8 @@
              </style>
 
              <!-- baris penyusun materi -->
-             <h3 class="font-weight-bold mb-3">Penyusun Materi</h3>
-             <div class="swiper-container">
+             <h3 class="font-weight-bold mb-3 d-none">Penyusun Materi</h3>
+             <div class="swiper-container d-none">
                 <div id="slider-pemateri" class="swiper mb-5">
                    <div class="swiper-wrapper">
 
@@ -237,8 +239,8 @@
              </div>
 
              <!-- baris testimoni -->
-             <h3 class="font-weight-bold mb-3">Testimoni Siswa</h3>
-             <div class="row align-items-center">
+             <h3 class="font-weight-bold mb-3 d-none">Testimoni Siswa</h3>
+             <div class="row align-items-center d-none">
                 <div class="col-md-auto text-center">
                    <h1 class="display-1 font-weight-bold" style="line-height: 1;">4.7</h1>
                    <p>
@@ -302,7 +304,7 @@
                 </div>
              </div>
              <hr class="border-secondary mt-0">
-             <ul class="list-group list-group-flush">
+             <ul class="list-group list-group-flush d-none">
                 <!-- review item -->
                 <li class="list-group-item px-0">
                    <div class="media">
@@ -400,7 +402,7 @@
           
 
           <!-- detail sidebar -->
-          <div id="detail-sidebar" class="col-lg-auto ml-lg-auto mb-5">
+          <div id="detail-sidebar" class="col-lg-auto ml-lg-auto mb-5 d-none">
              <div class="card transform-none border-secondary"
                 style="position: -webkit-sticky; position: sticky; top: 100px; z-index: 1020;">
                 <img src="assets/img/lanscape.png" class="card-img-top" alt="">
@@ -514,7 +516,7 @@
  </section>
 
  <section>
-    <div class="container">
+    <div class="container d-none">
        <header class="d-md-flex align-items-center mb-4">
           <h3 class="font-weight-bold mr-md-auto mb-md-0">Kelas Populer Lainnya</h3>
           <a href="kelas.html" class="text-primary"><u>Lihat Semua <i class="bi bi-chevron-right"></i></u></a>

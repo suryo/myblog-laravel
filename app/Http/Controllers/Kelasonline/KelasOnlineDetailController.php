@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kelasonline;
 
+use App\Models\User;
 use App\Models\Kelas_online_model;
 use App\Models\Kelas_online_category_model;
 use App\Models\Kelas_online_detail_model;
@@ -32,11 +33,14 @@ class KelasOnlineDetailController extends Controller
      */
     public function index(Request $request)
     {
-        // $product_models = Product_model::latest()->get();
-
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
         $kelasonlinedetail =  DB::select("SELECT n.id, n.title,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id");
 
-        return view('kelasonline/list-kelasonlinedetail', compact('kelasonlinedetail'))
+        return view('kelasonline/list-kelasonlinedetail', compact('kelasonlinedetail','role'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -47,8 +51,14 @@ class KelasOnlineDetailController extends Controller
      */
     public function create()
     {
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
+
         $kelas_online_models = Kelas_online_model::latest()->get();
-        return view('kelasonline/add-kelasonlinedetail',compact('kelas_online_models'));
+        return view('kelasonline/add-kelasonlinedetail',compact('kelas_online_models','role'));
     }
 
     /**
@@ -59,7 +69,6 @@ class KelasOnlineDetailController extends Controller
      */
     public function store(Request $request)
     {
-        // dd("ayam");
         $this->validate($request, [
             'title' => 'required'
         ]);
@@ -107,8 +116,14 @@ class KelasOnlineDetailController extends Controller
      */
     public function show($id)
     {
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
+
         $blog_article_category_models = Blog_article_category_model::find($id);
-        return view('blog-article-categorys.show', compact('blog_article_category_models'));
+        return view('blog-article-categorys.show', compact('blog_article_category_models','role'));
     }
 
     /**
@@ -119,11 +134,16 @@ class KelasOnlineDetailController extends Controller
      */
     public function edit($id)
     {
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
         $reskelasonlinedetail =  DB::select("SELECT n.id, n.title,n.text,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id where n.id=".$id);
         $kelasonlinedetail = $reskelasonlinedetail[0];
         //dd($kelasonlinedetail);
         //$product_models = Blog_article_category_model::findOrFail($id);
-        return view('kelasonline.edit-kelasonlinedetail', compact('kelasonlinedetail'));
+        return view('kelasonline.edit-kelasonlinedetail', compact('kelasonlinedetail','role'));
     }
 
     /**

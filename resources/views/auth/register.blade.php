@@ -12,9 +12,9 @@
                 <div class="col-lg-12">
                     <div class="text-center">
                         <a href="{{ url('index') }}" class="mb-5 d-block auth-logo">
-                            <img src="{{ URL::asset('/assets/images/logo-supresso.png') }}" alt="" height="22"
+                            <img src="{{ URL::asset('/template/assets/img/logo.png') }}" alt="" height="52"
                                 class="logo logo-dark">
-                            <img src="{{ URL::asset('/assets/images/logo-supresso.png') }}" alt="" height="22"
+                            <img src="{{ URL::asset('/template/assets/img/logo.png') }}" alt="" height="52"
                                 class="logo logo-light">
                         </a>
                     </div>
@@ -28,7 +28,7 @@
 
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">Register Account</h5>
-                                <p class="text-muted">Get your free Supresso account now.</p>
+                                <p class="text-muted">Get your free BrainwareHub account now.</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <form method="POST" action="{{ route('register') }}">
@@ -135,7 +135,7 @@
                         <p>© <script>
                                 document.write(new Date().getFullYear())
 
-                            </script> Supresso
+                            </script> BrainwareHub
                             {{-- . Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand --}}
                         </p>
                     </div>

@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Charts\SampleChart;
 
+use App\Models\User;
 use App\Models\Order_model;
 use App\Models\Order_detail_model;
 use App\Models\Product_model;
@@ -136,6 +137,11 @@ class DashboardController extends Controller
 
         // dd($chart);
 
-        return view('dashboard.index', compact('chart', 'count_product', 'count_order', 'count_member', 'incomes', 'topsellingproduct'));
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
+        return view('dashboard.index', compact('chart', 'count_product', 'count_order', 'count_member', 'incomes', 'topsellingproduct', 'role'));
     }
 }

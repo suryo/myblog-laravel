@@ -7,8 +7,8 @@
     <section class="pt-4 pt-lg-5">
         <header class="mb-4 mb-lg-5">
             <div class="container">
-                <h3 class="font-weight-bold mb-0">Siap untuk menjadi Programmer professional?</h3>
-                <p>Pilih dan jadilah professional!</p>
+                <h3 class="font-weight-bold mb-0">Siap Untuk Menjadi Programmer Professional?</h3>
+                <p>Pilih dan Jadilah Professional!</p>
             </div>
         </header>
 
@@ -19,45 +19,21 @@
                     <h5 class="font-weight-bold mb-3">Filter Kelas</h5>
                     <ul class="list-unstyled filter-kelas text-capitalize">
                         <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">semua kelas</div>
+                            <img src={{ url('template/assets/img/square_brainwarehub.png') }} class="img-fluid"
+                                alt="">
+                            <div class="media-body"><a onclick="searchcourses('technology_id','all')">Semua Kelas</a></div>
                         </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">CSS</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">web</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">android</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">bootstrap</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">code igniter</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">tailwind</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">laravel</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">jquery</div>
-                        </li>
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square.png') }} class="img-fluid" alt="">
-                            <div class="media-body">PHP</div>
-                        </li>
+                        @foreach ($coursestechnology as $technology)
+                            <li class="media">
+
+                                <img src={{ url('template/assets/img/' . $technology->image) }} class="img-fluid"
+                                    alt="">
+                                <div class="media-body"> <a
+                                        onclick="searchcourses('technology_id',{{ $technology->id }})">{{ $technology->name }}</a>
+                                </div>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
                 <style>
@@ -102,18 +78,29 @@
                                         </div>
                                     </div>
                                     <div class="dropdown">
+
+                                        {{-- <select name="" id="" onchange="searchcourses()">
+                                            <option>Semua Level</option>
+                                            <option>Pemula</option>
+                                            <option>Menengah</option>
+                                            <option>Mahir</option>
+                                        </select> --}}
                                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
                                             data-toggle="dropdown">
                                             level
                                         </button>
                                         <div class="dropdown-menu">
-                                            <button class="dropdown-item">semua level</button>
-                                            <button class="dropdown-item">pemula</button>
-                                            <button class="dropdown-item">menengah</button>
-                                            <button class="dropdown-item">mahir</button>
+                                            <button class="dropdown-item" onclick="searchcourses('level','all')">Semua
+                                                Level</button>
+                                            <button class="dropdown-item"
+                                                onclick="searchcourses('level','beginner')">Pemula</button>
+                                            <button class="dropdown-item"
+                                                onclick="searchcourses('level','middle')">Menengah</button>
+                                            <button class="dropdown-item"
+                                                onclick="searchcourses('level','advanced')">Mahir</button>
                                         </div>
                                     </div>
-                                    <div class="dropdown">
+                                    <div class="dropdown d-none">
                                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
                                             data-toggle="dropdown">
                                             urutkan
@@ -125,14 +112,14 @@
                                             <button class="dropdown-item">harga terendah</button>
                                         </div>
                                     </div>
-                                    <div class="dropdown">
+                                    <div class="dropdown d-none">
                                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
                                             data-toggle="dropdown">
                                             tampilkan
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item">semua kelas</button>
-                                            <button class="dropdown-item">gelas gratis</button>
+                                            <button class="dropdown-item">Semua Kelas</button>
+                                            <button class="dropdown-item">Kelas Gratis</button>
                                         </div>
                                     </div>
                                 </div>
@@ -155,420 +142,87 @@
                     </style>
 
                     <div class="daftar-kelas mb-5">
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3">
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3" id="courseslist">
+                            {{-- @foreach ($kelasonline as $courses)
+                                <div class="col">
+                                    <a href="{{ url('courses/' . $courses->id) }}" class="d-inline">
+                                        <!-- produk item -->
+                                        <div class="swiper-slide">
+                                            <a href="{{ url('courses/' . $courses->id) }}"
+                                                class="text-decoration-none text-inherit">
+                                                <div class="card shadow-sm">
+                                                    <img src={{ url('template/assets/img/' . $courses->image_landscape) }}
+                                                        class="card-img-top rounded" alt="">
+                                                    <div class="card-body text-capitalize">
+                                                        <p class="card-text small mb-1">by {{ $courses->author }}</p>
+                                                        <h6 class="card-title font-weight-bold">
+                                                            {{ $courses->title }}
+                                                        </h6>
+                                                        <div class="row g-3 small my-3">
+                                                            <div class="col-6 mt-1"><i
+                                                                    class="bi bi-bar-chart-fill mr-2"></i>
+                                                                {{ $courses->level }}</div>
+                                                            <div class="col-6 mt-1 d-none"><i
+                                                                    class="bi bi-alarm-fill mr-2"></i> 12
+                                                                jam
+                                                            </div>
+                                                            <div class="col-6 mt-1 d-none"><i
+                                                                    class="bi bi-people-fill mr-2"></i> 80
+                                                                siswa</div>
+                                                            <div class="col-6 mt-1 d-none"><i
+                                                                    class="bi bi-book-fill mr-2"></i> 62
+                                                                modul
+                                                            </div>
                                                         </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
+                                                        <p class="card-text d-none">
+                                                            <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0
+                                                            &nbsp;&nbsp;
+                                                            (100)
+                                                            Penilaian
+                                                        </p>
                                                     </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
+                                                    <div class="card-footer small font-weight-bold">
+                                                        @if ($courses->price_buy != 0)
+                                                            <div class="row justify-content-between">
+                                                                <div class="col-auto">Beli</div>
+                                                                <div class="col text-right">
+                                                                    <del class="text-danger mr-2">Rp 380.000,-</del>
+                                                                    <span>Rp 129.000</span>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                        @if ($courses->price_rent != 0)
+                                                            <div class="row justify-content-between">
+                                                                <div class="col-auto">Sewa</div>
+                                                                <div class="col text-right">
+                                                                    <del class="text-danger mr-2">Rp 380.000,-</del>
+                                                                    <span>Rp 129.000</span>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                        @if ($courses->price_buy == 0 && $courses->price_rent == 0)
+                                                            <div class="row justify-content-between">
+                                                                <div class="col-auto text-success">Free</div>
+
+                                                            </div>
+                                                        @endif
+
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="detail.html" class="d-inline">
-                                    <!-- produk item -->
-                                    <div class="swiper-slide">
-                                        <a href="detail.html" class="text-decoration-none text-inherit">
-                                            <div class="card shadow-sm">
-                                                <img src={{ url('template/assets/img/lanscape.png') }}
-                                                    class="card-img-top rounded" alt="">
-                                                <div class="card-body text-capitalize">
-                                                    <p class="card-text small mb-1">by suryo atmojo MIT</p>
-                                                    <h6 class="card-title font-weight-bold">
-                                                        membuat website company profile dari nol sampai mahir
-                                                    </h6>
-                                                    <div class="row g-3 small my-3">
-                                                        <div class="col-6 mt-1"><i class="bi bi-bar-chart-fill mr-2"></i>
-                                                            beginner</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-alarm-fill mr-2"></i> 12
-                                                            jam
-                                                        </div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-people-fill mr-2"></i> 80
-                                                            siswa</div>
-                                                        <div class="col-6 mt-1"><i class="bi bi-book-fill mr-2"></i> 62
-                                                            modul
-                                                        </div>
-                                                    </div>
-                                                    <p class="card-text">
-                                                        <i class="bi bi-star-fill mr-2 text-warning"></i> 5.0 &nbsp;&nbsp;
-                                                        (100) Penilaian
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer small font-weight-bold">
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Beli</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row justify-content-between">
-                                                        <div class="col-auto">Sewa</div>
-                                                        <div class="col text-right">
-                                                            <del class="text-danger mr-2">Rp 380.000,-</del>
-                                                            <span>Rp 129.000</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </a>
-                            </div>
+                                            </a>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach --}}
+
+
                         </div>
                     </div>
 
                     <nav aria-label="...">
-                        <ul class="pagination justify-content-center">
+                        <ul class="pagination justify-content-center d-none">
                             <li class="page-item disabled">
                                 <a class="page-link">
                                     <span class="d-none d-md-inline">Previous</span>
@@ -592,6 +246,245 @@
         </div>
     </section>
 @endsection
+@php
+    if (isset($_GET['technology'])) {
+        $technology = $_GET['technology'];
+    } else {
+        $technology = 0;
+    }
 
-@section('script')
-@endsection
+    if (isset($_GET['level'])) {
+        $level = $_GET['level'];
+    } else {
+        $level = 'all';
+    }
+@endphp
+<script src="{{ URL::asset('/ui/js/jquery-3.6.0.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    let courses = @json($kelasonline);
+    let technology = @json($technology);
+    let level = @json($level);
+    console.log("tech");
+    console.log(technology);
+    console.log(typeof(technology));
+    console.log(typeof(technology));
+
+    $(document).ready(function() {
+        if ((technology === 0)&&(level === 'all')) {
+            console.log(technology);
+            console.log(level);
+            
+            showcourses()
+        } else if(technology != 0){
+            console.log("search by technology")
+            searchcourses('technology_id', parseInt(technology))
+        }else if(level != 'all'){
+            console.log("search by level")
+            searchcourses('level', level)
+        }
+
+        // if (level === 'all') {
+        //     showcourses()
+        // } else {
+        //     searchcourses('level', level)
+        // }
+
+    });
+
+    function showcourses() {
+        var strcourses = "";
+        for (let index = 0; index < courses.length; index++) {
+            console.log(courses[index].image_landscape);
+            strcourses += "<div class='col'>";
+            strcourses += "    <a href={{ url('coursesss/') }}";
+            strcourses += "/" + courses[index].id + " ";
+            strcourses += "class='d-inline'>";
+            strcourses += "        <div class='swiper-slide'>";
+            strcourses += "            <a href={{ url('courses/') }}";
+            strcourses += "/" + courses[index].id + " ";
+            strcourses += "                class='text-decoration-none text-inherit'>";
+            strcourses += "                <div class='card shadow-sm'>";
+            strcourses += "                    <img src={{ url('template/assets/img/') }}";
+            strcourses += "/" + courses[index].image_landscape;
+            strcourses += "                        class='card-img-top rounded' alt=''>";
+            strcourses += "                    <div class='card-body text-capitalize'>";
+            strcourses += "                        <p class='card-text small mb-1'>by " + courses[index].author +
+                "</p>";
+            strcourses += "                        <h6 class='card-title font-weight-bold'>";
+            strcourses += courses[index].title;
+            strcourses += "                        </h6>";
+            strcourses += "                        <div class='row g-3 small my-3'>";
+            strcourses += "                            <div class='col-6 mt-1'><i";
+            strcourses += "                                    class='bi bi-bar-chart-fill mr-2'></i>";
+            strcourses += "                                " + courses[index].level + "</div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-alarm-fill mr-2'></i> 12";
+            strcourses += "                                jam";
+            strcourses += "                            </div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-people-fill mr-2'></i> 80";
+            strcourses += "                                siswa</div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-book-fill mr-2'></i> 62";
+            strcourses += "                                modul";
+            strcourses += "                            </div>";
+            strcourses += "                        </div>";
+            strcourses += "                        <p class='card-text d-none'>";
+            strcourses += "                            <i class='bi bi-star-fill mr-2 text-warning'></i> 5.0";
+            strcourses += "                            &nbsp;&nbsp;";
+            strcourses += "                            (100)";
+            strcourses += "                            Penilaian";
+            strcourses += "                        </p>";
+            strcourses += "                    </div>";
+            strcourses += "                    <div class='card-footer small font-weight-bold'>";
+            if (courses[index].price_buy != 0) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto'>Beli</div>";
+                strcourses += "                                <div class='col text-right'>";
+                strcourses += "                                    <del class='text-danger mr-2'>Rp 380.000,-</del>";
+                strcourses += "                                    <span>Rp 129.000</span>";
+                strcourses += "                                </div>";
+                strcourses += "                            </div>";
+            }
+            if (courses[index].price_rent != 0) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto'>Sewa</div>";
+                strcourses += "                                <div class='col text-right'>";
+                strcourses += "                                    <del class='text-danger mr-2'>Rp 380.000,-</del>";
+                strcourses += "                                    <span>Rp 129.000</span>";
+                strcourses += "                                </div>";
+                strcourses += "                            </div>";
+            }
+            if ((courses[index].price_buy == 0 && courses[index].price_rent == 0)) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto text-success'>Free</div>";
+                strcourses += "";
+                strcourses += "                            </div>";
+            }
+            strcourses += "                    </div>";
+            strcourses += "                </div>";
+            strcourses += "            </a>";
+            strcourses += "        </div>";
+            strcourses += "    </a>";
+            strcourses += "</div>";
+
+        }
+        document.getElementById("courseslist").innerHTML = strcourses;
+    }
+
+    function search(varparams, varsearch) {
+        var objfilter = [];
+        console.log(courses)
+        for (let index = 0; index < courses.length; index++) {
+
+            if (varparams === 'technology_id') {
+                if (varsearch == 'all') {
+                    objfilter.push(courses[index]);
+                } else {
+                    console.log("bukan all")
+                    console.log(typeof(varsearch))
+                    console.log(courses[index].technology_id)
+                    if (courses[index].technology_id == varsearch) {
+                        console.log("apakah sama dengan ")
+                        objfilter.push(courses[index]);
+                    }
+                }
+
+            } else if (varparams === 'level') {
+                if (varsearch == 'all') {
+                    objfilter.push(courses[index]);
+                } else {
+                    if (courses[index].level === varsearch) {
+                        objfilter.push(courses[index]);
+                    }
+                }
+
+            }
+
+        }
+
+        return objfilter;
+    }
+
+    function searchcourses(varparams, varsearch) {
+        console.log(varsearch);
+        const found = search(varparams, varsearch);
+        var strcourses = "";
+        for (let index = 0; index < found.length; index++) {
+            strcourses += "<div class='col'>";
+            strcourses += "    <a href={{ url('coursesss/') }}";
+            strcourses += "/" + found[index].id + " ";
+            strcourses += "class='d-inline'>";
+            strcourses += "        <div class='swiper-slide'>";
+            strcourses += "            <a href={{ url('courses/') }}";
+            strcourses += "/" + found[index].id + " ";
+            strcourses += "                class='text-decoration-none text-inherit'>";
+            strcourses += "                <div class='card shadow-sm'>";
+            strcourses += "                    <img src={{ url('template/assets/img/') }}";
+            strcourses += "/" + found[index].image_landscape;
+            strcourses += "                        class='card-img-top rounded' alt=''>";
+            strcourses += "                    <div class='card-body text-capitalize'>";
+            strcourses += "                        <p class='card-text small mb-1'>by " + found[index].author + "</p>";
+            strcourses += "                        <h6 class='card-title font-weight-bold'>";
+            strcourses += found[index].title;
+            strcourses += "                        </h6>";
+            strcourses += "                        <div class='row g-3 small my-3'>";
+            strcourses += "                            <div class='col-6 mt-1'><i";
+            strcourses += "                                    class='bi bi-bar-chart-fill mr-2'></i>";
+            strcourses += "                                " + found[index].level + "</div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-alarm-fill mr-2'></i> 12";
+            strcourses += "                                jam";
+            strcourses += "                            </div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-people-fill mr-2'></i> 80";
+            strcourses += "                                siswa</div>";
+            strcourses += "                            <div class='col-6 mt-1 d-none'><i";
+            strcourses += "                                    class='bi bi-book-fill mr-2'></i> 62";
+            strcourses += "                                modul";
+            strcourses += "                            </div>";
+            strcourses += "                        </div>";
+            strcourses += "                        <p class='card-text d-none'>";
+            strcourses += "                            <i class='bi bi-star-fill mr-2 text-warning'></i> 5.0";
+            strcourses += "                            &nbsp;&nbsp;";
+            strcourses += "                            (100)";
+            strcourses += "                            Penilaian";
+            strcourses += "                        </p>";
+            strcourses += "                    </div>";
+            strcourses += "                    <div class='card-footer small font-weight-bold'>";
+            if (courses[index].price_buy != 0) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto'>Beli</div>";
+                strcourses += "                                <div class='col text-right'>";
+                strcourses += "                                    <del class='text-danger mr-2'>Rp 380.000,-</del>";
+                strcourses += "                                    <span>Rp 129.000</span>";
+                strcourses += "                                </div>";
+                strcourses += "                            </div>";
+            }
+            if (found[index].price_rent != 0) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto'>Sewa</div>";
+                strcourses += "                                <div class='col text-right'>";
+                strcourses += "                                    <del class='text-danger mr-2'>Rp 380.000,-</del>";
+                strcourses += "                                    <span>Rp 129.000</span>";
+                strcourses += "                                </div>";
+                strcourses += "                            </div>";
+            }
+            if ((found[index].price_buy == 0 && found[index].price_rent == 0)) {
+                strcourses += "                            <div class='row justify-content-between'>";
+                strcourses += "                                <div class='col-auto text-success'>Free</div>";
+                strcourses += "";
+                strcourses += "                            </div>";
+            }
+            strcourses += "                    </div>";
+            strcourses += "                </div>";
+            strcourses += "            </a>";
+            strcourses += "        </div>";
+            strcourses += "    </a>";
+            strcourses += "</div>";
+
+        }
+        document.getElementById("courseslist").innerHTML = strcourses;
+    }
+</script>

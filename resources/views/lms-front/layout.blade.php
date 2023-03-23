@@ -136,8 +136,7 @@
 
     <!-- header topbar -->
     @include('lms-front/navtop')
-    <!-- banner -->
-    @include('lms-front/banner')
+    
 
     <main class="wrapper pt-5">
 		@yield('konten')

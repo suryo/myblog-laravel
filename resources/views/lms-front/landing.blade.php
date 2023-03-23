@@ -3,8 +3,12 @@
 @section('notifikasi')
 @endsection
 
+<!-- banner -->
+{{-- @include('lms-front/banner') --}}
+
 @section('konten')
     <section>
+        @include('lms-front/banner')
         <div class="container">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
@@ -45,17 +49,17 @@
                 <div id="sliderProductRodmap" class="swiper slider-produk">
                     <div class="swiper-wrapper">
 
-                        @foreach ($courses as $item)
+                        @foreach ($roadmap as $roadmap)
                             <div class="swiper-slide">
                                 <div class="card shadow-sm">
-                                    <img src={{ url('template/assets/img/' . $item->image) }} class="card-img-top rounded"
+                                    <img src={{ url('template/assets/img/' . $roadmap->image) }} class="card-img-top rounded"
                                         alt="">
                                     <div class="card-img-overlay text-capitalize text-light top-unset">
-                                        <h4 class="card-title font-weight-bold">{{ $item->title }}</h4>
+                                        <h4 class="card-title font-weight-bold">{{ $roadmap->title }}</h4>
                                         <p class="card-text">
-                                            {{ $item->short_desc }}
+                                            {{ $roadmap->short_desc }}
                                         </p>
-                                        <a href="{{ url('courses/' . $item->id) }}" class="btn btn-primary">Beginner</a>
+                                        <a href="{{ url('roadmap/' . $roadmap->id) }}" class="btn btn-primary">{{ $roadmap->level}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,15 +87,15 @@
                 <div id="sliderProductMateri" class="swiper slider-produk">
                     <div class="swiper-wrapper">
 
-                        @foreach ($coursescategory as $item)
+                        @foreach ($coursestechnology as $item)
                               <!-- produk item -->
                         <div class="swiper-slide">
-                            <a href="kelas.html" class="text-decoration-none text-inherit">
+                            <a href="{{ url('courses'."?technology=".$item->id) }}" class="text-decoration-none text-inherit">
                                 <div class="card shadow-sm">
                                     <div class="card-body" style="padding: 15px;">
                                         <div class="row align-items-center g-3">
                                             <div class="col-4">
-                                                <img src={{ url('template/assets/img/square.png') }}
+                                                <img src={{ url('template/assets/img/'.$item->image) }}
                                                     class="img-fluid rounded" alt="">
                                             </div>
                                             <div class="col-8 text-capitalize">
