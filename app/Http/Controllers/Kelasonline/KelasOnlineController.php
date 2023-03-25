@@ -38,7 +38,7 @@ class KelasOnlineController extends Controller
             $user = User::find($id);
             $role = $user->getRoleNames();
         }
-        $kelasonline =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
+        $kelasonline =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id where n.status = 'published'");
 
         return view('kelasonline/list-kelasonline', compact('kelasonline', 'role'));
             // ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -117,7 +117,7 @@ class KelasOnlineController extends Controller
             $user = User::find($id);
             $role = $user->getRoleNames();
         }
-dump($id);
+
         $res_kelas_online = DB::select("SELECT * from kelas_online where id = ".$id);
         $kelas_online = $res_kelas_online[0];
         $res_kelas_online_detail = DB::select("SELECT * from kelas_online_detail where id_kelas_online = ".$id);
