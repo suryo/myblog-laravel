@@ -35,7 +35,7 @@ class CoursesController extends Controller
         // $product_models = Product_model::latest()->get();
         $coursescategory = DB::select("SELECT * from kelas_online_category");
         $coursestechnology = DB::select("SELECT * from kelas_online_technology");
-        $kelasonline =  DB::select("SELECT n.id, n.title,n.level,n.image_landscape,n.author,n.price_buy, n.price_rent,n.technology_id, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id");
+        $kelasonline =  DB::select("SELECT n.id, n.title,n.level,n.image_landscape,n.author,n.price_buy, n.price_rent,n.technology_id, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id where n.status='published'");
         return view('lms-front/courses/list', compact('kelasonline','coursescategory', 'coursestechnology'));
             // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
