@@ -135,13 +135,13 @@ class KelasOnlineDetailController extends Controller
     public function edit($id)
     {
         if (isset(auth()->user()->id)) {
-            $id = (auth()->user()->id);
+            // $id = (auth()->user()->id);
             $user = User::find($id);
             $role = $user->getRoleNames();
         }
         $reskelasonlinedetail =  DB::select("SELECT n.id, n.title,n.text,n.short_desc, c.title as topics, n.created_at from kelas_online_detail as n inner join kelas_online as c on n.id_kelas_online = c.id where n.id=".$id);
         $kelasonlinedetail = $reskelasonlinedetail[0];
-        //dd($kelasonlinedetail);
+        //dump($kelasonlinedetail);
         //$product_models = Blog_article_category_model::findOrFail($id);
         return view('kelasonline.edit-kelasonlinedetail', compact('kelasonlinedetail','role'));
     }
