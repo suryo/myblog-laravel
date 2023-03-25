@@ -90,6 +90,6 @@ class LoginController extends Controller
         // return view('auth.login');
         $title = "Sign In";
         $pages = "signin";
-        return view('LMS-front.signin', compact('title', 'pages','courses', 'coursescategory','coursestechnology'));
+        return view('lms-front.signin', compact('title', 'pages','courses', 'coursescategory','coursestechnology'));
     }
 }
