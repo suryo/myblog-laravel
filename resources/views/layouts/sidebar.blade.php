@@ -83,6 +83,7 @@
                         <li><a href={{ route('kelasonlinecategory.index') }}>@lang('Category Kelas Online')</a></li>
                         <li><a href={{ route('kelasonline.index') }}>@lang('Kelas Online Note')</a></li>
                         <li><a href={{ route('kelaseksklusifcategory.index') }}>@lang('Category Kelas Eksklusif')</a></li>
+                        <li><a href={{ route('kelasonlineroadmap.index') }}>@lang('Roadmap')</a></li>
                         <li><a href={{ route('kelaseksklusif.index') }}>@lang('Kelas Eksklusif Note')</a></li>
                         {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
                         <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}

@@ -77,7 +77,9 @@ use App\Http\Controllers\News\NewsController;
 
 use App\Http\Controllers\Kelasonline\KelasOnlineCategoryController;
 use App\Http\Controllers\Kelasonline\KelasOnlineController;
+use App\Http\Controllers\Kelasonline\KelasOnlineRoadmapController;
 use App\Http\Controllers\Kelasonline\KelasOnlineDetailController;
+
 
 use App\Http\Controllers\Kelaseksklusif\KelasEksklusifCategoryController;
 use App\Http\Controllers\Kelaseksklusif\KelasEksklusifController;
@@ -86,6 +88,7 @@ use App\Http\Controllers\Kelaseksklusif\KelasEksklusifDetailController;
 use App\Http\Controllers\Courses\CoursesCategoryController;
 use App\Http\Controllers\Courses\CoursesController;
 use App\Http\Controllers\Courses\CoursesDetailController;
+use App\Http\Controllers\Courses\RoadmapController;
 
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\SlidersController;
@@ -107,6 +110,8 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 
 Route::resource('courses', CoursesController::class);
+
+Route::resource('roadmap', RoadmapController::class);
 
 
 
@@ -146,6 +151,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('newscategory', NewsCategoryController::class);
 
     Route::resource('kelasonline', KelasOnlineController::class);
+    Route::resource('kelasonlineroadmap', KelasOnlineRoadmapController::class);
     Route::resource('kelasonlinecategory', KelasOnlineCategoryController::class);
     Route::resource('kelasonlinedetail', KelasOnlineDetailController::class);
 

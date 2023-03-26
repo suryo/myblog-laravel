@@ -159,20 +159,33 @@
                                             </p>
                                         </div>
                                         <div class="card-footer small font-weight-bold">
-                                            <div class="row justify-content-between">
+                                            @if ($courses->price_buy != 0)
+                                                 <div class="row justify-content-between">
                                                 <div class="col-auto">Beli</div>
                                                 <div class="col text-right">
                                                     <del class="text-danger mr-2">Rp {{ $courses->price_buy }},-</del>
                                                     <span>Rp {{ $courses->price_buy }}</span>
                                                 </div>
                                             </div>
-                                            <div class="row justify-content-between">
+                                            @endif
+                                           
+                                            @if ($courses->price_rent != 0)
+                                                 <div class="row justify-content-between">
                                                 <div class="col-auto">Sewa</div>
                                                 <div class="col text-right">
                                                     <del class="text-danger mr-2">Rp {{ $courses->price_rent }},-</del>
                                                     <span>Rp {{ $courses->price_rent }}</span>
                                                 </div>
                                             </div>
+                                            @endif
+
+                                            @if (($courses->price_buy  == 0 && $courses->price_rent == 0)) 
+                                               <div class='row justify-content-between'>
+                                                   <div class='col-auto text-success'>Free</div>
+                                                </div>
+                                            
+                                            @endif
+                                           
                                         </div>
                                     </div>
                                 </a>

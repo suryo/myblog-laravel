@@ -16,27 +16,6 @@
             <div class="row">
                 <!-- sidebar filter kelas -->
                 <div class="d-none d-lg-block col-auto pr-5">
-                    <h5 class="font-weight-bold mb-3">Category Kelas</h5>
-                    <ul class="list-unstyled filter-kelas text-capitalize">
-                        <li class="media">
-                            <img src={{ url('template/assets/img/square_brainwarehub.png') }} class="img-fluid"
-                                alt="">
-                            <div class="media-body"><a onclick="searchcourses('technology_id','all')">Semua Kelas</a></div>
-                        </li>
-                        @foreach ($coursescategory as $category)
-                        <li class="media">
-
-                            <img src={{ url('template/assets/img/' . $category->image) }} class="img-fluid"
-                                alt="">
-                            <div class="media-body"> <a
-                                    onclick="searchcourses('technology_id',{{ $category->id }})">{{ $category->name }}</a>
-                            </div>
-                        </li>
-                    @endforeach
-                      
-
-                    </ul>
-
                     <h5 class="font-weight-bold mb-3">Filter Kelas</h5>
                     <ul class="list-unstyled filter-kelas text-capitalize">
                         <li class="media">
@@ -283,7 +262,7 @@
 <script src="{{ URL::asset('/ui/js/jquery-3.6.0.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    let courses = @json($kelasonline);
+    let roadmap = @json($roadmap);
     let technology = @json($technology);
     let level = @json($level);
     console.log("tech");
@@ -305,40 +284,34 @@
             searchcourses('level', level)
         }
 
-        // if (level === 'all') {
-        //     showcourses()
-        // } else {
-        //     searchcourses('level', level)
-        // }
-
     });
 
     function showcourses() {
         var strcourses = "";
-        for (let index = 0; index < courses.length; index++) {
-            console.log(courses[index].image_landscape);
+        for (let index = 0; index < roadmap.length; index++) {
+            console.log(roadmap[index].image_landscape);
             strcourses += "<div class='col'>";
-            strcourses += "    <a href={{ url('coursesss/') }}";
-            strcourses += "/" + courses[index].id + " ";
+            strcourses += "    <a href={{ url('roadmap/') }}";
+            strcourses += "/" + roadmap[index].id + " ";
             strcourses += "class='d-inline'>";
             strcourses += "        <div class='swiper-slide'>";
-            strcourses += "            <a href={{ url('courses/') }}";
-            strcourses += "/" + courses[index].id + " ";
+            strcourses += "            <a href={{ url('roadmap/') }}";
+            strcourses += "/" + roadmap[index].id + " ";
             strcourses += "                class='text-decoration-none text-inherit'>";
             strcourses += "                <div class='card shadow-sm'>";
             strcourses += "                    <img src={{ url('template/assets/img/') }}";
-            strcourses += "/" + courses[index].image_landscape;
+            strcourses += "/" + roadmap[index].image_landscape;
             strcourses += "                        class='card-img-top rounded' alt=''>";
             strcourses += "                    <div class='card-body text-capitalize'>";
-            strcourses += "                        <p class='card-text small mb-1'>by " + courses[index].author +
+            strcourses += "                        <p class='card-text small mb-1'>by " + roadmap[index].author +
                 "</p>";
             strcourses += "                        <h6 class='card-title font-weight-bold'>";
-            strcourses += courses[index].title;
+            strcourses += roadmap[index].title;
             strcourses += "                        </h6>";
             strcourses += "                        <div class='row g-3 small my-3'>";
             strcourses += "                            <div class='col-6 mt-1'><i";
             strcourses += "                                    class='bi bi-bar-chart-fill mr-2'></i>";
-            strcourses += "                                " + courses[index].level + "</div>";
+            strcourses += "                                " + roadmap[index].level + "</div>";
             strcourses += "                            <div class='col-6 mt-1 d-none'><i";
             strcourses += "                                    class='bi bi-alarm-fill mr-2'></i> 12";
             strcourses += "                                jam";
@@ -359,7 +332,7 @@
             strcourses += "                        </p>";
             strcourses += "                    </div>";
             strcourses += "                    <div class='card-footer small font-weight-bold'>";
-            if (courses[index].price_buy != 0) {
+            if (roadmap[index].price_buy != 0) {
                 strcourses += "                            <div class='row justify-content-between'>";
                 strcourses += "                                <div class='col-auto'>Beli</div>";
                 strcourses += "                                <div class='col text-right'>";
@@ -368,7 +341,7 @@
                 strcourses += "                                </div>";
                 strcourses += "                            </div>";
             }
-            if (courses[index].price_rent != 0) {
+            if (roadmap[index].price_rent != 0) {
                 strcourses += "                            <div class='row justify-content-between'>";
                 strcourses += "                                <div class='col-auto'>Sewa</div>";
                 strcourses += "                                <div class='col text-right'>";
@@ -377,7 +350,7 @@
                 strcourses += "                                </div>";
                 strcourses += "                            </div>";
             }
-            if ((courses[index].price_buy == 0 && courses[index].price_rent == 0)) {
+            if ((roadmap[index].price_buy == 0 && roadmap[index].price_rent == 0)) {
                 strcourses += "                            <div class='row justify-content-between'>";
                 strcourses += "                                <div class='col-auto text-success'>Free</div>";
                 strcourses += "";
@@ -396,28 +369,28 @@
 
     function search(varparams, varsearch) {
         var objfilter = [];
-        console.log(courses)
-        for (let index = 0; index < courses.length; index++) {
+        console.log(roadmap)
+        for (let index = 0; index < roadmap.length; index++) {
 
             if (varparams === 'technology_id') {
                 if (varsearch == 'all') {
-                    objfilter.push(courses[index]);
+                    objfilter.push(roadmap[index]);
                 } else {
                     console.log("bukan all")
                     console.log(typeof(varsearch))
-                    console.log(courses[index].technology_id)
-                    if (courses[index].technology_id == varsearch) {
+                    console.log(roadmap[index].technology_id)
+                    if (roadmap[index].technology_id == varsearch) {
                         console.log("apakah sama dengan ")
-                        objfilter.push(courses[index]);
+                        objfilter.push(roadmap[index]);
                     }
                 }
 
             } else if (varparams === 'level') {
                 if (varsearch == 'all') {
-                    objfilter.push(courses[index]);
+                    objfilter.push(roadmap[index]);
                 } else {
-                    if (courses[index].level === varsearch) {
-                        objfilter.push(courses[index]);
+                    if (roadmap[index].level === varsearch) {
+                        objfilter.push(roadmap[index]);
                     }
                 }
 
@@ -438,7 +411,7 @@
             strcourses += "/" + found[index].id + " ";
             strcourses += "class='d-inline'>";
             strcourses += "        <div class='swiper-slide'>";
-            strcourses += "            <a href={{ url('courses/') }}";
+            strcourses += "            <a href={{ url('roadmap/') }}";
             strcourses += "/" + found[index].id + " ";
             strcourses += "                class='text-decoration-none text-inherit'>";
             strcourses += "                <div class='card shadow-sm'>";
@@ -474,7 +447,7 @@
             strcourses += "                        </p>";
             strcourses += "                    </div>";
             strcourses += "                    <div class='card-footer small font-weight-bold'>";
-            if (courses[index].price_buy != 0) {
+            if (roadmap[index].price_buy != 0) {
                 strcourses += "                            <div class='row justify-content-between'>";
                 strcourses += "                                <div class='col-auto'>Beli</div>";
                 strcourses += "                                <div class='col text-right'>";

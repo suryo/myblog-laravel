@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Courses;
+namespace App\Http\Controllers\Kelasonline;
 
+use App\Models\User;
 use App\Models\Kelas_online_model;
 use App\Models\Kelas_online_category_model;
 use App\Models\Kelas_online_detail_model;
@@ -14,7 +15,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 
-class RoadmapController extends Controller
+class KelasOnlineRoadmapController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +24,7 @@ class RoadmapController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+       
     }
     /**
      * Display a listing of the resource.
@@ -32,15 +33,76 @@ class RoadmapController extends Controller
      */
     public function index(Request $request)
     {
-        // $product_models = Product_model::latest()->get();
-        $coursescategory = DB::select("SELECT * from kelas_online_category");
-        $coursestechnology = DB::select("SELECT * from kelas_online_technology");
-        $roadmap =  DB::select("SELECT r.id, r.title,r.level,r.image_landscape,r.author,r.price_buy, r.price_rent,r.technology_id, c.name, r.created_at from kelas_online_roadmap as r inner join kelas_online_category as c on r.category_id = c.id where r.status='published'");
-        return view('lms-front/roadmap/list', compact('roadmap','coursescategory', 'coursestechnology'));
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
+        $kelasonlineroadmap =  DB::select("SELECT n.id, n.title, c.name, n.created_at from kelas_online_roadmap as n left join kelas_online_category as c on n.category_id = c.id where n.status = 'published'");
+        //dd($kelasonlineroadmap);
+        return view('kelasonline/list-kelasonlineroadmap', compact('kelasonlineroadmap', 'role'));
             // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-     
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $news_category_models = Kelas_online_category_model::latest()->get();
+        return view('kelasonline/add-kelasonline',compact('news_category_models'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // dd("ayam");
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
+        $files = '';
+        if ($request->hasfile('image')) {
+           
+            // foreach ($request->file('filenames') as $file) {
+                $file = $request->file('image');
+                $name = time() . rand(1, 100) . '.' . $file->extension();
+                $file->move(public_path('files/news-images'), $name);
+                $files = $name;
+            // }
+        }
+
+        $kelas_online_models = Kelas_online_model::create([
+            'category_id' =>$request->category_id,
+            'title' => $request->title,
+            'short_desc' => $request->short_desc,
+            'text' => $request->text,
+            'image' => $files,
+            'status' => $request->status
+        ]);
+
+        if ($kelas_online_models) {
+            return redirect()
+                ->route('kelasonline.index')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -50,43 +112,22 @@ class RoadmapController extends Controller
      */
     public function show($id)
     {
-        $detail_roadmap = [];
-
-        $coursescategory = DB::select("SELECT * from kelas_online_category");
-        $coursestechnology = DB::select("SELECT * from kelas_online_technology");
-
-        $res_roadmap = DB::select("SELECT * from kelas_online_roadmap where id = ".$id);
-        $roadmap = $res_roadmap[0];
-        $res_kelas_online_roadmap_detail = DB::select("SELECT * from kelas_online_roadmap_detail where id_roadmap = ".$id);
-        $kelas_online_roadmap_detail  = $res_kelas_online_roadmap_detail;
-
-        foreach ($kelas_online_roadmap_detail as $key => $value) {
-            array_push($detail_roadmap,$value);
-            if (!empty($value->id_kelas_online))
-            {
-                $res_kelas_online = json_decode($value->id_kelas_online);
-                //dump(gettype($res_kelas_online));
-                $dt_courses = [];
-                for ($i=0; $i < count($res_kelas_online) ; $i++) { 
-                    $res_detail_courses = DB::select('select * from kelas_online where id ='.$res_kelas_online[$i]);
-                    $detail_courses =  $res_detail_courses[0];
-                    array_push($dt_courses,$detail_courses);
-                }
-               $detail_roadmap[$key]->courses = $dt_courses; 
-            }
-            else
-            {
-                $detail_roadmap[$key]->courses = null; 
-            }
-            
+        if (isset(auth()->user()->id)) {
+            //$id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
         }
 
+        $res_kelas_online = DB::select("SELECT * from kelas_online where id = ".$id);
+        $kelas_online = $res_kelas_online[0];
+        $res_kelas_online_detail = DB::select("SELECT * from kelas_online_detail where id_kelas_online = ".$id);
+        $kelas_online_detail  = $res_kelas_online_detail;
         $title = "News & Reviews";
         $pages = 'detail';
 
 
         //$kelas_online_models = Kelas_online_model::find($id);
-        return view('lms-front/roadmap/detail', compact('title','pages','roadmap','kelas_online_roadmap_detail','coursescategory', 'coursestechnology'));
+        return view('kelasonline.show-kelasonline', compact('title','pages','kelas_online','kelas_online_detail','role'));
     }
 
     /**
@@ -97,11 +138,16 @@ class RoadmapController extends Controller
      */
     public function edit($id)
     {
+        if (isset(auth()->user()->id)) {
+            $id = (auth()->user()->id);
+            $user = User::find($id);
+            $role = $user->getRoleNames();
+        }
         $reskelasonline =  DB::select("SELECT n.id, n.title,n.short_desc, n.text, c.name, n.created_at from kelas_online as n inner join kelas_online_category as c on n.category_id = c.id where n.id=".$id);
         $kelasonline = $reskelasonline[0];
         //dd($news);
         //$product_models = Blog_article_category_model::findOrFail($id);
-        return view('kelasonline.edit-kelasonline', compact('kelasonline'));
+        return view('kelasonline.edit-kelasonline', compact('kelasonline','role'));
     }
 
     /**
