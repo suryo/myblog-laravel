@@ -15,9 +15,9 @@
                             <a href="" class="dropdown-item">Baby's Dresses</a>
                         </div>
                     </div>
-                    @foreach ($res_category_product as $item)
+                    {{-- @foreach ($res_category_product as $item)
                     <a href="" class="nav-item nav-link">{{$item->product_category_name}}</a>  
-                    @endforeach
+                    @endforeach --}}
                     
                 </div>
             </nav>
