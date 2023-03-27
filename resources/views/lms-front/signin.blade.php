@@ -7,10 +7,10 @@
    <div class="container">
 
       <div class="lh-sm mb-2">
-         <strong class="gotham-bold  fs-2 fs-lg-3">Welcome.!d</strong>
+         <strong class="gotham-bold  fs-1 fs-lg-3">WELCOME</strong>
       </div>
 
-      <p class="mb-5">Sign In to continue</p>
+      {{-- <p class="mb-2">Sign In to continue</p> --}}
 
       {{-- <div class="form-floating border-bottom mb-3">
          <input type="text" class="form-control border-0 rounded-0 p-0" id="signinUsername" placeholder="name@example.com">
@@ -62,7 +62,7 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                                         <label class="px-0 opacity-50" for="email">Email Address</label>
+                                         {{-- <label class="px-0 opacity-50" for="email">Email Address</label> --}}
                                     </div>
 
                                     {{-- <div class="mb-3">
@@ -90,7 +90,7 @@
                                         @enderror
 
 
-                                          <label for="userpassword" class="px-0 opacity-50">Password</label>
+                                          {{-- <label for="userpassword" class="px-0 opacity-50">Password</label> --}}
                                        </div>
                                        <button class="btn border-0 bi bi-eye d-none"></button>
                                        <button class="btn border-0 bi bi-eye-slash"></button>
@@ -113,9 +113,9 @@
                                         @enderror
                                     </div> --}}
 
-                                    <div class="form-group text-end mb-5">
+                                    {{-- <div class="form-group text-end mb-5">
                                        <a href="{{ route('password.request') }}" class="text-dark font-2" style="opacity: .5;">Forgot Password?</a>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="auth-remember-check"

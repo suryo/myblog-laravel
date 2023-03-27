@@ -1,4 +1,4 @@
-<header id="topbar" class="bg-white fixed-top border-bottom shadow-sm">
+<header id="topbar" class="bg-white sticky-top border-bottom shadow-sm">
     <!-- navigasi bar -->
     <nav class='navbar navbar-expand-xl navbar-light py-xl-3'>
         <div class="container">
