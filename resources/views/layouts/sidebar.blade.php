@@ -66,13 +66,11 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href={{ route('blog-article-category.index') }}>@lang('Article Category')</a></li>
                         <li><a href={{ route('blog-article.index') }}>@lang('Article')</a></li>
-                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
-                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
                     </ul>
                 </li>
 
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-blogger-alt  "></i>
                         <span>@lang('Koperasi')</span>
@@ -83,35 +81,12 @@
                         <li><a href={{ route('koperasimember.list') }}>@lang('Member')</a></li>
                         <li><a href={{ route('koperasiprovinsi.list') }}>@lang('provinsi')</a></li>
                         <li><a href={{ route('koperasikota.list') }}>@lang('kota')</a></li>
-                        
-                        
-                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
-                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
                     </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-blogger-alt  "></i>
-                        <span>@lang('Kelas')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{ route('kelasonlinecategory.index') }}>@lang('Category Kelas Online')</a></li>
-                        <li><a href={{ route('kelasonline.index') }}>@lang('Kelas Online Note')</a></li>
-                        <li><a href={{ route('kelaseksklusifcategory.index') }}>@lang('Category Kelas Eksklusif')</a></li>
-                        <li><a href={{ route('kelaseksklusif.index') }}>@lang('Kelas Eksklusif Note')</a></li>
-                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
-                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
-                    </ul>
-                </li>
-
-               {{-- <li>
-                    <a href="{{url('fpdf')}}">
-                        <i class="uil-home-alt"></i>
-                        <span>@lang('Fpdf')</span>
-                    </a>
                 </li> --}}
 
+            
+
+             
   
 
                 <li>
@@ -133,17 +108,12 @@
                         <span>@lang('Product')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        {{-- <li><a href={{ route('product-kinds.index') }}>@lang('Product Kinds')</a></li>
-                        <li><a href={{ route('product-variants.index') }}>@lang('Product Variants')</a></li>
-                        <li><a href={{ route('product-categorys.index') }}>@lang('Product Categorys')</a></li>
-                         --}}
                         <li><a href={{ url('admin/product-collections') }}>@lang('Product Collections')</a></li>
                         <li><a href={{ url('admin/product-types') }}>@lang('Product Types')</a></li>
                         <li><a href={{ url('admin/product-forms') }}>@lang('Product Forms')</a></li>
                         <li><a href={{ url('admin/product-packages') }}>@lang('Product Packages')</a></li>
                         <li><a href={{ url('admin/products') }}>@lang('Products')</a></li>
-                        {{-- <li><a href="sync">@lang('Sync Vend')</a></li>
-                        <li><a href="sync">@lang('Sync Email Vend')</a></li> --}}
+                       
                     </ul>
                 </li>
 
@@ -153,110 +123,28 @@
                         <span>@lang('Store')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        {{-- <li><a href="#">@lang('Cart')</a></li> --}}
                         <li><a href={{ url('admin/orders') }}>@lang('Order History')</a></li>
                         <li><a href={{ url('admin/discount-product') }}>@lang('Discount Product')</a></li>
                         <li><a href={{ url('admin/discount-cluster') }}>@lang('Discount Promo')</a></li>
-                        {{-- <li><a href={{ url('admin/discount') }}>@lang('Discount')</a></li> --}}
                         <li><a href={{ url('admin/flashsale') }}>@lang('Flash Sale')</a></li>
                         <li><a href={{ url('admin/freegift') }}>@lang('Set Free Gift')</a></li>
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-sync"></i>
-                        <span>@lang('translation.Syncs')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="sync">@lang('Sync Vend Post Sales')</a></li>
-                        <li><a href="/vend-gettransaction">@lang('Vend Get Trans')</a></li>
-                        <li><a href="sync">@lang('Sync Vend')</a></li>
-                        <li><a href="sync">@lang('Sync Email Vend')</a></li>
-                    </ul>
-                </li>
+              
 
+             
 
-                <li>
-                    <a href="{{url('index')}}">
-                        <i class="uil-home-alt"></i>
-                        <span>@lang('Subscribe Discount')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{url('index')}}">
-                        <i class="uil-users-alt "></i>
-                        <span>@lang('Visitors')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{url('index')}}">
-                        <i class="uil-edit"></i>
-                        <span>@lang('EDM LOGS')</span>
-                    </a>
-                </li>
+            
 
 
              
 
-                <li>
-                    <a href="{{url('sliders')}}">
-                        <i class="uil-picture "></i>
-                        <span>@lang('Sliders')</span>
-                    </a>
-                </li>
+              
 
-                <li>
-                    <a href="{{url('index')}}">
-                        <i class="uil-home-alt"></i>
-                        <span>@lang('Point History')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-diamond"></i>
-                        <span>@lang('Redeemable')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{url('admin/voucher')}}>@lang('Voucher')</a></li>
-                        <li><a href={{url('admin/coupon')}}>@lang('Coupon')</a></li>
-                        <li><a href={{url('admin/merchandise-product')}}>@lang('Merchandise')</a></li>
-                       
-                    </ul>
-                </li>
-
+              
         
-                {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-window-section"></i>
-                        <span>@lang('translation.Layouts')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow">@lang('translation.Vertical')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-dark-sidebar">@lang('translation.Dark_Sidebar')</a></li>
-                                <li><a href="layouts-compact-sidebar">@lang('translation.Compact_Sidebar')</a></li>
-                                <li><a href="layouts-icon-sidebar">@lang('translation.Icon_Sidebar')</a></li>
-                                <li><a href="layouts-boxed">@lang('translation.Boxed_Width')</a></li>
-                                <li><a href="layouts-preloader">@lang('translation.Preloader')</a></li>
-                                <li><a href="layouts-colored-sidebar">@lang('translation.Colored_Sidebar')</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow">@lang('translation.Horizontal')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal">@lang('translation.Horizontal')</a></li>
-                                <li><a href="layouts-hori-topbar-dark">@lang('translation.Dark_Topbar')</a></li>
-                                <li><a href="layouts-hori-boxed-width">@lang('translation.Boxed_Width')</a></li>
-                                <li><a href="layouts-hori-preloader">@lang('translation.Preloader')</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li> --}}
+                
 
                 <li class="menu-title">@lang('Setting')</li>
                 <li>
