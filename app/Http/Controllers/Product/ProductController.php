@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Product;
 
-
 use App\Models\Product_model;
 use App\Models\Product_collection_model;
 use App\Models\Product_type_model;
@@ -34,50 +33,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        // $product_models = Product_model::latest()->get();
-
-        $product_models =  DB::table('product_models')->where('product_models.deleted', 'false')
-
-            ->leftjoin(
-                'product_collection_models',
-                'product_models.product_collection',
-                '=',
-                'product_collection_models.id'
-            )
-            ->leftjoin(
-                'product_type_models',
-                'product_models.product_type',
-                '=',
-                'product_type_models.id'
-            )
-            ->leftjoin(
-                'product_form_models',
-                'product_models.product_form',
-                '=',
-                'product_form_models.id'
-            )
-            ->leftjoin(
-                'product_package_models',
-                'product_models.product_package',
-                '=',
-                'product_package_models.id'
-            )
-
-            ->select(
-                'product_models.*',
-                //     'product_kind_models.product_kind_name',
-                //     'product_variant_models.product_variant_name',
-                //     'product_category_models.product_category_name',
-                'product_collection_models.product_collection_name',
-                'product_type_models.product_type_name',
-                'product_form_models.product_form_name',
-                'product_package_models.product_package_name'
-            )
-            ->get();
-
-        // return view('posts.index', compact('posts'));
-        return view('products/index', compact('product_models'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $res_product_models = DB::select('select * from product_models') ;
+        return view('products/index', compact('res_product_models'));
     }
 
     /**
@@ -87,11 +44,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product_collection_models =  DB::table('product_collection_models')->get();
-        $product_type_models =  DB::table('product_type_models')->get();
-        $product_form_models =  DB::table('product_form_models')->get();
-        $product_package_models =  DB::table('product_package_models')->get();
-        return view('products/create', compact('product_collection_models', 'product_type_models', 'product_form_models', 'product_package_models'));
+             
+        return view('products/create');
     }
 
     /**
@@ -102,7 +56,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+       
         $this->validate($request, [
             'product_name' => 'required'
         ]);
@@ -116,33 +70,27 @@ class ProductController extends Controller
             }
         }
 
+
         $product_models = Product_model::create([
             'sku' => $request->sku,
+            'product_variant' => $request->variant,
             'product_name' => $request->product_name,
-            'product_detail' => $request->product_detail,
-            'product_shortdetail' => $request->product_shortdetail,
-            'product_brand' => $request->product_brand,
-            'product_collection' => $request->product_collection,
-            'product_type' => $request->product_type,
-            'product_form' => $request->product_form,
-            'product_package' => $request->product_package,
-            'product_price' => $request->product_price,
-            'product_price_currency' => $request->product_price_currency,
-            'product_weight' => $request->product_weight,
-            'product_width' => $request->product_width,
-            'product_height' => $request->product_height,
-            'product_length' => $request->product_length,
-            'product_acidityscore' => $request->product_acidityscore,
-            'product_aciditydesc' => $request->product_aciditydesc,
-            'product_bodyscore' => $request->product_bodyscore,
-            'product_bodydesc' => $request->product_bodydesc,
-            'product_roastdesc' => $request->product_roastdesc,
-            'product_typedesc' => $request->product_typedesc,
-            'product_intensity' => $request->product_intensity,
-            'product_default_discount' => $request->product_default_discount,
-            'fileimages' => $files,
-            'status_stock' => $request->status_stock,
-            'status' => $request->status
+            // 'product_detail' => $request->product_detail,
+            // 'product_shortdetail' => $request->product_shortdetail,
+            // 'product_brand' => $request->product_brand,
+            // 'product_collection' => $request->product_collection,
+            // 'product_type' => $request->product_type,
+            // 'product_form' => $request->product_form,
+            // 'product_package' => $request->product_package,
+            // 'product_price' => $request->product_price,
+            // 'product_price_currency' => $request->product_price_currency,
+            // 'product_weight' => $request->product_weight,
+            // 'product_width' => $request->product_width,
+            // 'product_height' => $request->product_height,
+            // 'product_length' => $request->product_length,
+            // 'product_default_discount' => $request->product_default_discount,
+            // 'fileimages' => $files,
+            // 'status' => $request->status
         ]);
 
         if ($product_models) {

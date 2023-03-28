@@ -16,6 +16,7 @@ class Product_model extends Model
     use HasFactory;
     protected $fillable = [
         'sku',
+        'product_variant',
         'product_name',
         'product_detail',
         'product_shortdetail',
@@ -30,17 +31,10 @@ class Product_model extends Model
         'product_width',
         'product_height',
         'product_length',
-        'product_acidityscore',
-        'product_aciditydesc',
-        'product_bodyscore',
-        'product_bodydesc',
-        'product_roastdesc',
-        'product_typedesc',
-        'product_intensity',
         'product_default_discount',
         'status_stock',
         'fileimages',
         'status',
-        'deleted'
+        'deleted',
     ];
 }
