@@ -11,16 +11,12 @@
 @section('content')
     @component('common-components.breadcrumb')
         @slot('pagetitle') Ecommerce @endslot
-        @slot('title') Add Product @endslot
+        @slot('title') Edit User @endslot
     @endcomponent
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Edit New User</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-        </div>
+      
+      
     </div>
 </div>
 
@@ -36,47 +32,61 @@
   </div>
 @endif
 
-
-{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Name:</strong>
-            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+    {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @csrf
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                        <div class="col-md-10">
+                            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Email</label>
+                        <div class="col-md-10">
+                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Password</label>
+                        <div class="col-md-10">
+                            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Confirm Password</label>
+                        <div class="col-md-10">
+                            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-md-2 col-form-label">Role</label>
+                        <div class="col-md-10">
+                            {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
+                        </div>
+                    </div>
+
+               
+
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Email:</strong>
-            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Password:</strong>
-            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Confirm Password:</strong>
-            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Role:</strong>
-            {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+        {!! Form::close() !!}
 </div>
-{!! Form::close() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 @endsection
 @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
