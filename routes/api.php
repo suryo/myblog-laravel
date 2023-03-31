@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Product\ProductController;
 
 use App\Http\Controllers\Api\Product\GetProductController;
@@ -44,9 +46,10 @@ use App\Http\Controllers\Front\FrontCartController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('apilogin', [ApiController::class, 'index']);
 
 Route::post('login', [ApiController::class, 'authenticate']);
+Route::post('logout', [ApiController::class, 'logout']);
 Route::post('register', [ApiController::class, 'register']);
 
 Route::post('updateMember', [UpdateMemberController::class, 'update']);

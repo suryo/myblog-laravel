@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use JWTAuth;
+use \Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -82,7 +82,7 @@ class ApiController extends Controller
 
     public function logout(Request $request)
     {
-        //valid credential
+
         $validator = Validator::make($request->only('token'), [
             'token' => 'required'
         ]);
@@ -94,7 +94,9 @@ class ApiController extends Controller
 
         //Request is validated, do logout        
         try {
-            JWTAuth::invalidate($request->token);
+
+            $token = new \Tymon\JWTAuth\Token($request->token);
+            \Tymon\JWTAuth\Facades\JWTAuth::manager()->invalidate($token, $forever = true);
 
             return response()->json([
                 'success' => true,
