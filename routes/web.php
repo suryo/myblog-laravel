@@ -36,6 +36,7 @@ use App\Http\Controllers\Front\FrontGalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Setting\ProfileController;
 use App\Http\Controllers\PermissionController;
 
 use App\Http\Controllers\Coupon\CouponController;
@@ -188,6 +189,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('sync-product', SyncProductController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::get('profile', [ProfileController::class, 'index'])->name('users.profile');
+    Route::put('profileupdate', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::resource('news', NewsController::class);
     Route::resource('newscategory', NewsCategoryController::class);
