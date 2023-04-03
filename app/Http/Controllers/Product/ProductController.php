@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $res_product_models = DB::select('select * from product_models') ;
+        $res_product_models = DB::select('select * from product_models where deleted = "false"') ;
         return view('products/index', compact('res_product_models'));
     }
 
@@ -321,12 +321,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $product_models = Product_model::findOrFail($id);
 
-        $product_models->update([
-            'deleted' => 'true',
-        ]);
+        // dump($id);
+
+        $product_models = Product_model::findOrFail($id);
+       
+
+        $product_models->update(['deleted' => 'true',]);
 
         return redirect()->route('products.index')
             ->with('success', 'Product Types deleted successfully');
