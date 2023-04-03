@@ -104,9 +104,9 @@
                                 <label class="col-md-2 col-package-label"> Product Collection :</label>
                                 <div class="col-md-10">
                                     <select class="form-select" name="product_collection">
-                                    @foreach ($product_collection_models as $product_collection)
+                                    {{-- @foreach ($product_collection_models as $product_collection)
                                         <option value={{$product_collection->id}} @if($product_models->product_collection == $product_collection->id) selected @endif>{{$product_collection->product_collection_name}}</option>
-                                    @endforeach 
+                                    @endforeach  --}}
                                     </select>
                             
                                 </div>
@@ -117,9 +117,9 @@
                                 <div class="col-md-10">
 
                                     <select class="form-select" name="product_type">
-                                    @foreach ($product_type_models as $product_type)
+                                    {{-- @foreach ($product_type_models as $product_type)
                                         <option value={{$product_type->id}} @if($product_models->product_type == $product_type->id) selected @endif>{{$product_type->product_type_name}}</option>
-                                    @endforeach 
+                                    @endforeach  --}}
                                     </select>
 
                                 </div>
@@ -130,9 +130,9 @@
                                 <div class="col-md-10">
 
                                     <select class="form-select" name="product_form">
-                                    @foreach ($product_form_models as $product_form)
+                                    {{-- @foreach ($product_form_models as $product_form)
                                         <option value={{$product_form->id}} @if($product_models->product_form == $product_form->id) selected @endif>{{$product_form->product_form_name}}</option>
-                                    @endforeach 
+                                    @endforeach  --}}
                                     </select>
 
                                 </div>
@@ -142,9 +142,9 @@
                                 <label class="col-md-2 col-package-label"> Product Package :</label>
                                 <div class="col-md-10">
                                     <select class="form-select" name="product_package">
-                                    @foreach ($product_package_models as $product_package)
+                                    {{-- @foreach ($product_package_models as $product_package)
                                         <option value={{$product_package->id}} @if($product_models->product_package == $product_package->id) selected @endif>{{$product_package->product_package_name}}</option>
-                                    @endforeach 
+                                    @endforeach  --}}
                                     </select>
 
                             

@@ -180,21 +180,21 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product_collection_models =  DB::table('product_collection_models')->get();
-        $product_type_models =  DB::table('product_type_models')->get();
-        $product_form_models =  DB::table('product_form_models')->get();
-        $product_package_models =  DB::table('product_package_models')->get();
+        // $product_collection_models =  DB::table('product_collection_models')->get();
+        // $product_type_models =  DB::table('product_type_models')->get();
+        // $product_form_models =  DB::table('product_form_models')->get();
+        // $product_package_models =  DB::table('product_package_models')->get();
 
         $product_models = Product_model::findOrFail($id);
         $images = json_decode($product_models->fileimages);
         //dd($images);
         return view('products.edit', compact(
             'product_models',
-            'product_collection_models',
-            'product_type_models',
-            'product_form_models',
-            'product_package_models',
-            'images'
+            // 'product_collection_models',
+            // 'product_type_models',
+            // 'product_form_models',
+            // 'product_package_models',
+            // 'images'
         ));
     }
 
@@ -207,7 +207,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd('test');
+        // dd('test update');
         $this->validate($request, [
             'product_name' => 'required'
         ]);
@@ -230,60 +230,60 @@ class ProductController extends Controller
                 'sku' => $request->sku,
                 'product_name' => $request->product_name,
                 'product_detail' => $request->product_detail,
-                'product_shortdetail' => $request->product_shortdetail,
-                'product_brand' => $request->product_brand,
-                'product_collection' => $request->product_collection,
-                'product_type' => $request->product_type,
-                'product_form' => $request->product_form,
-                'product_package' => $request->product_package,
-                'product_price' => $request->product_price,
-                'product_price_currency' => $request->product_price_currency,
-                'product_weight' => $request->product_weight,
-                'product_width' => $request->product_width,
-                'product_height' => $request->product_height,
-                'product_length' => $request->product_length,
-                'product_acidityscore' => $request->product_acidityscore,
-                'product_aciditydesc' => $request->product_aciditydesc,
-                'product_bodyscore' => $request->product_bodyscore,
-                'product_bodydesc' => $request->product_bodydesc,
-                'product_roastdesc' => $request->product_roastdesc,
-                'product_typedesc' => $request->product_typedesc,
-                'product_intensity' => $request->product_intensity,
-                'product_default_discount' => $request->product_default_discount,
-                'fileimages' => $files,
-                'status_stock' => $request->status_stock,
-                'status' => $request->status
+                // 'product_shortdetail' => $request->product_shortdetail,
+                // 'product_brand' => $request->product_brand,
+                // 'product_collection' => $request->product_collection,
+                // 'product_type' => $request->product_type,
+                // 'product_form' => $request->product_form,
+                // 'product_package' => $request->product_package,
+                // 'product_price' => $request->product_price,
+                // 'product_price_currency' => $request->product_price_currency,
+                // 'product_weight' => $request->product_weight,
+                // 'product_width' => $request->product_width,
+                // 'product_height' => $request->product_height,
+                // 'product_length' => $request->product_length,
+                // 'product_acidityscore' => $request->product_acidityscore,
+                // 'product_aciditydesc' => $request->product_aciditydesc,
+                // 'product_bodyscore' => $request->product_bodyscore,
+                // 'product_bodydesc' => $request->product_bodydesc,
+                // 'product_roastdesc' => $request->product_roastdesc,
+                // 'product_typedesc' => $request->product_typedesc,
+                // 'product_intensity' => $request->product_intensity,
+                // 'product_default_discount' => $request->product_default_discount,
+                // 'fileimages' => $files,
+                // 'status_stock' => $request->status_stock,
+                // 'status' => $request->status
             ]);
         } else {
 
-            dd($files);
+            //dd($files);
 
             $product_models->update([
                 'sku' => $request->sku,
                 'product_name' => $request->product_name,
                 'product_detail' => $request->product_detail,
-                'product_shortdetail' => $request->product_shortdetail,
-                'product_brand' => $request->product_brand,
-                'product_collection' => $request->product_collection,
-                'product_type' => $request->product_type,
-                'product_form' => $request->product_form,
-                'product_package' => $request->product_package,
-                'product_price' => $request->product_price,
-                'product_price_currency' => $request->product_price_currency,
-                'product_weight' => $request->product_weight,
-                'product_width' => $request->product_width,
-                'product_height' => $request->product_height,
-                'product_length' => $request->product_length,
-                'product_acidityscore' => $request->product_acidityscore,
-                'product_aciditydesc' => $request->product_aciditydesc,
-                'product_bodyscore' => $request->product_bodyscore,
-                'product_bodydesc' => $request->product_bodydesc,
-                'product_roastdesc' => $request->product_roastdesc,
-                'product_typedesc' => $request->product_typedesc,
-                'product_intensity' => $request->product_intensity,
-                'product_default_discount' => $request->product_default_discount,
-                'status_stock' => $request->status_stock,
-                'status' => $request->status
+                // 'product_shortdetail' => $request->product_shortdetail,
+                // 'product_brand' => $request->product_brand,
+                // 'product_collection' => $request->product_collection,
+                // 'product_type' => $request->product_type,
+                // 'product_form' => $request->product_form,
+                // 'product_package' => $request->product_package,
+                // 'product_price' => $request->product_price,
+                // 'product_price_currency' => $request->product_price_currency,
+                // 'product_weight' => $request->product_weight,
+                // 'product_width' => $request->product_width,
+                // 'product_height' => $request->product_height,
+                // 'product_length' => $request->product_length,
+                // 'product_acidityscore' => $request->product_acidityscore,
+                // 'product_aciditydesc' => $request->product_aciditydesc,
+                // 'product_bodyscore' => $request->product_bodyscore,
+                // 'product_bodydesc' => $request->product_bodydesc,
+                // 'product_roastdesc' => $request->product_roastdesc,
+                // 'product_typedesc' => $request->product_typedesc,
+                // 'product_intensity' => $request->product_intensity,
+                // 'product_default_discount' => $request->product_default_discount,
+                // 'status_stock' => $request->status_stock,
+                // 'status' => $request->status
             ]);
         }
 
