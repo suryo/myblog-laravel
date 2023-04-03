@@ -93,14 +93,14 @@
              <div class="mb-1">
                 <button class="btn btn-block p-3 pr-5 text-left rounded-0" data-toggle="collapse"
                    data-target="#col-materi{{$detailitem->id}}" style="background-color: rgba(207, 207, 207, 0.25);">
-                   @if (empty(Auth::user()))
+                   {{-- @if (empty(Auth::user()))
                    <i class="bi bi-lock-fill"></i>
-                   @endif
+                   @endif --}}
                    <i
                    class="bi bi-play-circle-fill"></i>
                    {{$detailitem->title}} {{$detailitem->short_desc}}
                 </button>
-                <div class="collapse collapsed {{empty(Auth::user()) ? 'd-none' : ''}}" id="col-materi{{$detailitem->id}}">
+                <div class="collapse collapsed" id="col-materi{{$detailitem->id}}">
                   <div class="p-4 border-top">
                      {!!$detailitem->text!!}
                  </div>
