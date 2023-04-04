@@ -32,35 +32,10 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-    // dump($request->start);
-    // dump($request->end);
-    
-        if ((!empty($request->start))&&(!empty($request->end))) {
-            $arraydatestart = explode('-', $request->start);
-            $arraydateend = explode('-', $request->end);
-            
-           
-            $datefrom = $arraydatestart[2]."-".$arraydatestart[1]."-".$arraydatestart[0];
-            $dateto = $arraydateend[2]."-".$arraydateend[1]."-".$arraydateend[0];
+        dump('tes ini order controller');
+        $order_models = DB::select('select * from order_models');
 
-            // $datefrom = (str_replace("/","-",$sdatefrom));
-            // $dateto = (str_replace("/","-",$sdateto));
-            $order_models = DB::select("SELECT * from order_models where (tanggalorder BETWEEN '".$datefrom."' AND '".$dateto."') order by id desc");
-        }
-        else
-        {
-            $order_models = DB::select("SELECT * from order_models order by id desc");
-        }
-
-        // $order_models =  DB::table('order_models')
-        //     ->get();
-
-        //$order_models = DB::select("SELECT * from order_models where (tanggalorder BETWEEN '".$datefrom."' AND '".$dateto."') order by id desc");
-
-// dump($order_models);
-// dd($order_modelss);
-
-
+        //dd($res_order);
 
         return view('orders/index', compact('order_models'))
             ->with('i', ($request->input('page', 1) - 1) * 5);

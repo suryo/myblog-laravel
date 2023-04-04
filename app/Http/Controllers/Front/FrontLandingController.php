@@ -35,12 +35,30 @@ class FrontLandingController extends Controller
     public function index(Request $request)
     {
         $res_category_product = DB::select('select * from product_category_models');
+        $res_product = DB::select('select * from product_models');
+        
+        
         $title = 'home';
         $pages = 'landing';
 
+        $items = \Cart::getContent();
 
-        return view('front/landing', compact( 'title', 'pages', 'res_category_product'))
+        dump($items);
+
+        return view('front/landing', compact( 'title', 'pages', 'res_category_product','res_product'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+    
+    public function addtocart(Request $request){
+        dump("test add to cart");
+        //dd($request->id);
+        \Cart::add(array(
+            'id' => $request->id, // inique row ID
+            'name' => 'test barang',
+            'price' => 5000,
+            'quantity' => 1,
+            'attributes' => array()
+        ));
     }
 
     /**

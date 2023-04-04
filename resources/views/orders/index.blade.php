@@ -145,7 +145,7 @@
                                                 @endif
 
                                                 <button class="btn btn-dark" type="submit">Update Track ID</button>
-                                                <a class="btn btn-warning"  onclick="getdetailshipping('{{ $order->tracking_number }}','{{ $i }}')">Detail</a>
+                                                {{-- <a class="btn btn-warning"  onclick="getdetailshipping('{{ $order->tracking_number }}','{{ $i }}')">Detail</a> --}}
                                             </form>
 
                                             {{-- <button class="btn btn-dark"
