@@ -50,15 +50,23 @@ class FrontLandingController extends Controller
     }
     
     public function addtocart(Request $request){
-        dump("test add to cart");
-        //dd($request->id);
+
+        $id = $request->id;
+        $res_product = DB::select('select * from product_models where id='.$id);
+        $detailproduct = $res_product[0];
+
         \Cart::add(array(
             'id' => $request->id, // inique row ID
-            'name' => 'test barang',
-            'price' => 5000,
+            'name' => $detailproduct->product_name,
+            'price' => $detailproduct->product_price,
             'quantity' => 1,
             'attributes' => array()
         ));
+        return redirect()
+                ->route('landing')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
     }
 
     /**
