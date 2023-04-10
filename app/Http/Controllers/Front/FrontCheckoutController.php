@@ -26,62 +26,17 @@ class FrontCheckoutController extends Controller
     private $stripe;
     public function __construct()
     {
-        $this->stripe = new StripeClient(config('stripe.api_keys.secret_key'));
+      
     }
 
     public function index()
     {
 
-        $member = app('App\Http\Controllers\Member\MemberController')->GetMemberInformation();
-        //dd($member);
-        //check dan get data free gift
-        $gift = $this->getFreeGift();
-        //## memindahkan isi object gift kedalah variable
-        $gift_box_id = "GIFT-" . $gift->gift_box_id;
-        $gift_box_images =  $gift->gift_box_images;
-        // $gift_box_gramature = $gift->product_weight;
-
-        //## memindahkan isi object gift kedalah variable untuk di munculkan di blade
-        $product_free_gift_models = $gift;
-        //## memberikan nilai awalan status free gift false untuk memunculkan tulisan promo pada blade
-        $statusfreegift = "false";
-        //get data cart
-        $cartItem = \Cart::getContent();
-        $cartItems = $cartItem->sort();
-
-       
-        // if(\Cart::getCondition('coupon')==null)
-        // {
-        //     $cartDiscount = 0;
-        // }
-        // else
-        //     {
-        //         $cartDiscount = ((\Cart::getCondition('coupon'))->getValue()) * -1;
-        //       }
-            //   dd( $cartDiscount);
-// (((\Cart::getCondition('coupon'))->getValue()));
-// foreach ($cartItem as $item) {
-//  dd($cartItems);
-// }
-
-        $totalweight = 0;
-        foreach ($cartItems as $item) {
-            $totalweight =
-                $totalweight + ($item->attributes->gramature);
-        }
-        // dd($totalweight);
-
-        if (empty($cartItems[$gift_box_id])) {
-            $statusfreegift = "false";
-        } else {
-            $statusfreegift = "true";
-        }
-
+      
         $title = "Shipping & Checkout";
         $pages = "checkout";
-        $shipping = \Cart::getCondition('Shipping');
-        $arraynegara = $this->getCountries();
-        return view('front/checkout', compact('member', 'cartItems', 'title', 'pages', 'statusfreegift', 'product_free_gift_models', 'gift_box_images', 'shipping', 'arraynegara', 'totalweight'));
+    
+        return view('front/checkout');
     }
 
     public function AddShipping(Request $request)

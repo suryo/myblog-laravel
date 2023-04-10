@@ -31,7 +31,7 @@ use App\Http\Controllers\Front\FrontPromoController;
 use App\Http\Controllers\Front\FrontMembershipController;
 use App\Http\Controllers\Front\FrontGalleryController;
 
-
+use App\Http\Controllers\Front\FrontContactController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -263,6 +263,8 @@ Route::post('remove', [FrontCartController::class, 'removeCart'])->name('cart.re
 Route::post('clear', [FrontCartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('cart-update-discount', [FrontCartController::class, 'updateDiscountCart'])->name('cart.updatediscount');
 
+
+Route::get('fcontacts', [FrontContactController::class, 'index'])->name('contact.index');
 
 
 Route::get('fcheckouts', [FrontCheckoutController::class, 'index'])->name('checkout.index');
