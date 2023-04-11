@@ -35,11 +35,11 @@ class FrontProductController extends Controller
      */
     public function index(Request $request)
     {
-       
+        $res_product = DB::select('select * from product_models');
         $title = 'Collection';
         $pages = 'product';
 
-        return view('front/coffee');
+        return view('front/product', compact('res_product'));
     }
 
     /**
@@ -130,102 +130,14 @@ class FrontProductController extends Controller
      */
     public function show($id)
     {
-
-        //dd("front show detail product");
-        $product_models = [];
-        $product_models_array = [];
-
-        $product_models_res =  DB::select('select pm.*, pcm.product_collection_name, ptm.product_type_name,
-                pfm.product_form_name,
-                ppm.product_package_name,
-            (select discount_models.discount from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id and discount_models.status ="active"
-						 ) 
-						as disc_event,
-						(select dcm.nama from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id  and discount_models.status ="active"
-						 ) 
-						as event_promo
-            from product_models as pm
-            LEFT JOIN product_collection_models as pcm on pcm.id = pm.product_collection
-            LEFT JOIN product_type_models as ptm on ptm.id = pm.product_type
-            LEFT JOIN product_form_models as pfm on pfm.id = pm.product_form
-            LEFT JOIN product_package_models as ppm on ppm.id = pm.product_package
-            where pm.id = 
-            ' . $id);
-
-        for ($p = 0; $p < count($product_models_res); $p++) {
-            $prdct = $product_models_res[$p];
-            $aciditydesc = explode("/", $product_models_res[$p]->product_aciditydesc);
-            $bodydesc = explode("/", $product_models_res[$p]->product_bodydesc);
-            $prdct->acidity_desc = $aciditydesc[0];
-            $prdct->body_desc = $bodydesc[0];
-
-            if (!empty($prdct->fileimages)) {
-                $prdct->images = json_decode($product_models_res[$p]->fileimages);
-            } else {
-                $prdct->images = null;
-            }
-
-            if (!empty($prdct->disc_event)) {
-                $prdct->product_price_after_disc =   ($prdct->product_price) - (($prdct->product_price) * ($prdct->disc_event) / 100);
-            } else {
-                $prdct->product_price_after_disc =  $prdct->product_price;
-            }
-
-            $prdct->variant = null;
-            array_push($product_models_array, $prdct);
+        $res_detail_product = DB::select('select * from product_models where id = ' . $id);
+        if (count($res_detail_product) != 0) {
+            $detail_product = $res_detail_product[0];
         }
-
-        $product_form = [];
-        $product_weight = [];
-        $product_variant_res = [];
-
-        if ($product_models_array[0]->product_variant != null && $product_models_array[0]->product_variant !== "")
-        {
-            $product_form = app('App\Http\Controllers\Api\Product\GetFormController')->GetFormsGroupByVariant($product_models_array[0]->product_variant);
-            $product_weight = app('App\Http\Controllers\Api\Product\GetWeightController')->GetWeightByForm($product_models_array[0]->product_collection, $product_models_array[0]->product_variant, $product_models_array[0]->product_form); 
-            
-            //dd($product_form);
-            //dd($product_weight);
-            //get variant coffee models
-            $product_variant_res =  DB::select('select pvm.product_variant_name,pm.*, pcm.product_collection_name, ptm.product_type_name,
-                    pfm.product_form_name,
-                    ppm.product_package_name,
-                (select discount_models.discount from discount_models 
-                LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-                where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id
-                            ) 
-                            as disc_event,
-                            (select dcm.nama from discount_models 
-                LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-                where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id
-                            ) 
-                            as event_promo
-                from product_models as pm
-                LEFT JOIN product_collection_models as pcm on pcm.id = pm.product_collection
-                LEFT JOIN product_type_models as ptm on ptm.id = pm.product_type
-                LEFT JOIN product_form_models as pfm on pfm.id = pm.product_form
-                LEFT JOIN product_package_models as ppm on ppm.id = pm.product_package
-                            LEFT JOIN product_variant_models as pvm on pvm.id = pm.product_variant
-                            where pm.product_variant = 
-                ' . $product_models_array[0]->product_variant);
-        }
-      
-        $product_models_array[0]->variant = $product_variant_res;
-        //dd($product_models_array[0]);
-
-        $product_models = $product_models_array[0];
-        $product_models_modal = $product_models_array;
-
-        //dd($product_models);
-        //dd($product_models);
 
         $title = 'test';
         $pages = 'detail';
-        return view('front/detail-coffee', compact('product_models', 'product_models_modal', 'product_form', 'product_weight', 'title', 'pages'));
+        return view('front/product-detail',compact('detail_product'));
     }
 
     /**
@@ -338,7 +250,7 @@ class FrontProductController extends Controller
                 'status' => $request->status
             ]);
         }
-        
+
         if ($product_models) {
             return redirect()
                 ->route('products.index')
@@ -377,21 +289,22 @@ class FrontProductController extends Controller
     /**
      * load product data pada halaman coffe
      */
-    public function loadProductData(Request $req){
-        
+    public function loadProductData(Request $req)
+    {
+
         $isHasCollectionFilter = $req->collection != null && $req->collection != "all";
         $isHasFormFilter       = $req->form != null && $req->form != "all";
         $isHasSortingFilter    = $req->sorting != null && $req->sorting != "all";
 
         $extendedSql = "WHERE deleted = 'false' ";
         if ($isHasCollectionFilter)
-            $extendedSql .= "AND product_collection = '".$req->collection."' ";
+            $extendedSql .= "AND product_collection = '" . $req->collection . "' ";
         if ($isHasFormFilter)
-            $extendedSql .= "AND product_form = '".$req->form."' ";
+            $extendedSql .= "AND product_form = '" . $req->form . "' ";
         if ($isHasSortingFilter)
             $extendedSql .= $this->getSortingSqlProduct($req->sorting);
 
-        $products = DB::select("SELECT * FROM product_models ".$extendedSql."");
+        $products = DB::select("SELECT * FROM product_models " . $extendedSql . "");
         $discounts = $this->getActiveDiscount();
 
         foreach ($products as $item) {
@@ -399,12 +312,12 @@ class FrontProductController extends Controller
             $item->product_price_after_disc = $item->product_price;
 
             $id = $item->id;
-            $filteredDiscount = Arr::where($discounts, function ($value, $key) use ($id){
+            $filteredDiscount = Arr::where($discounts, function ($value, $key) use ($id) {
                 return $value->product_id == $id;
-            }); 
-            
-            if (count($filteredDiscount) > 0){
-                foreach ($discounts as $discount){
+            });
+
+            if (count($filteredDiscount) > 0) {
+                foreach ($discounts as $discount) {
                     $item->st_discount = $discount->discount;
                     $priceAfterDisc = ($item->product_price) - (($item->product_price) * ($discount->discount) / 100);
                     $item->product_price_after_disc = round($priceAfterDisc, 2, PHP_ROUND_HALF_UP);
@@ -415,7 +328,8 @@ class FrontProductController extends Controller
         return $products;
     }
 
-    private function getSortingSqlProduct($id) {
+    private function getSortingSqlProduct($id)
+    {
 
         // tambahkan 1 array disini jika menambahkan kategori sorting & sql nya
         $arrSorting = [
@@ -424,11 +338,11 @@ class FrontProductController extends Controller
             ["id" => "price_low_high", "sql" => "ORDER BY product_price DESC"]
         ];
 
-        $arrSortingSelected = Arr::where($arrSorting, function($value, $key) use ($id) {
+        $arrSortingSelected = Arr::where($arrSorting, function ($value, $key) use ($id) {
             return $value['id'] == $id;
         });
 
-        if (count($arrSortingSelected) > 0){
+        if (count($arrSortingSelected) > 0) {
             foreach ($arrSortingSelected as $sort) {
                 return $sort['sql'];
             }
@@ -437,7 +351,8 @@ class FrontProductController extends Controller
         return "";
     }
 
-    private function getActiveDiscount(){
+    private function getActiveDiscount()
+    {
         $discounts = DB::select("SELECT 
             dm.product_id,
             dm.discount 
