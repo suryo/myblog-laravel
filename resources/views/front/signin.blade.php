@@ -5,35 +5,15 @@
 <section>
    <div class="container">
 
-      <div class="lh-sm mb-2">
-         <strong class="gotham-bold  fs-2 fs-lg-3">Welcome.!</strong>
+      <div class="lh-sm mt-5">
+       <br>
+       <br>
       </div>
 
-      <p class="mb-5">Sign In to continue</p>
+     
 
-      {{-- <div class="form-floating border-bottom mb-3">
-         <input type="text" class="form-control border-0 rounded-0 p-0" id="signinUsername" placeholder="name@example.com">
-         <label class="px-0 opacity-50" for="signinUsername">Username / Email Address</label>
-      </div> --}}
-
-      {{-- <div class="input-group border-bottom mb-4 mb-lg-5 flex-nowrap">
-         <div class="form-floating w-100">
-            <input type="password" class="form-control border-0 px-0" id="signinPass" placeholder="Password">
-            <label for="signinPass" class="px-0">Password</label>
-         </div>
-         <button class="btn border-0 bi bi-eye d-none"></button>
-         <button class="btn border-0 bi bi-eye-slash"></button>
-      </div> --}}
-
-      {{-- <div class="form-group text-end mb-5">
-         <a href="#" class="text-dark font-2" style="opacity: .5;">Forgot Password?</a>
-      </div> --}}
-
-      {{-- <div class="form-group">
-         <a href="#" class="btn btn-dark w-100">Sign In</a>
-      </div> --}}
- 
-                                 <form method="POST" action="{{ route('login') }}">
+     
+                                 <form class="mt-5" method="POST" action="{{ route('login') }}">
                                     @csrf
 
                                      {{-- <div class="form-floating border-bottom mb-3">

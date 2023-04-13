@@ -11,668 +11,423 @@
 @endsection
 
 @section('konten')
-<!-- HOME BANNER -->
-<section class="mb-4">
-	<div class="container">
-		<div id="homeBanner" class="carousel slide carousel-fade carousel-banner text-bg-dark overflow-hidden" data-bs-ride="carousel">
 
-			<div class="carousel-inner" id="panel-carousel">
-				<!-- slider item -->
-				<div class="carousel-item active">
-					<img src="ui/img/home/banner1m.jpg" class="d-lg-none w-100" alt="...">
-					<img src="ui/img/home/banner1d.jpg" class="d-none d-lg-block w-100" alt="...">
-					<div class="carousel-caption top-0 h-100 text-start">
-						<div class="container h-100">
-							<div class="row h-100 align-items-center">
-								<div class="col-lg-6 px-0">
-									<h1 class="caption-title display-4 gotham-bold lh-1 mb-0">Learn Code Together</h1>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="carousel-indicators position-relative m-0" id="indicator-carousel">
-				<button type="button" data-bs-target="#homeBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			</div>
-
-			<button class="carousel-control-prev" type="button" data-bs-target="#homeBanner" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#homeBanner" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-
-		</div>
-	</div>
-</section>
-<!-- END OF HOME BANNER -->
-
-<!-- HOME PRODUCT -->
-<section>
-	<div class="container mb-4">
-		<!-- navigasi home product -->
-		<div class="table-responsive">
-			<ul class="nav nav-pills flex-nowrap fw-bold mb-2" id="pills-tab" role="tablist" style="white-space: nowrap;">
-				<!-- nav tab recommended -->
-				{{-- <li class="nav-item" role="presentation">
-					<button class="nav-link btn-dot fs-5 active" id="nav-recommended-tab" data-bs-toggle="pill" data-bs-target="#nav-recommended" type="button" role="tab" aria-controls="nav-recommended" aria-selected="true">
-						recommended
-						<span class="dot">&bull;</span>
-					</button>
-				</li> --}}
-
-				{{-- @foreach ($product_collection as $product_collections)
-					<li class="nav-item" role="presentation">
-						<button class="nav-link btn-dot fs-5" data="{{$product_collections->id}}" id="nav-{{$product_collections->id}}-tab" data-bs-toggle="pill" data-bs-target="#nav-{{$product_collections->id}}" type="button" role="tab" aria-controls="nav-{{$product_collections->id}}" aria-selected="true" onclick="showProductCarousel('{{$product_collections->id}}')">
-								
-								{{$product_collections->product_collection_name}}
-							<span class="dot">&bull;</span>
-						</button>
-					</li>
-				@endforeach	 --}}
-			
-			</ul>
-		</div>
-		<!-- end of navigasi home product -->
-
-	</div>
-
-	<!-- home product list -->
-	<div class="tab-content" id="pills-tabContent">
-
-		<!-- tab konten recommended (rubah id carousel dan carousel control sesuai tab/ coffee collection) -->
-		<div class="tab-pane fade show active" id="nav-recommended" role="tabpanel" aria-labelledby="nav-recommended-tab" tabindex="0">
-			<div class="container">
-
-				<!-- copy this section and paste on tabs pane coffee products category -->
-				{{-- <div class="swiper mySwiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="card card-product border-0 rounded-0 text-center">
-								<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">
-									<a href="/detail-coffee" class="text-text-decoration-none">
-										<img src="ui/img/product/produk1.png" class="img-fluid">
-										<img src="ui/img/product/produk2.png" class="img-fluid">
-									</a>
-									<button data-bs-toggle="modal" data-bs-target="#modalAddtocart" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">
-										<i class="bi bi-cart-plus"></i>
-									</button>
-								</div>
-								<div class="card-body text-capitalize px-0 pb-0">
-									<div class="cart-title fw-bold lh-sm">sumatra mandheling coffee capsules</div>
-									<div class="cart-text my-1">200g</div>
-									<div class="harga-produk mb-0">
-										<!-- <span class="harga-normal">S$ 7.50</span> -->
-										<span class="harga-promo d-flex justify-content-center align-items-center gap-2">
-											<span class="harga-setelah-diskon">S$ 6.55</span>
-											<span class="harga-awal">S$ 7.50</span>
-										</span>
-									</div>
-								</div>
-								<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">
-									<i class="bi bi-bookmark-fill"></i>
-								</button>
-								<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE 15%</div>
-							</div>
-						</div>
-
-						<!-- slide item -->
-						<div class="swiper-slide">
-							<div class="card card-product border-0 rounded-0 text-center">
-								<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">
-									<a href="/detail-coffee" class="text-text-decoration-none">
-										<img src="ui/img/product/produk1.png" class="img-fluid">
-										<img src="ui/img/product/produk2.png" class="img-fluid">
-									</a>
-									<button data-bs-toggle="modal" data-bs-target="#modalAddtocart" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">
-										<i class="bi bi-cart-plus"></i>
-									</button>
-								</div>
-								<div class="card-body text-capitalize px-0 pb-0">
-									<div class="cart-title fw-bold lh-sm">sumatra mandheling coffee capsules</div>
-									<div class="cart-text my-1">200g</div>
-									<div class="harga-produk mb-0">
-										<!-- <span class="harga-normal">S$ 7.50</span> -->
-										<span class="harga-promo d-flex justify-content-center align-items-center gap-2">
-											<span class="harga-setelah-diskon">S$ 6.55</span>
-											<span class="harga-awal">S$ 7.50</span>
-										</span>
-									</div>
-								</div>
-								<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">
-									<i class="bi bi-bookmark-fill"></i>
-								</button>
-								<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE 15%</div>
-							</div>
-						</div>
-
-						<!-- slide item -->
-						<div class="swiper-slide">
-							<div class="card card-product border-0 rounded-0 text-center">
-								<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">
-									<a href="/detail-coffee" class="text-text-decoration-none">
-										<img src="ui/img/product/produk1.png" class="img-fluid">
-										<img src="ui/img/product/produk2.png" class="img-fluid">
-									</a>
-									<button data-bs-toggle="modal" data-bs-target="#modalAddtocart" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">
-										<i class="bi bi-cart-plus"></i>
-									</button>
-								</div>
-								<div class="card-body text-capitalize px-0 pb-0">
-									<div class="cart-title fw-bold lh-sm">sumatra mandheling coffee capsules</div>
-									<div class="cart-text my-1">200g</div>
-									<div class="harga-produk mb-0">
-										<!-- <span class="harga-normal">S$ 7.50</span> -->
-										<span class="harga-promo d-flex justify-content-center align-items-center gap-2">
-											<span class="harga-setelah-diskon">S$ 6.55</span>
-											<span class="harga-awal">S$ 7.50</span>
-										</span>
-									</div>
-								</div>
-								<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">
-									<i class="bi bi-bookmark-fill"></i>
-								</button>
-								<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE 15%</div>
-							</div>
-						</div>
-
-						<!-- slide item -->
-						<div class="swiper-slide">
-							<div class="card card-product border-0 rounded-0 text-center">
-								<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">
-									<a href="/detail-coffee" class="text-text-decoration-none">
-										<img src="ui/img/product/produk1.png" class="img-fluid">
-										<img src="ui/img/product/produk2.png" class="img-fluid">
-									</a>
-									<button data-bs-toggle="modal" data-bs-target="#modalAddtocart" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">
-										<i class="bi bi-cart-plus"></i>
-									</button>
-								</div>
-								<div class="card-body text-capitalize px-0 pb-0">
-									<div class="cart-title fw-bold lh-sm">sumatra mandheling coffee capsules</div>
-									<div class="cart-text my-1">200g</div>
-									<div class="harga-produk mb-0">
-										<!-- <span class="harga-normal">S$ 7.50</span> -->
-										<span class="harga-promo d-flex justify-content-center align-items-center gap-2">
-											<span class="harga-setelah-diskon">S$ 6.55</span>
-											<span class="harga-awal">S$ 7.50</span>
-										</span>
-									</div>
-								</div>
-								<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">
-									<i class="bi bi-bookmark-fill"></i>
-								</button>
-								<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE 15%</div>
-							</div>
-						</div>
-
-						<!-- slide item -->
-						<div class="swiper-slide">
-							<div class="card card-product border-0 rounded-0 text-center">
-								<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">
-									<a href="/detail-coffee" class="text-text-decoration-none">
-										<img src="ui/img/product/produk1.png" class="img-fluid">
-										<img src="ui/img/product/produk2.png" class="img-fluid">
-									</a>
-									<button data-bs-toggle="modal" data-bs-target="#modalAddtocart" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">
-										<i class="bi bi-cart-plus"></i>
-									</button>
-								</div>
-								<div class="card-body text-capitalize px-0 pb-0">
-									<div class="cart-title fw-bold lh-sm">sumatra mandheling coffee capsules</div>
-									<div class="cart-text my-1">200g</div>
-									<div class="harga-produk mb-0">
-										<!-- <span class="harga-normal">S$ 7.50</span> -->
-										<span class="harga-promo d-flex justify-content-center align-items-center gap-2">
-											<span class="harga-setelah-diskon">S$ 6.55</span>
-											<span class="harga-awal">S$ 7.50</span>
-										</span>
-									</div>
-								</div>
-								<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">
-									<i class="bi bi-bookmark-fill"></i>
-								</button>
-								<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE 15%</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</div> --}}
-			</div>
-		</div>
-
-		@foreach ($product_collection as $product_collections)
-			<div class="tab-pane fade" id="nav-{{$product_collections->id}}" role="tabpanel" aria-labelledby="nav-{{$product_collections->id}}-tab" tabindex="0">
-				<div class="container">
-
-					<!-- copy this section and paste on tabs pane coffee products category -->
-					<div class="swiper mySwiper">
-						<div class="swiper-wrapper" id="swiper-wrapper-{{$product_collections->id}}"> 
-
-						</div>
-						<div class="swiper-button-next"></div>
-						<div class="swiper-button-prev"></div>
-					</div>
-				</div>
-			</div>
-		@endforeach	
-
-	</div>
-	<!-- end of home product list -->
-</section>
-<!-- END OF HOME PRODUCT -->
-
-<!-- HOME COFFEE FORM -->
-<section id="homeCoffeeForm">
-	<div class="container">
-		<h4 class="gotham-bold mb-3">#</h4>
-
-		{{-- <div class="table-responsive">
-			<div class="baris-coffee-form d-flex gap-3">
-
-				<!-- form beans -->
-				<div class="kolom-coffee-form">
-					<a href="/coffee">
-						<figure class="figure">
-							<img src="ui/img/home/home_beans.png" class="figure-img img-fluid rounded">
-							<figcaption class="text-center text-dark fw-bold">Coffee Beans</figcaption>
-						</figure>
-					</a>
-				</div>
-
-				<!-- form ground -->
-				<div class="kolom-coffee-form">
-					<a href="/coffee">
-						<figure class="figure">
-							<img src="ui/img/home/home_ground.png" class="figure-img img-fluid rounded">
-							<figcaption class="text-center text-dark fw-bold">Gound Coffee</figcaption>
-						</figure>
-					</a>
-				</div>
-
-				<!-- form drip -->
-				<div class="kolom-coffee-form">
-					<a href="/coffee">
-						<figure class="figure">
-							<img src="ui/img/home/home_drip.png" class="figure-img img-fluid rounded">
-							<figcaption class="text-center text-dark fw-bold">Drip Beans</figcaption>
-						</figure>
-					</a>
-				</div>
-
-				<!-- form capsules -->
-				<div class="kolom-coffee-form">
-					<a href="/coffee">
-						<figure class="figure">
-							<img src="ui/img/home/home_capsules.png" class="figure-img img-fluid rounded">
-							<figcaption class="text-center text-dark fw-bold">Coffee Capsules</figcaption>
-						</figure>
-					</a>
-				</div>
-
-			</div>
-		</div> --}}
-
-	</div>
-</section>
-<!-- END OF HOME COFFEE FORM -->
-@endsection
-
-@section('popup')
-<!-- POPUP COOKIES -->
-{{-- <div class="collapse fixed-bottom text-bg-primary show" id="cookies" style="z-index: 2000;">
-	<div class="p-3">
-		<div class="container-fluid">
+@include('front/header')
+     <!-- Features -->
+	 <div id="features" class="cards-1">
+		<div class="container">
 			<div class="row">
-				<div class="col mb-3 mb-lg-0">
-					This website uses cookies to improve functionality and performance. Using cookies should enable the user to use certain functions, share on social networks and edit messages and advertisements. By clicking on the “OK” button, you agree to the use of cookies on this website. For additional information, please see our Privacy Policy
-				</div>
-				<div class="col-lg-auto">
-					<button class="btn btn-outline-light fs-inherit" data-bs-toggle="collapse" data-bs-target="#cookies">
-						I Agree
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> --}}
-<!-- END OF POPUP COOKIES -->
-
-<!-- SUBSCRIBE ON LANDING PAGE -->
-<!-- form subscribe -->
-<div class="modal fade popup modal-middle" id="formSubscribe" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="formSubscribeLabel" tabindex="-1">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title opacity-25" id="formSubscribeLabel">Subscribe</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<h1 class="gotham-bold">Hello.<br>Get 10% OFF*</h1>
-					<p class="mb-4">Your first order when you subscribe to our newsletter!</p>
-					<form>
-						<div class="form-floating border-bottom mb-5">
-							<input type="email" class="form-control border-0 px-0" id="inputEmail1" placeholder="name@example.com">
-							<label for="inputEmail1" class="px-0">Email Address*</label>
+				<div class="col-lg-12">
+					<h2 class="h2-heading">Ioniq CRM application is packed with <span>awesome features</span></h2>
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+			<div class="row">
+				<div class="col-lg-12">
+					
+					<!-- Card -->
+					<div class="card">
+						<div class="card-icon">
+							<span class="fas fa-headphones-alt"></span>
 						</div>
-						<div class="text-center">
-							<a data-bs-dismiss="modal" data-bs-toggle="modal" href="#formSignup" class="btn btn-dark w-100 mb-4 w-lg-auto fs-inherit" style="min-width: 50%;">
-								CLAIM MY 10% OFF
-							</a>
+						<div class="card-body">
+							<h4 class="card-title">Customer Lists</h4>
+							<p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc elementum</p>
 						</div>
-					</form>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<p class="small">
-					Subscribe to receive communications from Supresso about our products and services. By subscribing, you agree to Supresso’s <a href="#" target="_blank" class="text-primary">Privacy Policy</a> and <a href="#" target="_blank" class="text-primary">Terms & Conditions.</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end of form subscribe -->
-
-<!-- FORM SIGN-UP FROM SUBSCRIBE WHEN USER DON'T HAVE ACCOUNT -->
-<!-- form sign up -->
-<div class="modal fade popup modal-middle" id="formSignup" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="formSignupLabel" tabindex="-1">
-	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title opacity-25" id="formSignupLabel">Sign Up</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<h1 class="gotham-bold">Almost there...</h1>
-					<p class="mb-4">Let us learn more about you!</p>
-					<form>
-						<div class="row">
-							<div class="col-12">
-								<p class="opacity-50">sgi.webdev@example.com</p>
-							</div>
-							<div class="col-md-6">
-								<div class="form-floating border-bottom mb-4">
-									<input type="text" class="form-control border-0 px-0" id="inputFirstName1" placeholder="First Name">
-									<label for="inputFirstName1" class="px-0">First Name*</label>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-floating border-bottom mb-4">
-									<input type="text" class="form-control border-0 px-0" id="inputLastName1" placeholder="Last Name">
-									<label for="inputLastName1" class="px-0">Last Name</label>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="input-group border-bottom mb-4 mb-lg-5 flex-nowrap">
-									<div class="form-floating w-100">
-										<input type="password" class="form-control border-0 px-0" id="inputPassword1" placeholder="Password">
-										<label for="inputPassword1" class="px-0">Password*</label>
-									</div>
-									<button class="btn border-0 bi bi-eye d-none"></button>
-									<button class="btn border-0 bi bi-eye-slash"></button>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="input-group border-bottom mb-5 flex-nowrap">
-									<div class="form-floating w-100">
-										<input type="password" class="form-control border-0 px-0" id="inputConfirmPassword1" placeholder="Confirm Password">
-										<label for="inputConfirmPassword1" class="px-0">Confirm Password*</label>
-									</div>
-									<button class="btn border-0 bi bi-eye d-none"></button>
-									<button class="btn border-0 bi bi-eye-slash"></button>
-								</div>
-							</div>
-						</div>
-						<div class="text-center">
-							<a data-bs-dismiss="modal" data-bs-toggle="modal" href="#subscribeSuccess" class="btn btn-dark w-100 mb-4 w-lg-auto fs-inherit" style="min-width: 50%;">
-								SIGN UP <i class="bi bi-chevron-right"></i>
-							</a>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id="approvalJoin">
-					<label class="form-check-label small" for="approvalJoin">
-						We would like to keep you updated on new products, services and exclusive offers. Please tick below if you DO NOT wish to receive any form of marketing & promotion communication from us.
-					</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end of form sign up -->
-
-<!-- pop up confirmation sign up success -->
-<div class="modal fade popup modal-middle" id="subscribeSuccess" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="subscribeSuccessLabel" tabindex="-1">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title opacity-25" id="subscribeSuccessLabel">Subscribe Success</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<h1 class="gotham-bold">Congratulations!</h1>
-					<p class="mb-4">
-						Your 10% off Coupon Code is in your mailbox.
-						<br>Please check your e-mail.
-					</p>
-					<hr class="my-4 opacity-100">
-					<div class="text-center">
-						<a data-bs-dismiss="modal" data-bs-toggle="modal" href="#modalSignin" class="btn btn-dark w-100 mb-4 w-lg-auto fs-inherit" style="min-width: 50%;">
-							SHOP NOW <i class="bi bi-chevron-right"></i>
-						</a>
 					</div>
-				</div>
-			</div>
-			<div class="modal-footer"></div>
-		</div>
-	</div>
-</div>
-<!-- end of pop up confirmation sign up success -->
+					<!-- end of card -->
 
-<!-- FORM SIGN-UP FROM SUBSCRIBE WHEN USER ALREADY HAVE ACCOUNT -->
-<!-- sign in to account -->
-<div class="modal fade popup modal-middle" id="modalSignin" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="modalSigninLabel" tabindex="-1">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title opacity-25" id="modalSigninLabel">Subscribe Success</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<h1 class="gotham-bold">Hello.</h1>
-					<p class="mb-5">sgi.webdev@example.com</p>
-					<p>You’re already one of us! Sign in to your account and enjoy all things #IndonesianCoffee with Supresso.</p>
-					<hr class="my-4 opacity-100">
-					<div class="text-center">
-						<a data-bs-dismiss="modal" class="btn btn-dark w-100 mb-4 w-lg-auto fs-inherit" style="min-width: 50%;">
-							SIGN IN <i class="bi bi-chevron-right"></i>
-						</a>
+					<!-- Card -->
+					<div class="card">
+						<div class="card-icon green">
+							<span class="far fa-clipboard"></span>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title">Sales Tracking</h4>
+							<p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc placerat justo sem</p>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="modal-footer"></div>
-		</div>
-	</div>
-</div>
-<!-- end of sign in to account -->
+					<!-- end of card -->
+
+					<!-- Card -->
+					<div class="card">
+						<div class="card-icon blue">
+							<span class="far fa-comments"></span>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title">Reporting Tool</h4>
+							<p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque sodales verum</p>
+						</div>
+					</div>
+					<!-- end of card -->
+
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of cards-1 -->
+	<!-- end of services -->
+
+
+	<!-- Details 1 -->
+	<div id="details" class="basic-1 bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-xl-5">
+					<div class="text-container">
+						<h2>Manage your customer’s expectations and get them to trust you</h2>
+						<p>Vestibulum ullamcorper augue ex, imperdiet tincidunt tellus bibendum inconsectetur rutrum mauris orbi scelerisque cursus augue, ac suscipit sem mattis at ut suscipit</p>
+						<a class="btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modal</a>
+					</div> <!-- end of text-container -->
+				</div> <!-- end of col -->
+				<div class="col-lg-6 col-xl-7">
+					<div class="image-container">
+						<img class="img-fluid" src="../ioniq/images/details-1.svg" alt="alternative">
+					</div> <!-- end of image-container -->
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of basic-1 -->
+	<!-- end of details 1 -->
+
+
+	<!-- Details Modal -->
+	<div id="staticBackdrop" class="modal fade" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="row">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<div class="col-lg-8">
+						<div class="image-container">
+							<img class="img-fluid" src="../ioniq/images/details-modal.jpg" alt="alternative">
+						</div> <!-- end of image-container -->
+					</div> <!-- end of col -->
+					<div class="col-lg-4">
+						<h3>Goals Setting</h3>
+						<hr>
+						<p>In gravida at nunc sodales pretium. Vivamus semper, odio vitae mattis auctor, elit elit semper magna ac tum nico vela spider</p>
+						<h4>User Feedback</h4>
+						<p>Sapien vitae eros. Praesent ut erat a tellus posuere nisi more thico cursus pharetra finibus posuere nisi. Vivamus feugiat</p>
+						<ul class="list-unstyled li-space-lg">
+							<li class="d-flex">
+								<i class="fas fa-chevron-right"></i>
+								<div class="flex-grow-1">Tincidunt sem vel brita bet mala</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-chevron-right"></i>
+								<div class="flex-grow-1">Sapien condimentum sacoz sil necr</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-chevron-right"></i>
+								<div class="flex-grow-1">Fusce interdum nec ravon fro urna</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-chevron-right"></i>
+								<div class="flex-grow-1">Integer pulvinar biolot bat tortor</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-chevron-right"></i>
+								<div class="flex-grow-1">Id ultricies fringilla fangor raq trinit</div>
+							</li>
+						</ul>
+						<a id="modalCtaBtn" class="btn-solid-reg" href="#your-link">Details</a>
+						<button type="button" class="btn-outline-reg" data-bs-dismiss="modal">Close</button>
+					</div> <!-- end of col -->
+				</div> <!-- end of row -->
+			</div> <!-- end of modal-content -->
+		</div> <!-- end of modal-dialog -->
+	</div> <!-- end of modal -->
+	<!-- end of details modal -->
+
+
+	<!-- Details 2 -->
+	<div class="basic-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="image-container">
+						<img class="img-fluid" src="../ioniq/images/details-2.png" alt="alternative">
+					</div> <!-- end of image-container -->
+				</div> <!-- end of col -->
+				<div class="col-lg-6">
+					<div class="text-container">
+						<h2>Anyone can start using the app with minimum skills</h2>
+						<p>Velit dictum non proin egestas convallis nunc, eu auctor massa. Nam hendrerit, eros ut viverra lobortis, mauris nisi porta risus, placerat dignissim tellus auctor masse</p>
+						<ul class="list-unstyled li-space-lg">
+							<li class="d-flex">
+								<i class="fas fa-square"></i>
+								<div class="flex-grow-1">Fusce ipsum augue, ultrices rutrum est accel, pulvin</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-square"></i>
+								<div class="flex-grow-1">Fermentum elit. Vestibulum cursuso bibendum viverra</div>
+							</li>
+							<li class="d-flex">
+								<i class="fas fa-square"></i>
+								<div class="flex-grow-1">Quisque blandit pulvinar metus, eu sta malesuada</div>
+							</li>
+						</ul>
+					</div> <!-- end of text-container -->
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of basic-2 -->
+	<!-- end of details 2 -->
+
+
+	<!-- Testimonials -->
+	<div class="slider-1 bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="h2-heading">Few words from our clients</h2>
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+			<div class="row">
+				<div class="col-lg-12">
+
+					<!-- Card Slider -->
+					<div class="slider-container">
+						<div class="swiper-container card-slider">
+							<div class="swiper-wrapper">
+								
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-1.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Tortor sodales eget. Vivamus imperdiet leo eu risus tincidunt uris. Proin placerat, urna hendrerit placerat erase convallis</p>
+											<p class="testimonial-author">Jude Thorn - Designer</p>
+										</div>
+									</div>
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+		
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-2.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Eros volutpat ante mauris euismod sem, ut varius nisi lectus in urna. Integer luctus, nunc eget maximus intem, orci risus</p>
+											<p class="testimonial-author">Roy Smith - Developer</p>
+										</div>
+									</div>        
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+		
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-3.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Sed congue ex quam, sit amet venenatis dolor lacinia vulputate. Nunc pulvinar ex ex, sit amet scelerisque tellus pretium semper</p>
+											<p class="testimonial-author">Marsha Singer - Marketer</p>
+										</div>
+									</div>        
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+		
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-4.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Etiam est lorem, interdum non semper ut, bibendum vitae ante. Pellente sollicitun sagittis lectus. Aenean in comod</p>
+											<p class="testimonial-author">Tim Shaw - Designer</p>
+										</div>
+									</div>
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+		
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-5.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Quisque nec turpis placerat, accumsan lorem lobortis, vestibulum elit. Fusce finibus nisl varius semper elementum vivamus</p>
+											<p class="testimonial-author">Lindsay Spice - Marketer</p>
+										</div>
+									</div>        
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+		
+								<!-- Slide -->
+								<div class="swiper-slide">
+									<div class="card">
+										<img class="card-image" src="../ioniq/images/testimonial-6.jpg" alt="alternative">
+										<div class="card-body">
+											<p class="testimonial-text">Vulputate sed tellus nec, imperdiet luctus purus. Morbi lobortis massa a mi interdum condimentum. Integer non gravida nisi</p>
+											<p class="testimonial-author">Ann Blake - Developer</p>
+										</div>
+									</div>        
+								</div> <!-- end of swiper-slide -->
+								<!-- end of slide -->
+							
+							</div> <!-- end of swiper-wrapper -->
+		
+							<!-- Add Arrows -->
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+							<!-- end of add arrows -->
+		
+						</div> <!-- end of swiper-container -->
+					</div> <!-- end of slider-container -->
+					<!-- end of card slider -->
+
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of slider-1 -->
+	<!-- end of testimonials -->
+
+
+	<!-- Invitation -->
+	<div class="basic-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h4>Ioniq will change the way you think about CRM solutions due to it’s advanced tools and integrated functionalities</h4>
+					<a class="btn-outline-lg page-scroll" href="sign-up.html">Sign up for free</a>
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of basic-3 -->
+	<!-- end of invitation -->
+
+
+	<!-- Pricing -->
+	<div id="pricing" class="cards-2 bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="h2-heading">Free forever tier and 2 pro plans</h2>
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+			<div class="row">
+				<div class="col-lg-12">
+					
+					<!-- Card -->
+					<div class="card">
+						<div class="card-body">
+							<div class="card-title">
+								<img class="decoration-lines" src="../ioniq/images/decoration-lines.svg" alt="alternative"><span>Free tier</span><img class="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative">
+							</div>
+							<ul class="list-unstyled li-space-lg">
+								<li>Fusce pulvinar eu mi acm</li>
+								<li>Curabitur consequat nisl bro</li>
+								<li>Reget facilisis molestie</li>
+								<li>Vivamus vitae sem in tortor</li>
+								<li>Pharetra vehicula ornares</li>
+								<li>Vivamus dignissim sit amet</li>
+								<li>Ut convallis aliquama set</li>
+							</ul>
+							<div class="price">Free</div>
+							<a href="sign-up.html" class="btn-solid-reg">Sign up</a>
+						</div>
+					</div>
+					<!-- end of card -->
+
+					<!-- Card -->
+					<div class="card">
+						<div class="card-body">
+							<div class="card-title">
+								<img class="decoration-lines" src="../ioniq/images/decoration-lines.svg" alt="alternative"><span>Advanced</span><img class="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative">
+							</div>
+							<ul class="list-unstyled li-space-lg">
+								<li>Nunc commodo magna quis</li>
+								<li>Lacus fermentum tincidunt</li>
+								<li>Nullam lobortis porta diam</li>
+								<li>Announcing of invita mro</li>
+								<li>Dictum metus placerat luctus</li>
+								<li>Sed laoreet blandit mollis</li>
+								<li>Mauris non luctus est</li>
+							</ul>
+							<div class="price">$19<span>/month</span></div>
+							<a href="sign-up.html" class="btn-solid-reg">Sign up</a>
+						</div>
+					</div>
+					<!-- end of card -->
+
+					<!-- Card -->
+					<div class="card">
+						<div class="card-body">
+							<div class="card-title">
+								<img class="decoration-lines" src="../ioniq/images/decoration-lines.svg" alt="alternative"><span>Professional</span><img class="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative">
+							</div>
+							<ul class="list-unstyled li-space-lg">
+								<li>Quisque rutrum mattis</li>
+								<li>Quisque tristique cursus lacus</li>
+								<li>Interdum sollicitudin maec</li>
+								<li>Quam posuerei pellentesque</li>
+								<li>Est neco gravida turpis integer</li>
+								<li>Mollis felis. Integer id quam</li>
+								<li>Id tellus hendrerit lacinia</li>
+							</ul>
+							<div class="price">$29<span>/month</span></div>
+							<a href="sign-up.html" class="btn-solid-reg">Sign up</a>
+						</div>
+					</div>
+					<!-- end of card -->
+
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of cards-2 -->
+	<!-- end of pricing -->
+
+
+	<!-- Questions -->
+	<div class="accordion-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="h2-heading">Frequent questions</h2>
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->   
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="accordion" id="accordionExample">
+						
+						<!-- Accordion Item -->
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingOne">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How can I contact you quickly and get a reasonable quote more for my project?</button>
+							</h2>
+							<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+								<div class="accordion-body">Sed lacinia cursus viverra. Nunc sed libero euismod, congue dui a, vulputate quam. Pellentesque neque nisi, ultrices ut ipsum ac, mattis sollicitudin neque. Ut ac nunc sem. Etiam id erat facilisis magna sagittis porta. Donec eu dolor eu dolor finibus sodales consectetur, et condimentum elit tincidunt</div>
+							</div>
+						</div>
+						<!-- end of accordion-item -->
+
+						<!-- Accordion Item -->
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingTwo">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Is the Free Tier available for unlimited time or it will end more words after a while?</button>
+							</h2>
+							<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+								<div class="accordion-body">Mauris faucibus placerat nisl. Sed eros odio, posuere at felis quis, tincidunt facilisis nibh. Nulla in ante sem. Nam aliquam urna nisi, cursus semper dolor convallis at. Duis vulputate est in consectetur, et condimentum elit tincidunt libero consectetur, et condimentum suis vulputate est in libero</div>
+							</div>
+						</div>
+						<!-- end of accordion-item -->
+
+						<!-- Accordion Item -->
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingThree">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Can I use the app on mobile devices or it’s limited more words to desktop use?</button>
+							</h2>
+							<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+								<div class="accordion-body">Nullam at diam at mi facilisis consectetur at non turpis. Proin a felis nisi. Sed at orci rutrum, tincidunt magna vel, pharetra libero. Proin mauris orci, faucibus eget malesuada vel, consectetur, et condimentum elit tincidunt pellentesque vitae ligula. Pellentesque euismod tincidun</div>
+							</div>
+						</div>
+						<!-- end of accordion-item -->
+
+					</div> <!-- end of accordion -->
+				</div> <!-- end of col -->
+			</div> <!-- end of row -->
+		</div> <!-- end of container -->
+	</div> <!-- end of accordion-1 -->
+	<!-- end of questions -->
+
 
 <script src="{{ URL::asset('/ui/js/jquery-3.6.0.min.js') }}"></script>
-<script>
-	var slidersURL = "{{asset('sliders-image')}}";
-	$(document).ready(function(){
-		getSlider();
-	});
 
-	function getSlider(){
-		$.ajax({
-			url : "slider-load",
-			method : "GET", 
-			success : function (res) {
-				if (res.length > 0){
-					appendSliderBody(res);
-					appendIndicator(res);
-				}
-				
-			}, error : function (error) {
-				console.log(error.responseJSON.message);
-			}
-		});
-	}
-
-	function textFormater(type, text) {
-		if (type == "bold"){
-			return '<h1 class="caption-title display-4 gotham-bold lh-1 mb-3">'+text+'</h1>';
-		} else {
-			return '<h3 class="caption-title lh-1 mb-3" style="font-weight: 100;">'+text+'</h3>';
-		}
-	}
-
-	function appendSliderBody(res){
-		// alert("Klik");
-		let str = '';
-		$.each(res, function(i, item)
-		{
-			if (i == 0)
-					str += '<div class="carousel-item active">';
-				else
-					str += '<div class="carousel-item">';
-			
-			if (item.type == "normal")
-			{
-
-				const textForm  = JSON.parse(item.json_text_form); 
-				const textColor = item.text_color != "dark" ? "" : "text-dark";
-				console.log(item.text_color);
-				console.log(textForm);
-
-				const title 		= textFormater(textForm.title, item.title);
-				const bellowTitle 	= textFormater(textForm.below_title, item.below_title);
-				const desc 			= textFormater(textForm.desc, item.desc);
-
-				str += '<img src="'+slidersURL+'/'+item.mobile_img+'" class="d-lg-none w-100" alt="...">'+
-					'<img src="'+slidersURL+'/'+item.desktop_img+'" class="d-none d-lg-block w-100" alt="...">'+
-					'<div class="carousel-caption top-0 h-100 text-start '+textColor+'">'+
-						'<div class="container h-100">'+
-							'<div class="row h-100 align-items-center">'+
-								'<div class="col-lg-6 px-0">'+
-									title + bellowTitle + desc +
-									'<a href="'+item.shop_url+'" class="btn btn-primary fs-inherit">'+
-										'SHOP NOW <i class="bi bi-chevron-right"></i>'+
-									'</a>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>';
-			} else {
-				str += '<img src="'+slidersURL+'/'+item.mobile_img+'" class="d-lg-none w-100" alt="...">'+
-					'<img src="'+slidersURL+'/'+item.desktop_img+'" class="d-none d-lg-block w-100" alt="...">'+
-					'<div class="carousel-caption top-0 h-100 text-start">'+
-						item.custom_script +
-					'</div>'+
-				'</div>';
-			}
-		});
-		$("#panel-carousel").html(str);
-	}
-	
-	function appendIndicator(res){
-		let str = '';
-		$.each(res, function(i, item){
-			const num = i + 1;
-			if (i == 0){
-				str += '<button type="button" data-bs-target="#homeBanner" data-bs-slide-to="'+i+'" class="active" aria-current="true" aria-label="Slide '+num+'"></button>';
-			} else {
-				str += '<button type="button" data-bs-target="#homeBanner" data-bs-slide-to="'+i+'" aria-current="true" aria-label="Slide '+num+'"></button>';
-			}
-		});
-		$("#indicator-carousel").html(str);
-	}
-
-	function showProductCarousel(id){
-		$.ajax({
-			url : 'product-carousel-load',
-			method : 'POST',
-			data : {
-				'_token' : '{{ csrf_token() }}',
-				'collection_id' : id
-			}, success:function(res){
-				
-				console.log(res);
-				
-				let str = '';							
-				$.each(res, function(i, item){
-					
-					let strImage = '{{asset('files/'.'imagenotavailable.jpg')}}';
-					let strImage2 = '{{asset('files/'.'imagenotavailable.jpg')}}';
-					if (item.fileimages != ""){
-						arrImages = JSON.parse(item.fileimages);
-						strImage = "{{asset('files/product-images')}}/" + arrImages[0];
-						if (arrImages.length > 1){
-							strImage2 = "{{asset('files/product-images')}}/" + arrImages[1];
-						}
-					} 
-
-					let strHargaDiscount = '<span class="cart-text">S$ '+item.product_price+'</span>';
-					if (item.product_price != item.product_price_after_disc){
-						strHargaDiscount = '<span class="harga-setelah-diskon">S$ '+item.product_price_after_disc+'</span>'+
-											'<span class="harga-awal">S$ '+item.product_price+'</span>';
-					}
-
-					let stLabelDiscount = ''
-					if (item.st_discount != null && item.st_discount != ''){
-						stLabelDiscount = '<div class="wobler text-bg-primary position-absolute top-0 start-0 py-1 px-2 small">SAVE '+item.st_discount+'%</div>';
-					}
-					
-					console.log();
-					str += '<div class="swiper-slide">'+
-							'<div class="card card-product border-0 rounded-0 text-center">'+
-								'<div class="card-header position-relative p-0 rounded-0 border-0" style="background-color:white;">'+
-									'<a href="/fproducts/'+item.id+'" class="text-text-decoration-none">'+
-										'<img src="'+strImage+'" class="img-fluid">'+
-										'<img src="'+strImage2+'" class="img-fluid">'+
-									'</a>'+
-									'<button data-bs-toggle="modal" data-bs-target="#modalAddtocart'+item.id+'" class="btn btn-addtocart btn-secondary position-absolute top-0 end-0 m-3 p-2 lh-1 rounded-1 fs-5">'+
-										'<i class="bi bi-cart-plus"></i>'+
-									'</button>'+
-								'</div>'+
-								'<div class="card-body text-capitalize px-0 pb-0">'+
-									'<div class="cart-title fw-bold lh-sm">'+item.product_name+'</div>'+
-									'<div class="cart-text my-1">'+item.product_weight +'g</div>'+
-									'<div class="harga-produk mb-0">'+
-										'<span class="harga-promo d-flex justify-content-center align-items-center gap-2">'+
-											strHargaDiscount +
-										'</span>'+
-									'</div>'+
-								'</div>'+
-								'<button class="btn border-0 btn-bookmark position-absolute top-0 start-0 fs-3 p-0 ms-3 lh-1 d-none">'+
-									'<i class="bi bi-bookmark-fill"></i>'+
-								'</button>'+
-								stLabelDiscount+
-							'</div>'+
-						'</div>';	
-				});
-			
-				$("#swiper-wrapper-"+id).html(str);
-			}, error:function(er){
-				console.log(er);
-			}
-		})
-	}
-</script>
 @endsection
 
-@section('script')
-@endsection
