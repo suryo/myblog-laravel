@@ -1,4 +1,4 @@
-# myblog-Laravel - beta
+# spmi-Laravel
 
 ## Installation
 
@@ -10,7 +10,7 @@ php artisan key:generate
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=mylaracool
+DB_DATABASE=db_spmi
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -29,15 +29,6 @@ php artisan serve --host 0.0.0.0
 * USER PERMISSIONS
 * MINIBLE TEMPLATES
 
-## Branch
-
-* Main -> prject gabungan (yoggi(UI), suryo, sigit)
-* project/ui -> branch pak yoggi
-
-* project/suryo -> branch pak suryo (berhenti pada fungsi add to cart langsung dari halaman product)
-* project/suryo2 -> branch pak suryo (pengembangan fungsi add to cart muncul modal terlebih dahulu)
-
-* project/sigit -> branch pak sigit
 
 ## link
 
