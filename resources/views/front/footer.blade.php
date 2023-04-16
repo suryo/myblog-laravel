@@ -4,15 +4,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="footer-col first">
-                    <h6>About Website</h6>
-                    <p class="p-small">Proin ut felis purus vestibulum in orci molestie, efficitur lacus ac pellentesque elit. Fusce mollis laoreet lobortis nulla ac efficitur lacus ac </p>
+                    <h6>About</h6>
+                    <p class="p-small">Betapa terhormatnya ilmu, karena orang yang tidak memilikinya mengatakan bahwa dia memiliki ilmu. dan betapa tidak terhormatnya kebodohan, karena orang yang memilikinya mengatakan bahwa dia tidak bodoh. – Ali bin Abi Thalib</p>
                 </div> <!-- end of footer-col -->
                 <div class="footer-col second">
                     <h6>Links</h6>
                     <ul class="list-unstyled li-space-lg p-small">
-                        <li>Important: <a href="terms.html">Terms & Conditions</a>, <a href="privacy.html">Privacy Policy</a></li>
-                        <li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon Library</a>, <a href="#">Illustrations</a></li>
-                        <li>Menu: <a href="#header">Home</a>, <a href="#features">Features</a>, <a href="#details">Details</a>, <a href="#pricing">Pricing</a></li>
+                        <li><a href="terms.html">Universitas Adipati Karna</a></li>
+                        <li><a href="#">Sistem Akademik</a></li>
+                        <li><a href="#">Sistem Keuangan</a></li>
                     </ul>
                 </div> <!-- end of footer-col -->
                 <div class="footer-col third">
@@ -40,7 +40,7 @@
                             <i class="fab fa-instagram fa-stack-1x"></i>
                         </a>
                     </span>
-                    <p class="p-small">Quam posuerei pellent esque vam <a href="mailto:contact@site.com"><strong>contact@site.com</strong></a></p>
+                    <p class="p-small">SuryoAtmojo<a href="mailto:contact@site.com"><br><strong>suryoatm@gmail.com</strong></a></p>
                 </div> <!-- end of footer-col -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->

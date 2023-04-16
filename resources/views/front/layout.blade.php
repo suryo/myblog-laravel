@@ -18,7 +18,7 @@
         <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
         <!-- Webpage Title -->
-        <title>Ioniq Webpage Title</title>
+        <title>SPMI</title>
         
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -49,11 +49,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <p class="p-small">Copyright © <a href="#your-link">Your name</a></p>
+                        <p class="p-small">Copyright © <a href="#your-link">SPMI</a></p>
                     </div> <!-- end of col -->
 
                     <div class="col-lg-6">
-                        <p class="p-small">Distributed By<a href="https://themewagon.com/"> Themewagon</a></p>    
+                        <p class="p-small">Modified By<a href="https://github.com/suryo"> SATM</a></p>    
                     </div> <!-- end of col -->
                 </div> <!-- enf of row -->
             </div> <!-- end of container -->

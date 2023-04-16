@@ -14,14 +14,14 @@
 
 @include('front/header')
      <!-- Features -->
-	 <div id="features" class="cards-1">
+	 <div id="features" class="cards-1 d-none">
 		<div class="container">
-			<div class="row">
+			<div class="row d-none">
 				<div class="col-lg-12">
 					<h2 class="h2-heading">Ioniq CRM application is packed with <span>awesome features</span></h2>
 				</div> <!-- end of col -->
 			</div> <!-- end of row -->
-			<div class="row">
+			<div class="row d-none">
 				<div class="col-lg-12">
 					
 					<!-- Card -->
@@ -68,7 +68,7 @@
 
 
 	<!-- Details 1 -->
-	<div id="details" class="basic-1 bg-gray">
+	<div id="details" class="basic-1 bg-gray d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-xl-5">
@@ -90,7 +90,7 @@
 
 
 	<!-- Details Modal -->
-	<div id="staticBackdrop" class="modal fade" tabindex="-1" aria-hidden="true">
+	<div id="staticBackdrop" class="modal fade d-none" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="row">
@@ -139,7 +139,7 @@
 
 
 	<!-- Details 2 -->
-	<div class="basic-2">
+	<div class="basic-2  d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -174,7 +174,7 @@
 
 
 	<!-- Testimonials -->
-	<div class="slider-1 bg-gray">
+	<div class="slider-1 bg-gray d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -280,7 +280,7 @@
 
 
 	<!-- Invitation -->
-	<div class="basic-3">
+	<div class="basic-3 d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -294,7 +294,7 @@
 
 
 	<!-- Pricing -->
-	<div id="pricing" class="cards-2 bg-gray">
+	<div id="pricing" class="cards-2 bg-gray d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -375,7 +375,7 @@
 
 
 	<!-- Questions -->
-	<div class="accordion-1">
+	<div class="accordion-1 d-none">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

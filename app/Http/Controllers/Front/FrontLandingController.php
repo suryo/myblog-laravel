@@ -34,85 +34,12 @@ class FrontLandingController extends Controller
      */
     public function index(Request $request)
     {
-        $product_collection = [];
-        $product_collection_models_res =  DB::table('product_collection_models')
-            ->where('deleted', 'false')
-            ->orderBy('order', 'asc')
-            ->get();
-
-        $tes = "MONTH(discount_cluster_models.active_date)";
-        for ($c = 0; $c < count($product_collection_models_res); $c++) {
-            $cp = $product_collection_models_res[$c];
-            $product_mdls[$c] = [];
-
-            $product_collection_models_res[$c] =  DB::select('	select pm.*,
-            (select discount_models.discount from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id) as disc_event,
-            (select dcm.nama from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id) as event_promo	
-            from product_models as pm
-            where product_collection =' . $cp->id);
-
-            for ($pr = 0; $pr < count($product_collection_models_res[$c]); $pr++) {
-                $prdct[$pr] = $product_collection_models_res[$c][$pr];
-                if (!empty($prdct[$pr]->fileimages)) {
-                    $prdct[$pr]->images = json_decode($product_collection_models_res[$c][$pr]->fileimages);
-                } else {
-                    $prdct[$pr]->images = null;
-                }
-
-                if (!empty($prdct[$pr]->disc_event)) {
-                    $prdct[$pr]->product_price_after_disc = ($prdct[$pr]->product_price) - (($prdct[$pr]->product_price) * ($prdct[$pr]->disc_event) / 100);
-                } else {
-                    $prdct[$pr]->product_price_after_disc = $prdct[$pr]->product_price;
-                }
-                array_push($product_mdls[$c], $prdct[$pr]);
-            }
-            $cp->product = $product_mdls[$c];
-
-            array_push($product_collection, $cp);
-        }
-
-        $product_models = [];
-
-        $product_models_res =  DB::select('select pm.*,
-            (select discount_models.discount from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id
-						 ) 
-						as disc_event,
-						(select dcm.nama from discount_models 
-            LEFT JOIN discount_cluster_models as dcm on discount_models.discount_cluster_id = dcm.id
-            where  (NOW() >= dcm.active_date AND NOW() <= dcm.off_date) and discount_models.product_id = pm.id
-						 ) 
-						as event_promo
-            from product_models as pm');
-
-
-
-        for ($p = 0; $p < count($product_models_res); $p++) {
-            $prdct = $product_models_res[$p];
-            if (!empty($prdct->fileimages)) {
-                $prdct->images = json_decode($product_models_res[$p]->fileimages);
-            } else {
-                $prdct->images = null;
-            }
-
-
-            if (!empty($prdct->disc_event)) {
-                $prdct->product_price_after_disc =   ($prdct->product_price) - (($prdct->product_price) * ($prdct->disc_event) / 100);
-            } else {
-                $prdct->product_price_after_disc =  $prdct->product_price;
-            }
-            array_push($product_models, $prdct);
-        }
+        
 
         $title = 'home';
         $pages = 'landing';
 
-        return view('front/landing', compact('product_models', 'product_collection', 'title', 'pages'))
+        return view('front/landing', compact('title', 'pages'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
