@@ -27,13 +27,13 @@
                         <li><div class="dropdown-divider"></div></li>
                         <li><a class="dropdown-item" href="{{url('fungsitugas')}}">Fungsi Dan Tugas</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('model')}}">Model Penjaminan Mutu</a></li>
+                        <li><a class="dropdown-item" href="{{url('modelmutu')}}">Model Penjaminan Mutu</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('struktur')}}">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="{{url('strukturorganisasi')}}">Struktur Organisasi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#features">Berita</a>
+                    <a class="nav-link" href="{{url('berita')}}">Berita</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dokumen Mutu</a>
@@ -46,17 +46,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Evaluasi SPMI</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                        <li><a class="dropdown-item" href="{{url('')}}">Instrumen Audit Mutu Internal</a></li>
+                        <li><a class="dropdown-item" href="{{url('instrumenmutuinternal')}}">Instrumen Audit Mutu Internal</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('')}}">Laporan Evaluasi Mutu Internal Program Studi</a></li>
+                        <li><a class="dropdown-item" href="{{url('lemips')}}">Laporan Evaluasi Mutu Internal Program Studi</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('')}}">Laporan Hasil Pemahaman Visi Misi</a></li>
+                        <li><a class="dropdown-item" href="{{url('lhpvm')}}">Laporan Hasil Pemahaman Visi Misi</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('')}}">Penilaian Kepuasan Pengguna Jasa Terhadap Layanan UG</a></li>
+                        <li><a class="dropdown-item" href="{{url('pkpj')}}">Penilaian Kepuasan Pengguna Jasa Terhadap Layanan UG</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('')}}">Laporan Hasil Audit Mutu Internal Program Studi</a></li>
+                        <li><a class="dropdown-item" href="{{url('lhamips')}}">Laporan Hasil Audit Mutu Internal Program Studi</a></li>
                         <li><div class="dropdown-divider"></div></li>
-                        <li><a class="dropdown-item" href="{{url('')}}">Laporan terkait Benchmarking SPMI</a></li>
+                        <li><a class="dropdown-item" href="{{url('lbenchmark')}}">Laporan terkait Benchmarking SPMI</a></li>
                         <li><div class="dropdown-divider"></div></li>
                        
                     </ul>

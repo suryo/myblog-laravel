@@ -7,19 +7,11 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Front\FrontLoginController;
 
 use App\Http\Controllers\Front\FrontLandingController;
+use App\Http\Controllers\Front\FrontSPMIController;
 use App\Http\Controllers\Front\FrontNewsController;
 use App\Http\Controllers\Front\FrontNewsCategoryController;
-use App\Http\Controllers\Front\FrontProductController;
-use App\Http\Controllers\Front\FrontCartController;
-use App\Http\Controllers\Front\FrontCheckoutController;
-use App\Http\Controllers\Front\FrontPaymentController;
 
-use App\Http\Controllers\Front\FrontBlogController;
-use App\Http\Controllers\Front\FrontKelasOnlineController;
-use App\Http\Controllers\Front\FrontKelasEksklusifController;
-use App\Http\Controllers\Front\FrontPromoController;
-use App\Http\Controllers\Front\FrontMembershipController;
-use App\Http\Controllers\Front\FrontGalleryController;
+
 
 
 
@@ -34,11 +26,6 @@ use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\Member\MemberOrderController;
 use App\Http\Controllers\Member\MemberPointController;
 
-use App\Http\Controllers\Product\ProductController;
-use App\Http\Controllers\Product\ProductCategoryController;
-use App\Http\Controllers\Product\ProductKindController;
-use App\Http\Controllers\Product\ProductVariantController;
-use App\Http\Controllers\Product\ProductCollectionController;
 
 
 use App\Http\Controllers\DashboardController;
@@ -50,20 +37,11 @@ use App\Http\Controllers\Member\MemberAddressBoardController;
 
 use App\Http\Controllers\Order\OrderController;
 
-use App\Http\Controllers\Discount\DiscountClusterController;
-use App\Http\Controllers\Discount\DiscountController;
-use App\Http\Controllers\Discount\DiscountProductController;
 
-use App\Http\Controllers\Merchandise\MerchandiseProductController;
-use App\Http\Controllers\Freegift\FreegiftController;
-use App\Http\Controllers\Flashsale\FlashsaleController;
 
 use App\Http\Controllers\Product\ProductImageController;
 use App\Http\Controllers\FileController;
 
-use App\Http\Controllers\Product\ProductTypeController;
-use App\Http\Controllers\Product\ProductFormController;
-use App\Http\Controllers\Product\ProductPackageController;
 
 // use App\Http\Controllers\Admin\DiscountController;
 
@@ -73,13 +51,8 @@ use App\Http\Controllers\Blog\BlogArticleController;
 use App\Http\Controllers\News\NewsCategoryController;
 use App\Http\Controllers\News\NewsController;
 
-use App\Http\Controllers\Kelasonline\KelasOnlineCategoryController;
-use App\Http\Controllers\Kelasonline\KelasOnlineController;
-use App\Http\Controllers\Kelasonline\KelasOnlineDetailController;
 
-use App\Http\Controllers\Kelaseksklusif\KelasEksklusifCategoryController;
-use App\Http\Controllers\Kelaseksklusif\KelasEksklusifController;
-use App\Http\Controllers\Kelaseksklusif\KelasEksklusifDetailController;
+
 
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\SlidersController;
@@ -89,10 +62,27 @@ use App\Http\Controllers\CommonLoaderController;
 use App\Http\Controllers\CrudBuilderController;
 
 
-use App\Http\Controllers\StripeController;
-use App\Http\Controllers\Vend\VendController;
-
 use App\Http\Controllers\Auth\ForgotPasswordController;
+
+
+
+Route::get('/sejarah', [FrontSPMIController::class,'sejarah']);
+Route::get('/visimisi', [FrontSPMIController::class,'visimisi']);
+Route::get('/fungsitugas',[FrontSPMIController::class,'fungsitugas']);
+Route::get('/modelmutu',[FrontSPMIController::class,'modelmutu']);
+Route::get('/strukturorganisasi',[FrontSPMIController::class,'strukturorganisasi']);
+Route::get('/berita',[FrontSPMIController::class,'berita']);
+Route::get('/dokumenmutu',[FrontSPMIController::class,'dokumenmutu']);
+Route::get('/dokumenspmi',[FrontSPMIController::class,'dokumenspmi']);
+Route::get('/instrumenmutuinternal',[FrontSPMIController::class,'instrumenmutuinternal']);
+Route::get('/lemips',[FrontSPMIController::class,'lemips']);
+Route::get('/lhpvm',[FrontSPMIController::class,'lhpvm']);
+Route::get('/pkpj',[FrontSPMIController::class,'pkpj']);
+Route::get('/lhamips',[FrontSPMIController::class,'lhamips']);
+Route::get('/lbenchmark',[FrontSPMIController::class,'lbenchmark']);
+
+
+
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
@@ -103,7 +93,7 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 Route::get('/crudbuilder', [CrudBuilderController::class, 'index']);
 
-Route::get('/cobastripe',         [StripeController::class, 'index']);
+
 Route::post('/cobastripepayment', [StripeController::class, 'payment']);
 Route::post('/stripecheckouts', [StripeController::class, 'createSession']);
 Route::post('/paypalcheckouts', [StripeController::class, 'paypalpayment']);

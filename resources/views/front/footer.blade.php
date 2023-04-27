@@ -10,7 +10,7 @@
                 <div class="footer-col second">
                     <h6>Links</h6>
                     <ul class="list-unstyled li-space-lg p-small">
-                        <li><a href="terms.html">Universitas Adipati Karna</a></li>
+                        <li><a href="terms.html">Universitas Wijaya Putra</a></li>
                         <li><a href="#">Sistem Akademik</a></li>
                         <li><a href="#">Sistem Keuangan</a></li>
                     </ul>

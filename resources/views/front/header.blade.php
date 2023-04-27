@@ -5,7 +5,7 @@
                     <div class="col-lg-6">
                         <div class="text-container">
                             <h1 class="h1-large">SELAMAT DATANG <span class="replace-me">SISTEM, PENJAMINAN, MUTU, INTERNAL</span></h1>
-                            <p class="p-large">UNIVERSITAS ADIPATI KARNA</p>
+                            <p class="p-large">UNIVERSITAS WIJAYA PUTRA</p>
                             <a class="btn-solid-lg" href="{{url('login')}}">Login</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
